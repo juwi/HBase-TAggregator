@@ -34,6 +34,9 @@ String KEY_FILTER_PATTERN = "00000001111";
 Scan scan = new Scan();
 scan.addFamily(FAMILY);
 TimeseriesAggregationClient tsac = new TimeseriesAggregationClient(conf, interval, time_min, time_max, KEY_FILTER_PATTERN);
+
+final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
+        new LongColumnInterpreter();
 ConcurrentSkipListMap<Long, Long> maximum = tsac.max(TEST_TABLE, ci, scan);
 ```
 
@@ -52,5 +55,8 @@ Scan scan = new Scan();
 scan.addFamily(FAMILY);
 scan.setTimeRange(time_min, time_max)
 TimeseriesAggregationClient tsac = new TimeseriesAggregationClient(conf, interval);
+
+final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
+        new LongColumnInterpreter();
 ConcurrentSkipListMap<Long, Long> maximum = tsac.max(TEST_TABLE, ci, scan);
 ```
