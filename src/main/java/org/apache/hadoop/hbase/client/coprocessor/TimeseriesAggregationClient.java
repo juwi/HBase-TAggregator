@@ -2,27 +2,18 @@ package org.apache.hadoop.hbase.client.coprocessor;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.NavigableMap;
-import java.util.NavigableSet;
-import java.util.TreeMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.HConstants;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.classification.InterfaceAudience;
 import org.apache.hadoop.hbase.client.HTable;
-import org.apache.hadoop.hbase.client.Result;
-import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Scan;
-import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.coprocessor.ColumnInterpreter;
 import org.apache.hadoop.hbase.ipc.BlockingRpcCallback;
 import org.apache.hadoop.hbase.ipc.ServerRpcController;
@@ -104,7 +95,7 @@ public class TimeseriesAggregationClient {
   public <R, S, P extends Message, Q extends Message, T extends Message>
       ConcurrentSkipListMap<Long, R> max(final TableName tableName,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
-    Table table = null;
+    HTable table = null;
     try {
       table = new HTable(conf, tableName);
       return max(table, ci, scan);
@@ -127,13 +118,13 @@ public class TimeseriesAggregationClient {
    *           propagated to it.
    */
   public <R, S, P extends Message, Q extends Message, T extends Message>
-      ConcurrentSkipListMap<Long, R> max(final Table table,
+      ConcurrentSkipListMap<Long, R> max(final HTable table,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
     final TimeseriesAggregateRequest requestArg =
         validateArgAndGetPB(scan, ci, false, intervalSeconds, timestampSecondsMin,
           timestampSecondsMax, keyFilterPattern);
     class MaxCallBack implements Batch.Callback<TimeseriesAggregateResponse> {
-      ConcurrentSkipListMap<Long, R> max = new ConcurrentSkipListMap<>();
+      ConcurrentSkipListMap<Long, R> max = new ConcurrentSkipListMap<Long, R>();
 
       ConcurrentSkipListMap<Long, R> getMax() {
         return max;
@@ -204,7 +195,7 @@ public class TimeseriesAggregationClient {
   public <R, S, P extends Message, Q extends Message, T extends Message>
       ConcurrentSkipListMap<Long, R> min(final TableName tableName,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
-    Table table = null;
+    HTable table = null;
     try {
       table = new HTable(conf, tableName);
       return min(table, ci, scan);
@@ -227,13 +218,13 @@ public class TimeseriesAggregationClient {
    *           propagated to it.
    */
   public <R, S, P extends Message, Q extends Message, T extends Message>
-      ConcurrentSkipListMap<Long, R> min(final Table table,
+      ConcurrentSkipListMap<Long, R> min(final HTable table,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
     final TimeseriesAggregateRequest requestArg =
         validateArgAndGetPB(scan, ci, false, intervalSeconds, timestampSecondsMin,
           timestampSecondsMax, keyFilterPattern);
     class MinCallBack implements Batch.Callback<TimeseriesAggregateResponse> {
-      ConcurrentSkipListMap<Long, R> min = new ConcurrentSkipListMap<>();
+      ConcurrentSkipListMap<Long, R> min = new ConcurrentSkipListMap<Long, R>();
 
       ConcurrentSkipListMap<Long, R> getMin() {
         return min;
@@ -304,7 +295,7 @@ public class TimeseriesAggregationClient {
   public <R, S, P extends Message, Q extends Message, T extends Message>
       ConcurrentSkipListMap<Long, S> sum(final TableName tableName,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
-    Table table = null;
+    HTable table = null;
     try {
       table = new HTable(conf, tableName);
       return sum(table, ci, scan);
@@ -327,13 +318,13 @@ public class TimeseriesAggregationClient {
    *           propagated to it.
    */
   public <R, S, P extends Message, Q extends Message, T extends Message>
-      ConcurrentSkipListMap<Long, S> sum(final Table table,
+      ConcurrentSkipListMap<Long, S> sum(final HTable table,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
     final TimeseriesAggregateRequest requestArg =
         validateArgAndGetPB(scan, ci, false, intervalSeconds, timestampSecondsMin,
           timestampSecondsMax, keyFilterPattern);
     class SumCallBack implements Batch.Callback<TimeseriesAggregateResponse> {
-      ConcurrentSkipListMap<Long, S> sum = new ConcurrentSkipListMap<>();
+      ConcurrentSkipListMap<Long, S> sum = new ConcurrentSkipListMap<Long, S>();
 
       ConcurrentSkipListMap<Long, S> getMax() {
         return sum;
@@ -409,13 +400,13 @@ public class TimeseriesAggregationClient {
    * @throws Throwable
    */
   private <R, S, P extends Message, Q extends Message, T extends Message>
-      ConcurrentSkipListMap<Long, Pair<S, Long>> getAvgArgs(final Table table,
+      ConcurrentSkipListMap<Long, Pair<S, Long>> getAvgArgs(final HTable table,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
     final TimeseriesAggregateRequest requestArg =
         validateArgAndGetPB(scan, ci, false, intervalSeconds, timestampSecondsMin,
           timestampSecondsMax, keyFilterPattern);
     class AvgCallBack implements Batch.Callback<TimeseriesAggregateResponse> {
-      ConcurrentSkipListMap<Long, Pair<S, Long>> averages = new ConcurrentSkipListMap<>();
+      ConcurrentSkipListMap<Long, Pair<S, Long>> averages = new ConcurrentSkipListMap<Long, Pair<S, Long>>();
 
       public synchronized ConcurrentSkipListMap<Long, Pair<S, Long>> getAvgArgs() {
         return averages;
@@ -496,7 +487,7 @@ public class TimeseriesAggregationClient {
   public <R, S, P extends Message, Q extends Message, T extends Message>
       ConcurrentSkipListMap<Long, Double> avg(final TableName tableName,
           final ColumnInterpreter<R, S, P, Q, T> ci, Scan scan) throws Throwable {
-    Table table = null;
+    HTable table = null;
     try {
       table = new HTable(conf, tableName);
       return avg(table, ci, scan);
@@ -519,7 +510,7 @@ public class TimeseriesAggregationClient {
    * @throws Throwable
    */
   public <R, S, P extends Message, Q extends Message, T extends Message>
-      ConcurrentSkipListMap<Long, Double> avg(final Table table,
+      ConcurrentSkipListMap<Long, Double> avg(final HTable table,
           final ColumnInterpreter<R, S, P, Q, T> ci, Scan scan) throws Throwable {
     ConcurrentSkipListMap<Long, Pair<S, Long>> p = getAvgArgs(table, ci, scan);
     ConcurrentSkipListMap<Long, Double> avg = new ConcurrentSkipListMap<Long, Double>();

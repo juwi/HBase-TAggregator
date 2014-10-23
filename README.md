@@ -11,10 +11,12 @@ It is meant to allow for much faster aggregations when time intervals are at pla
 * Sum
 * Avg
 
+* Will run with 0.98, no other versions tested, so far
+
 ## TODO
 
-* Fix pom (It is currently just more or less ripped out of the hbase examples and does not actually work)
-* Add test cases for limits provided via scan
+* Fix pom (Some minor issues remaining, like protocol buffers not getting built in time for packaging, but nothing serious anymore)
+* Add more test cases for limits provided via scan
 * Fix Javadocs
 * Currently, when running with a scanner provided timerange, the result will be different from when running with a directly supplied range. The reason for this is, that when providing a range à la 10/10/2014 00:00-02:00 the scanner will cut off at 02:00, whereas the directly supplied range will also give the result for the range starting at 02:00.
 

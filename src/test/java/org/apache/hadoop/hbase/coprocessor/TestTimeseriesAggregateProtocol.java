@@ -15,6 +15,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.HBaseTestingUtility;
 import org.apache.hadoop.hbase.HConstants;
+import org.apache.hadoop.hbase.MediumTests;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Durability;
 import org.apache.hadoop.hbase.client.HTable;
@@ -26,8 +27,6 @@ import org.apache.hadoop.hbase.client.coprocessor.LongColumnInterpreter;
 import org.apache.hadoop.hbase.client.coprocessor.TimeseriesAggregationClient;
 import org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.EmptyMsg;
 import org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.LongMsg;
-import org.apache.hadoop.hbase.testclassification.CoprocessorTests;
-import org.apache.hadoop.hbase.testclassification.MediumTests;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.hbase.util.Pair;
 import org.junit.AfterClass;
@@ -35,7 +34,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
-@Category({ CoprocessorTests.class, MediumTests.class })
+@Category(MediumTests.class)
 public class TestTimeseriesAggregateProtocol {
   protected static Log log = LogFactory.getLog(TestTimeseriesAggregateProtocol.class);
 
@@ -149,7 +148,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415574000000l, 24l);
     results.put(1415574900000l, 49l);
     results.put(1415575800000l, 74l);
@@ -175,7 +174,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415574000000l, 99l);
     results.put(1415602800000l, 99l);
     results.put(1415631600000l, 99l);
@@ -209,7 +208,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415582100000l, 49l);
     results.put(1415583000000l, 74l);
     results.put(1415583900000l, 99l);
@@ -235,7 +234,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415574000000l, 24l);
     results.put(1415574900000l, 49l);
     results.put(1415575800000l, 74l);
@@ -262,7 +261,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415570400000l, 99l);
     results.put(1415599200000l, 99l);
     results.put(1415628000000l, 99l);
@@ -289,7 +288,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.setTimeRange(TIME_TABLE_BASELINE * 1000l, TIME_LIMIT);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415574000000l, 24l);
     results.put(1415574900000l, 49l);
     results.put(1415575800000l, 74l);
@@ -322,7 +321,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415574000000l, 0l);
     results.put(1415574900000l, 25l);
     results.put(1415575800000l, 50l);
@@ -348,7 +347,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415574000000l, 0l);
     results.put(1415602800000l, 0l);
     results.put(1415631600000l, 0l);
@@ -382,7 +381,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415582100000l, 25l);
     results.put(1415583000000l, 50l);
     results.put(1415583900000l, 75l);
@@ -408,7 +407,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415574000000l, 0l);
     results.put(1415574900000l, 25l);
     results.put(1415575800000l, 50l);
@@ -435,7 +434,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415570400000l, 0l);
     results.put(1415599200000l, 0l);
     results.put(1415628000000l, 0l);
@@ -472,7 +471,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415574000000l, 300l);
     results.put(1415574900000l, 925l);
     results.put(1415575800000l, 1550l);
@@ -498,7 +497,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415574000000l, 39600l);
     results.put(1415602800000l, 39600l);
     results.put(1415631600000l, 39600l);
@@ -532,7 +531,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415582100000l, 925l);
     results.put(1415583000000l, 1550l);
     results.put(1415583900000l, 2175l);
@@ -558,7 +557,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415574000000l, 300l);
     results.put(1415574900000l, 925l);
     results.put(1415575800000l, 1550l);
@@ -585,7 +584,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    Map<Long, Long> results = new ConcurrentSkipListMap<Long, Long>();
     results.put(1415570400000l, 34650l);
     results.put(1415599200000l, 39600l);
     results.put(1415628000000l, 39600l);
@@ -622,7 +621,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Double> results = new ConcurrentSkipListMap<>();
+    Map<Long, Double> results = new ConcurrentSkipListMap<Long, Double>();
     results.put(1415574000000l, 12.00d);
     results.put(1415574900000l, 37.00d);
     results.put(1415575800000l, 62.00d);
@@ -648,7 +647,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Double> results = new ConcurrentSkipListMap<>();
+    Map<Long, Double> results = new ConcurrentSkipListMap<Long, Double>();
     results.put(1415574000000l, 49.5d);
     results.put(1415602800000l, 49.5d);
     results.put(1415631600000l, 49.5d);
@@ -682,7 +681,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Double> results = new ConcurrentSkipListMap<>();
+    Map<Long, Double> results = new ConcurrentSkipListMap<Long, Double>();
     results.put(1415582100000l, 37.00d);
     results.put(1415583000000l, 62.00d);
     results.put(1415583900000l, 87.00d);
@@ -708,7 +707,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Double> results = new ConcurrentSkipListMap<>();
+    Map<Long, Double> results = new ConcurrentSkipListMap<Long, Double>();
     results.put(1415574000000l, 12.00d);
     results.put(1415574900000l, 37.00d);
     results.put(1415575800000l, 62.00d);
@@ -735,7 +734,7 @@ public class TestTimeseriesAggregateProtocol {
     scan.addFamily(TEST_FAMILY);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
-    Map<Long, Double> results = new ConcurrentSkipListMap<>();
+    Map<Long, Double> results = new ConcurrentSkipListMap<Long, Double>();
     results.put(1415570400000l, 49.5d);
     results.put(1415599200000l, 49.5d);
     results.put(1415628000000l, 49.5d);
