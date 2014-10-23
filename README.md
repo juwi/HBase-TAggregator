@@ -15,6 +15,7 @@ It is meant to allow for much faster aggregations when time intervals are at pla
 
 * Fix pom (It is currently just more or less ripped out of the hbase examples and does not actually work)
 * Add test cases for limits provided via scan
+* Fix Javadocs
 
 ## Planned Features
 
