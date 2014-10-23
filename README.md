@@ -32,8 +32,7 @@ String KEY_FILTER_PATTERN = "00000001111";
 Scan scan = new Scan();
 scan.addFamily(FAMILY);
 TimeseriesAggregationClient tsac = new TimeseriesAggregationClient(conf, interval, time_min, time_max, KEY_FILTER_PATTERN);
-Map<DateTime, BigDecimal> result = sc.avg(table_name, scan, interval_length,
-            start_timestamp, count_of_intervals);
+ConcurrentSkipListMap<Long, Long> maximum = tsac.max(TEST_TABLE, ci, scan);
 ```
 
 *Note:* For the KEY_FILTER_PATTERN it is assumed, that somewhere in your Key, there is an Integer timestamp (in seconds). The pattern masks the position of this integer in the key using 1s. naturally, it is also assumed, that Keys handled during this operation are fixed length.
@@ -51,6 +50,5 @@ Scan scan = new Scan();
 scan.addFamily(FAMILY);
 scan.setTimeRange(time_min, time_max)
 TimeseriesAggregationClient tsac = new TimeseriesAggregationClient(conf, interval);
-Map<DateTime, BigDecimal> result = sc.avg(table_name, scan, interval_length,
-            start_timestamp, count_of_intervals);
+ConcurrentSkipListMap<Long, Long> maximum = tsac.max(TEST_TABLE, ci, scan);
 ```
