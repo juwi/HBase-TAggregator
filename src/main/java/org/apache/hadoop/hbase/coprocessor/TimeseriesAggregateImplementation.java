@@ -111,7 +111,7 @@ public class TimeseriesAggregateImplementation<T, S, P extends Message, Q extend
     return timeRanges;
   }
 
-  private int getSecondsTimestampFromRowKey(Cell kv, TimeseriesAggregateRequest request) {
+  private int getTimestampFromRowKeyAsSeconds(Cell kv, TimeseriesAggregateRequest request) {
     String keyPattern = request.getRange().getKeyTimestampFilterPattern();
     byte[] rowKey = CellUtil.cloneRow(kv);
     if (keyPattern.length() != rowKey.length) {
@@ -128,7 +128,7 @@ public class TimeseriesAggregateImplementation<T, S, P extends Message, Q extend
   }
 
   private long getTimestampFromRowKeyAsMillis(Cell kv, TimeseriesAggregateRequest request) {
-    long ts = getSecondsTimestampFromRowKey(kv, request);
+    long ts = getTimestampFromRowKeyAsSeconds(kv, request);
     return ts * 1000l;
   }
 

@@ -81,11 +81,14 @@ public class TestTimeseriesAggregateProtocol {
      * The testtable has one CQ which is always populated and one variable CQ for each row rowkey1:
      * CF:CQ CF:CQ1 rowKey2: CF:CQ CF:CQ2
      */
+    int time = 0;
     for (int i = 0; i < ROWSIZE; i++) {
       Put put = new Put(ROWS.get(i).getFirst());
       for (Map.Entry<byte[], byte[]> entry : ROWS.get(i).getSecond().entrySet()) {
-        put.add(TEST_FAMILY, entry.getKey(), entry.getValue());
+        long ts = TIME_TABLE_BASELINE + time + Bytes.toInt(entry.getKey());
+        put.add(TEST_FAMILY, entry.getKey(),ts*1000, entry.getValue());
       }
+      time += 3600;
       put.setDurability(Durability.SKIP_WAL);
       table.put(put);
     }
@@ -144,8 +147,6 @@ public class TestTimeseriesAggregateProtocol {
             KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -162,7 +163,7 @@ public class TestTimeseriesAggregateProtocol {
     ConcurrentSkipListMap<Long, Long> maximum = aClient.max(TEST_TABLE, ci, scan);
     assertEquals(results, maximum);
   }
-  
+
   @Test(timeout = 300000)
   public void testMaxWithValidRange2() throws Throwable {
     int TIME_LIMIT =
@@ -172,8 +173,6 @@ public class TestTimeseriesAggregateProtocol {
             KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -193,7 +192,7 @@ public class TestTimeseriesAggregateProtocol {
     ConcurrentSkipListMap<Long, Long> maximum = aClient.max(TEST_TABLE, ci, scan);
     assertEquals(results, maximum);
   }
-  
+
   /**
    * give maxs for a valid range in the table.
    * @throws Throwable
@@ -205,12 +204,9 @@ public class TestTimeseriesAggregateProtocol {
     int TIME_LIMIT =
         (int) ((new GregorianCalendar(2014, 10, 10, 4, 0, 0).getTime().getTime()) / 1000);
     TimeseriesAggregationClient aClient =
-        new TimeseriesAggregationClient(conf, 900, TIME_BASELINE, TIME_LIMIT,
-            KEY_FILTER_PATTERN);
+        new TimeseriesAggregationClient(conf, 900, TIME_BASELINE, TIME_LIMIT, KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -237,8 +233,6 @@ public class TestTimeseriesAggregateProtocol {
         new TimeseriesAggregationClient(conf, 900, TIME_BASELINE, TIME_LIMIT, KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -255,7 +249,7 @@ public class TestTimeseriesAggregateProtocol {
     ConcurrentSkipListMap<Long, Long> maximum = aClient.max(TEST_TABLE, ci, scan);
     assertEquals(results, maximum);
   }
-  
+
   @Test(timeout = 300000)
   public void testMaxWithRangeLargerThanTable() throws Throwable {
     int TIME_BASELINE =
@@ -266,8 +260,6 @@ public class TestTimeseriesAggregateProtocol {
         new TimeseriesAggregationClient(conf, 28800, TIME_BASELINE, TIME_LIMIT, KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -284,6 +276,29 @@ public class TestTimeseriesAggregateProtocol {
     results.put(1415858400000l, 99l);
     results.put(1415887200000l, 99l);
     results.put(1415916000000l, 99l);
+    ConcurrentSkipListMap<Long, Long> maximum = aClient.max(TEST_TABLE, ci, scan);
+    assertEquals(results, maximum);
+  }
+
+  @Test(timeout = 300000)
+  public void testMaxWithValidRangeUsingScannerRange() throws Throwable {
+    long TIME_LIMIT = (new GregorianCalendar(2014, 10, 10, 2, 0, 0).getTime().getTime());
+    TimeseriesAggregationClient aClient = new TimeseriesAggregationClient(conf, 900);
+    Scan scan = new Scan();
+    scan.addFamily(TEST_FAMILY);
+    scan.setTimeRange(TIME_TABLE_BASELINE * 1000l, TIME_LIMIT);
+    final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
+        new LongColumnInterpreter();
+    Map<Long, Long> results = new ConcurrentSkipListMap<>();
+    results.put(1415574000000l, 24l);
+    results.put(1415574900000l, 49l);
+    results.put(1415575800000l, 74l);
+    results.put(1415576700000l, 99l);
+    results.put(1415577600000l, 24l);
+    results.put(1415578500000l, 49l);
+    results.put(1415579400000l, 74l);
+    results.put(1415580300000l, 99l);
+
     ConcurrentSkipListMap<Long, Long> maximum = aClient.max(TEST_TABLE, ci, scan);
     assertEquals(results, maximum);
   }
@@ -305,8 +320,6 @@ public class TestTimeseriesAggregateProtocol {
             KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -323,7 +336,7 @@ public class TestTimeseriesAggregateProtocol {
     ConcurrentSkipListMap<Long, Long> minimum = aClient.min(TEST_TABLE, ci, scan);
     assertEquals(results, minimum);
   }
-  
+
   @Test(timeout = 300000)
   public void testMinWithValidRange2() throws Throwable {
     int TIME_LIMIT =
@@ -333,8 +346,6 @@ public class TestTimeseriesAggregateProtocol {
             KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -354,7 +365,7 @@ public class TestTimeseriesAggregateProtocol {
     ConcurrentSkipListMap<Long, Long> minimum = aClient.min(TEST_TABLE, ci, scan);
     assertEquals(results, minimum);
   }
-  
+
   /**
    * give maxs for a valid range in the table.
    * @throws Throwable
@@ -366,12 +377,9 @@ public class TestTimeseriesAggregateProtocol {
     int TIME_LIMIT =
         (int) ((new GregorianCalendar(2014, 10, 10, 4, 0, 0).getTime().getTime()) / 1000);
     TimeseriesAggregationClient aClient =
-        new TimeseriesAggregationClient(conf, 900, TIME_BASELINE, TIME_LIMIT,
-            KEY_FILTER_PATTERN);
+        new TimeseriesAggregationClient(conf, 900, TIME_BASELINE, TIME_LIMIT, KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -398,8 +406,6 @@ public class TestTimeseriesAggregateProtocol {
         new TimeseriesAggregationClient(conf, 900, TIME_BASELINE, TIME_LIMIT, KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -416,7 +422,7 @@ public class TestTimeseriesAggregateProtocol {
     ConcurrentSkipListMap<Long, Long> minimum = aClient.min(TEST_TABLE, ci, scan);
     assertEquals(results, minimum);
   }
-  
+
   @Test(timeout = 300000)
   public void testMinWithRangeLargerThanTable() throws Throwable {
     int TIME_BASELINE =
@@ -427,8 +433,6 @@ public class TestTimeseriesAggregateProtocol {
         new TimeseriesAggregationClient(conf, 28800, TIME_BASELINE, TIME_LIMIT, KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -449,7 +453,6 @@ public class TestTimeseriesAggregateProtocol {
     assertEquals(results, minimum);
   }
 
-
   /**
    * ***************Test cases for Sum *******************
    */
@@ -467,8 +470,6 @@ public class TestTimeseriesAggregateProtocol {
             KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -485,7 +486,7 @@ public class TestTimeseriesAggregateProtocol {
     ConcurrentSkipListMap<Long, Long> sums = aClient.sum(TEST_TABLE, ci, scan);
     assertEquals(results, sums);
   }
-  
+
   @Test(timeout = 300000)
   public void testSumWithValidRange2() throws Throwable {
     int TIME_LIMIT =
@@ -495,8 +496,6 @@ public class TestTimeseriesAggregateProtocol {
             KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -512,11 +511,11 @@ public class TestTimeseriesAggregateProtocol {
     results.put(1415833200000l, 39600l);
     results.put(1415862000000l, 39600l);
     results.put(1415890800000l, 39600l);
-    
+
     ConcurrentSkipListMap<Long, Long> sums = aClient.sum(TEST_TABLE, ci, scan);
     assertEquals(results, sums);
   }
-  
+
   /**
    * give maxs for a valid range in the table.
    * @throws Throwable
@@ -528,12 +527,9 @@ public class TestTimeseriesAggregateProtocol {
     int TIME_LIMIT =
         (int) ((new GregorianCalendar(2014, 10, 10, 4, 0, 0).getTime().getTime()) / 1000);
     TimeseriesAggregationClient aClient =
-        new TimeseriesAggregationClient(conf, 900, TIME_BASELINE, TIME_LIMIT,
-            KEY_FILTER_PATTERN);
+        new TimeseriesAggregationClient(conf, 900, TIME_BASELINE, TIME_LIMIT, KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -560,8 +556,6 @@ public class TestTimeseriesAggregateProtocol {
         new TimeseriesAggregationClient(conf, 900, TIME_BASELINE, TIME_LIMIT, KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -578,7 +572,7 @@ public class TestTimeseriesAggregateProtocol {
     ConcurrentSkipListMap<Long, Long> sums = aClient.sum(TEST_TABLE, ci, scan);
     assertEquals(results, sums);
   }
-  
+
   @Test(timeout = 300000)
   public void testSumWithRangeLargerThanTable() throws Throwable {
     int TIME_BASELINE =
@@ -589,8 +583,6 @@ public class TestTimeseriesAggregateProtocol {
         new TimeseriesAggregationClient(conf, 28800, TIME_BASELINE, TIME_LIMIT, KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Long> results = new ConcurrentSkipListMap<>();
@@ -628,8 +620,6 @@ public class TestTimeseriesAggregateProtocol {
             KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Double> results = new ConcurrentSkipListMap<>();
@@ -646,7 +636,7 @@ public class TestTimeseriesAggregateProtocol {
     ConcurrentSkipListMap<Long, Double> avgs = aClient.avg(TEST_TABLE, ci, scan);
     assertEquals(results, avgs);
   }
-  
+
   @Test(timeout = 300000)
   public void testAvgsWithValidRange2() throws Throwable {
     int TIME_LIMIT =
@@ -656,8 +646,6 @@ public class TestTimeseriesAggregateProtocol {
             KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Double> results = new ConcurrentSkipListMap<>();
@@ -673,11 +661,11 @@ public class TestTimeseriesAggregateProtocol {
     results.put(1415833200000l, 49.5d);
     results.put(1415862000000l, 49.5d);
     results.put(1415890800000l, 49.5d);
-    
+
     ConcurrentSkipListMap<Long, Double> avgs = aClient.avg(TEST_TABLE, ci, scan);
     assertEquals(results, avgs);
   }
-  
+
   /**
    * give maxs for a valid range in the table.
    * @throws Throwable
@@ -689,12 +677,9 @@ public class TestTimeseriesAggregateProtocol {
     int TIME_LIMIT =
         (int) ((new GregorianCalendar(2014, 10, 10, 4, 0, 0).getTime().getTime()) / 1000);
     TimeseriesAggregationClient aClient =
-        new TimeseriesAggregationClient(conf, 900, TIME_BASELINE, TIME_LIMIT,
-            KEY_FILTER_PATTERN);
+        new TimeseriesAggregationClient(conf, 900, TIME_BASELINE, TIME_LIMIT, KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Double> results = new ConcurrentSkipListMap<>();
@@ -711,7 +696,6 @@ public class TestTimeseriesAggregateProtocol {
     assertEquals(results, avgs);
   }
 
-
   @Test(timeout = 300000)
   public void testAvgWithRangeBeginningEarlierThanTable() throws Throwable {
     int TIME_BASELINE =
@@ -722,8 +706,6 @@ public class TestTimeseriesAggregateProtocol {
         new TimeseriesAggregationClient(conf, 900, TIME_BASELINE, TIME_LIMIT, KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Double> results = new ConcurrentSkipListMap<>();
@@ -740,7 +722,7 @@ public class TestTimeseriesAggregateProtocol {
     ConcurrentSkipListMap<Long, Double> avgs = aClient.avg(TEST_TABLE, ci, scan);
     assertEquals(results, avgs);
   }
-  
+
   @Test(timeout = 300000)
   public void testAvgWithRangeLargerThanTable() throws Throwable {
     int TIME_BASELINE =
@@ -751,8 +733,6 @@ public class TestTimeseriesAggregateProtocol {
         new TimeseriesAggregationClient(conf, 28800, TIME_BASELINE, TIME_LIMIT, KEY_FILTER_PATTERN);
     Scan scan = new Scan();
     scan.addFamily(TEST_FAMILY);
-    // scan.setStartRow(START_ROW);
-    // scan.setStopRow(STOP_ROW);
     final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
     Map<Long, Double> results = new ConcurrentSkipListMap<>();
