@@ -2,7 +2,7 @@
 
 HBase Aggregator implementation for timeseries based aggregations.
 
-It is meant to allow for much faster aggregations when time intervals are at play. For example, whn aggregating a day's worth of data down to 15min averages, you'd need 96 queries doing 96 scans using the standard aggregate implementation. TAggregator will do the same thing requiring just one query using a single scan, producing a Map of 96 TimeStamp-Value assignments.
+It is meant to allow for much faster aggregations when time intervals are at play. For example, when aggregating a day's worth of data down to 15min averages, you'd need 96 queries doing 96 scans using the standard aggregate implementation. TAggregator will do the same thing requiring just one query using a single scan, producing a Map of 96 TimeStamp-Value assignments.
 
 ## Supported Features
 
@@ -10,7 +10,6 @@ It is meant to allow for much faster aggregations when time intervals are at pla
 * Min
 * Sum
 * Avg
-
 * Will run with 0.98, no other versions tested, so far
 
 ## TODO
