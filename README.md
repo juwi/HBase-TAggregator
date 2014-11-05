@@ -62,3 +62,20 @@ final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
 ConcurrentSkipListMap<Long, Long> maximum = tsac.max(TEST_TABLE, ci, scan);
 ```
+
+## For Maven users
+
+You can use this repo for maven, also. Kind of the poor many maven repo, it resides in the mvn-repo branch:
+
+```xml
+<repositories>
+        <repository>
+		<id>hbase-taggregator-mvn-repo</id>
+		<url>https://raw.github.com/juwi/HBase-Taggregator/mvn-repo/</url>
+		<snapshots>
+			<enabled>true</enabled>
+			<updatePolicy>always</updatePolicy>
+		</snapshots>
+	</repository>
+</repositories>
+```
