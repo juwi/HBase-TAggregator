@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.juwi.hbase</groupId>
+  <artifactId>hbase.taggregator</artifactId>
+  <versioning>
+    <versions>
+      <version>0.9-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20141105104446</lastUpdated>
+  </versioning>
+</metadata>

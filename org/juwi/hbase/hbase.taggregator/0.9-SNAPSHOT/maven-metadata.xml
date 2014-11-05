@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>org.juwi.hbase</groupId>
+  <artifactId>hbase.taggregator</artifactId>
+  <version>0.9-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20141105.104446</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20141105104446</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>0.9-20141105.104446-1</value>
+        <updated>20141105104446</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>0.9-20141105.104446-1</value>
+        <updated>20141105104446</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
