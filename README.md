@@ -22,6 +22,7 @@ It is meant to allow for much faster aggregations when time intervals are at pla
 ## Planned Features
 
 * Weighted avg
+* Some sort of diff
 
 ## Usage
 
