@@ -4,6 +4,14 @@ HBase Aggregator implementation for timeseries based aggregations.
 
 It is meant to allow for much faster aggregations when time intervals are at play. For example, when aggregating a day's worth of data down to 15min averages, you'd need 96 queries doing 96 scans using the standard aggregate implementation. TAggregator will do the same thing requiring just one query using a single scan, producing a Map of 96 TimeStamp-Value assignments.
 
+## Table of Contents
+
+ - [Supported Features](#supported-features)
+ - [TODO](#todo)
+ - [Planned Features](#planned-features)
+ - [Usage](#usage)
+ - [Licensing](#licensing)
+
 ## Supported Features
 
 * Max
@@ -30,7 +38,7 @@ It is meant to allow for much faster aggregations when time intervals are at pla
 int interval = 900;
 int time_min = (int) ((new GregorianCalendar(2014, 10, 10, 0, 0, 0).getTime().getTime()) / 1000);
 int time_max = (int) ((new GregorianCalendar(2014, 10, 10, 1, 59, 59).getTime().getTime()) / 1000);
-String KEY_FILTER_PATTERN = "00000001111";
+String KEY_FILTER_PATTERN = "00000001111"; // a 4-byte-timestamp (int) is assumed; Mask it using 1s 
 
 
 Scan scan = new Scan();
@@ -42,7 +50,7 @@ final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
 ConcurrentSkipListMap<Long, Long> maximum = tsac.max(TEST_TABLE, ci, scan);
 ```
 
-*Note:* For the KEY_FILTER_PATTERN it is assumed, that somewhere in your Key, there is an Integer timestamp (in seconds). The pattern masks the position of this integer in the key using 1s. naturally, it is also assumed, that Keys handled during this operation are fixed length.
+*Note:* For the KEY_FILTER_PATTERN it is assumed, that somewhere in your Key, there is an *Integer* timestamp (4 bytes; in seconds). The pattern masks the position of this integer in the key using 1s. Naturally, it is also assumed, that Keys handled during this operation are fixed length.
 
 Alternatively, you can provide the total time range (time_min,time_max) via the scan object. In this case, you do not provide it to the Coprocessor, itself:
 
@@ -62,3 +70,15 @@ final ColumnInterpreter<Long, Long, EmptyMsg, LongMsg, LongMsg> ci =
         new LongColumnInterpreter();
 ConcurrentSkipListMap<Long, Long> maximum = tsac.max(TEST_TABLE, ci, scan);
 ```
+
+## Licensing
+
+Code and documentation Copyright Julian Wissmann, licensed under the Apache License version 2. 
+
+The following sources have been pulled from HBase, directly and thus are licensed to the Apache Software Foundation under Apache Livense Version 2:
+
+* src/main/protobuf/Cell.proto
+* src/main/protobuf/Client.proto
+* src/main/protobuf/Comparator.proto
+* src/main/protobuf/Filter.proto
+* src/main/protobuf/HBase.proto
