@@ -93,7 +93,7 @@ You can use this repo for maven, also. Kind of the poor many maven repo, it resi
 
 Code and documentation Copyright Julian Wissmann, licensed under the Apache License version 2. 
 
-The following sources have been pulled from HBase, directly and thus are licensed to the Apache Software Foundation under Apache Livense Version 2:
+The following sources have been pulled from HBase, directly and thus are licensed to the Apache Software Foundation under Apache License Version 2:
 
 * src/main/protobuf/Cell.proto
 * src/main/protobuf/Client.proto
