@@ -19,7 +19,7 @@ It is meant to allow for much faster aggregations when time intervals are at pla
 * Min
 * Sum
 * Avg
-* Will run with 0.98, no other versions tested, so far
+* Will run with 1.1.1, for compatibility with 0.98, see #2ebb163
 
 ## TODO
 
