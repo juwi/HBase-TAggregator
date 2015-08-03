@@ -12,21 +12,19 @@ import java.util.concurrent.ConcurrentSkipListMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.HBaseTestingUtility;
 import org.apache.hadoop.hbase.HConstants;
-import org.apache.hadoop.hbase.MediumTests;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Durability;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
-import org.apache.hadoop.hbase.client.Result;
-import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.client.coprocessor.LongColumnInterpreter;
 import org.apache.hadoop.hbase.client.coprocessor.TimeseriesAggregationClient;
 import org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.EmptyMsg;
 import org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.LongMsg;
+import org.apache.hadoop.hbase.testclassification.MediumTests;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.hbase.util.Pair;
 import org.junit.AfterClass;
@@ -71,11 +69,10 @@ public class TestTimeseriesAggregateProtocol {
     conf.set(CoprocessorHost.REGION_COPROCESSOR_CONF_KEY,
       "org.apache.hadoop.hbase.coprocessor.TimeseriesAggregateImplementation");
 
-    util.startMiniCluster(2);
+    util.startMiniCluster(3);
     HTable table = util.createTable(TEST_TABLE, TEST_FAMILY);
-    util.createMultiRegions(util.getConfiguration(), table, TEST_FAMILY, new byte[][] {
-        HConstants.EMPTY_BYTE_ARRAY, ROWS.get(rowSeperator1).getFirst(),
-        ROWS.get(rowSeperator2).getFirst() });
+    util.createTable(table.getTableName(), TEST_FAMILY, new byte[][] { HConstants.EMPTY_BYTE_ARRAY,
+        ROWS.get(rowSeperator1).getFirst(), ROWS.get(rowSeperator2).getFirst() });
     /**
      * The testtable has one CQ which is always populated and one variable CQ for each row rowkey1:
      * CF:CQ CF:CQ1 rowKey2: CF:CQ CF:CQ2
@@ -85,7 +82,8 @@ public class TestTimeseriesAggregateProtocol {
       Put put = new Put(ROWS.get(i).getFirst());
       for (Map.Entry<byte[], byte[]> entry : ROWS.get(i).getSecond().entrySet()) {
         long ts = TIME_TABLE_BASELINE + time + Bytes.toInt(entry.getKey());
-        put.add(TEST_FAMILY, entry.getKey(),ts*1000, entry.getValue());
+        put.add(CellUtil.createCell(ROWS.get(i).getFirst(), TEST_FAMILY, entry.getKey(), ts * 1000,
+          (byte) 4, entry.getValue()));
       }
       time += 3600;
       put.setDurability(Durability.SKIP_WAL);

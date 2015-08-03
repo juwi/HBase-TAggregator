@@ -8,10 +8,10 @@ public final class ComparatorProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface ComparatorOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ComparatorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Comparator)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string name = 1;
     /**
      * <code>required string name = 1;</code>
      */
@@ -26,7 +26,6 @@ public final class ComparatorProtos {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // optional bytes serialized_comparator = 2;
     /**
      * <code>optional bytes serialized_comparator = 2;</code>
      */
@@ -40,8 +39,9 @@ public final class ComparatorProtos {
    * Protobuf type {@code Comparator}
    */
   public static final class Comparator extends
-      com.google.protobuf.GeneratedMessage
-      implements ComparatorOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:Comparator)
+      ComparatorOrBuilder {
     // Use Comparator.newBuilder() to construct.
     private Comparator(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -88,8 +88,9 @@ public final class ComparatorProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 18: {
@@ -137,7 +138,6 @@ public final class ComparatorProtos {
     }
 
     private int bitField0_;
-    // required string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -180,7 +180,6 @@ public final class ComparatorProtos {
       }
     }
 
-    // optional bytes serialized_comparator = 2;
     public static final int SERIALIZED_COMPARATOR_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString serializedComparator_;
     /**
@@ -203,7 +202,8 @@ public final class ComparatorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasName()) {
         memoizedIsInitialized = 0;
@@ -277,7 +277,6 @@ public final class ComparatorProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -368,8 +367,9 @@ public final class ComparatorProtos {
      * Protobuf type {@code Comparator}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ComparatorOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Comparator)
+        org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ComparatorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_Comparator_descriptor;
@@ -497,7 +497,6 @@ public final class ComparatorProtos {
       }
       private int bitField0_;
 
-      // required string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>required string name = 1;</code>
@@ -511,9 +510,12 @@ public final class ComparatorProtos {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -571,7 +573,6 @@ public final class ComparatorProtos {
         return this;
       }
 
-      // optional bytes serialized_comparator = 2;
       private com.google.protobuf.ByteString serializedComparator_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes serialized_comparator = 2;</code>
@@ -618,10 +619,10 @@ public final class ComparatorProtos {
     // @@protoc_insertion_point(class_scope:Comparator)
   }
 
-  public interface ByteArrayComparableOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ByteArrayComparableOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ByteArrayComparable)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional bytes value = 1;
     /**
      * <code>optional bytes value = 1;</code>
      */
@@ -635,8 +636,9 @@ public final class ComparatorProtos {
    * Protobuf type {@code ByteArrayComparable}
    */
   public static final class ByteArrayComparable extends
-      com.google.protobuf.GeneratedMessage
-      implements ByteArrayComparableOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:ByteArrayComparable)
+      ByteArrayComparableOrBuilder {
     // Use ByteArrayComparable.newBuilder() to construct.
     private ByteArrayComparable(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -727,7 +729,6 @@ public final class ComparatorProtos {
     }
 
     private int bitField0_;
-    // optional bytes value = 1;
     public static final int VALUE_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString value_;
     /**
@@ -749,7 +750,8 @@ public final class ComparatorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -807,7 +809,6 @@ public final class ComparatorProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -894,8 +895,9 @@ public final class ComparatorProtos {
      * Protobuf type {@code ByteArrayComparable}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ByteArrayComparable)
+        org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_ByteArrayComparable_descriptor;
@@ -1008,7 +1010,6 @@ public final class ComparatorProtos {
       }
       private int bitField0_;
 
-      // optional bytes value = 1;
       private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes value = 1;</code>
@@ -1055,10 +1056,10 @@ public final class ComparatorProtos {
     // @@protoc_insertion_point(class_scope:ByteArrayComparable)
   }
 
-  public interface BinaryComparatorOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface BinaryComparatorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:BinaryComparator)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .ByteArrayComparable comparable = 1;
     /**
      * <code>required .ByteArrayComparable comparable = 1;</code>
      */
@@ -1076,8 +1077,9 @@ public final class ComparatorProtos {
    * Protobuf type {@code BinaryComparator}
    */
   public static final class BinaryComparator extends
-      com.google.protobuf.GeneratedMessage
-      implements BinaryComparatorOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:BinaryComparator)
+      BinaryComparatorOrBuilder {
     // Use BinaryComparator.newBuilder() to construct.
     private BinaryComparator(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -1176,7 +1178,6 @@ public final class ComparatorProtos {
     }
 
     private int bitField0_;
-    // required .ByteArrayComparable comparable = 1;
     public static final int COMPARABLE_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable comparable_;
     /**
@@ -1204,7 +1205,8 @@ public final class ComparatorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasComparable()) {
         memoizedIsInitialized = 0;
@@ -1266,7 +1268,6 @@ public final class ComparatorProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -1353,8 +1354,9 @@ public final class ComparatorProtos {
      * Protobuf type {@code BinaryComparator}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.BinaryComparatorOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:BinaryComparator)
+        org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.BinaryComparatorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_BinaryComparator_descriptor;
@@ -1480,7 +1482,6 @@ public final class ComparatorProtos {
       }
       private int bitField0_;
 
-      // required .ByteArrayComparable comparable = 1;
       private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable comparable_ = org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder> comparableBuilder_;
@@ -1589,7 +1590,7 @@ public final class ComparatorProtos {
         if (comparableBuilder_ == null) {
           comparableBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder>(
-                  comparable_,
+                  getComparable(),
                   getParentForChildren(),
                   isClean());
           comparable_ = null;
@@ -1608,10 +1609,563 @@ public final class ComparatorProtos {
     // @@protoc_insertion_point(class_scope:BinaryComparator)
   }
 
-  public interface BinaryPrefixComparatorOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface LongComparatorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:LongComparator)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .ByteArrayComparable comparable = 1;
+    /**
+     * <code>required .ByteArrayComparable comparable = 1;</code>
+     */
+    boolean hasComparable();
+    /**
+     * <code>required .ByteArrayComparable comparable = 1;</code>
+     */
+    org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable getComparable();
+    /**
+     * <code>required .ByteArrayComparable comparable = 1;</code>
+     */
+    org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder getComparableOrBuilder();
+  }
+  /**
+   * Protobuf type {@code LongComparator}
+   */
+  public static final class LongComparator extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:LongComparator)
+      LongComparatorOrBuilder {
+    // Use LongComparator.newBuilder() to construct.
+    private LongComparator(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private LongComparator(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final LongComparator defaultInstance;
+    public static LongComparator getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public LongComparator getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LongComparator(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = comparable_.toBuilder();
+              }
+              comparable_ = input.readMessage(org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(comparable_);
+                comparable_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_LongComparator_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_LongComparator_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator.class, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<LongComparator> PARSER =
+        new com.google.protobuf.AbstractParser<LongComparator>() {
+      public LongComparator parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LongComparator(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LongComparator> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int COMPARABLE_FIELD_NUMBER = 1;
+    private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable comparable_;
+    /**
+     * <code>required .ByteArrayComparable comparable = 1;</code>
+     */
+    public boolean hasComparable() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required .ByteArrayComparable comparable = 1;</code>
+     */
+    public org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable getComparable() {
+      return comparable_;
+    }
+    /**
+     * <code>required .ByteArrayComparable comparable = 1;</code>
+     */
+    public org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder getComparableOrBuilder() {
+      return comparable_;
+    }
+
+    private void initFields() {
+      comparable_ = org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasComparable()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, comparable_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, comparable_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator)) {
+        return super.equals(obj);
+      }
+      org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator other = (org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator) obj;
+
+      boolean result = true;
+      result = result && (hasComparable() == other.hasComparable());
+      if (hasComparable()) {
+        result = result && getComparable()
+            .equals(other.getComparable());
+      }
+      result = result &&
+          getUnknownFields().equals(other.getUnknownFields());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasComparable()) {
+        hash = (37 * hash) + COMPARABLE_FIELD_NUMBER;
+        hash = (53 * hash) + getComparable().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code LongComparator}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:LongComparator)
+        org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparatorOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_LongComparator_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_LongComparator_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator.class, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator.Builder.class);
+      }
+
+      // Construct using org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getComparableFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (comparableBuilder_ == null) {
+          comparable_ = org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.getDefaultInstance();
+        } else {
+          comparableBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_LongComparator_descriptor;
+      }
+
+      public org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator getDefaultInstanceForType() {
+        return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator.getDefaultInstance();
+      }
+
+      public org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator build() {
+        org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator buildPartial() {
+        org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator result = new org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (comparableBuilder_ == null) {
+          result.comparable_ = comparable_;
+        } else {
+          result.comparable_ = comparableBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator) {
+          return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator other) {
+        if (other == org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator.getDefaultInstance()) return this;
+        if (other.hasComparable()) {
+          mergeComparable(other.getComparable());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasComparable()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.LongComparator) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable comparable_ = org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder> comparableBuilder_;
+      /**
+       * <code>required .ByteArrayComparable comparable = 1;</code>
+       */
+      public boolean hasComparable() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required .ByteArrayComparable comparable = 1;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable getComparable() {
+        if (comparableBuilder_ == null) {
+          return comparable_;
+        } else {
+          return comparableBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .ByteArrayComparable comparable = 1;</code>
+       */
+      public Builder setComparable(org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable value) {
+        if (comparableBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          comparable_ = value;
+          onChanged();
+        } else {
+          comparableBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .ByteArrayComparable comparable = 1;</code>
+       */
+      public Builder setComparable(
+          org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.Builder builderForValue) {
+        if (comparableBuilder_ == null) {
+          comparable_ = builderForValue.build();
+          onChanged();
+        } else {
+          comparableBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .ByteArrayComparable comparable = 1;</code>
+       */
+      public Builder mergeComparable(org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable value) {
+        if (comparableBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              comparable_ != org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.getDefaultInstance()) {
+            comparable_ =
+              org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.newBuilder(comparable_).mergeFrom(value).buildPartial();
+          } else {
+            comparable_ = value;
+          }
+          onChanged();
+        } else {
+          comparableBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .ByteArrayComparable comparable = 1;</code>
+       */
+      public Builder clearComparable() {
+        if (comparableBuilder_ == null) {
+          comparable_ = org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.getDefaultInstance();
+          onChanged();
+        } else {
+          comparableBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>required .ByteArrayComparable comparable = 1;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.Builder getComparableBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getComparableFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .ByteArrayComparable comparable = 1;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder getComparableOrBuilder() {
+        if (comparableBuilder_ != null) {
+          return comparableBuilder_.getMessageOrBuilder();
+        } else {
+          return comparable_;
+        }
+      }
+      /**
+       * <code>required .ByteArrayComparable comparable = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder> 
+          getComparableFieldBuilder() {
+        if (comparableBuilder_ == null) {
+          comparableBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder>(
+                  getComparable(),
+                  getParentForChildren(),
+                  isClean());
+          comparable_ = null;
+        }
+        return comparableBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:LongComparator)
+    }
+
+    static {
+      defaultInstance = new LongComparator(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:LongComparator)
+  }
+
+  public interface BinaryPrefixComparatorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:BinaryPrefixComparator)
+      com.google.protobuf.MessageOrBuilder {
+
     /**
      * <code>required .ByteArrayComparable comparable = 1;</code>
      */
@@ -1629,8 +2183,9 @@ public final class ComparatorProtos {
    * Protobuf type {@code BinaryPrefixComparator}
    */
   public static final class BinaryPrefixComparator extends
-      com.google.protobuf.GeneratedMessage
-      implements BinaryPrefixComparatorOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:BinaryPrefixComparator)
+      BinaryPrefixComparatorOrBuilder {
     // Use BinaryPrefixComparator.newBuilder() to construct.
     private BinaryPrefixComparator(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -1729,7 +2284,6 @@ public final class ComparatorProtos {
     }
 
     private int bitField0_;
-    // required .ByteArrayComparable comparable = 1;
     public static final int COMPARABLE_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable comparable_;
     /**
@@ -1757,7 +2311,8 @@ public final class ComparatorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasComparable()) {
         memoizedIsInitialized = 0;
@@ -1819,7 +2374,6 @@ public final class ComparatorProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -1906,8 +2460,9 @@ public final class ComparatorProtos {
      * Protobuf type {@code BinaryPrefixComparator}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.BinaryPrefixComparatorOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:BinaryPrefixComparator)
+        org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.BinaryPrefixComparatorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_BinaryPrefixComparator_descriptor;
@@ -2033,7 +2588,6 @@ public final class ComparatorProtos {
       }
       private int bitField0_;
 
-      // required .ByteArrayComparable comparable = 1;
       private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable comparable_ = org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder> comparableBuilder_;
@@ -2142,7 +2696,7 @@ public final class ComparatorProtos {
         if (comparableBuilder_ == null) {
           comparableBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder>(
-                  comparable_,
+                  getComparable(),
                   getParentForChildren(),
                   isClean());
           comparable_ = null;
@@ -2161,10 +2715,10 @@ public final class ComparatorProtos {
     // @@protoc_insertion_point(class_scope:BinaryPrefixComparator)
   }
 
-  public interface BitComparatorOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface BitComparatorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:BitComparator)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .ByteArrayComparable comparable = 1;
     /**
      * <code>required .ByteArrayComparable comparable = 1;</code>
      */
@@ -2178,7 +2732,6 @@ public final class ComparatorProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder getComparableOrBuilder();
 
-    // required .BitComparator.BitwiseOp bitwise_op = 2;
     /**
      * <code>required .BitComparator.BitwiseOp bitwise_op = 2;</code>
      */
@@ -2192,8 +2745,9 @@ public final class ComparatorProtos {
    * Protobuf type {@code BitComparator}
    */
   public static final class BitComparator extends
-      com.google.protobuf.GeneratedMessage
-      implements BitComparatorOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:BitComparator)
+      BitComparatorOrBuilder {
     // Use BitComparator.newBuilder() to construct.
     private BitComparator(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -2394,7 +2948,6 @@ public final class ComparatorProtos {
     }
 
     private int bitField0_;
-    // required .ByteArrayComparable comparable = 1;
     public static final int COMPARABLE_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable comparable_;
     /**
@@ -2416,7 +2969,6 @@ public final class ComparatorProtos {
       return comparable_;
     }
 
-    // required .BitComparator.BitwiseOp bitwise_op = 2;
     public static final int BITWISE_OP_FIELD_NUMBER = 2;
     private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.BitComparator.BitwiseOp bitwiseOp_;
     /**
@@ -2439,7 +2991,8 @@ public final class ComparatorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasComparable()) {
         memoizedIsInitialized = 0;
@@ -2517,7 +3070,6 @@ public final class ComparatorProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -2531,7 +3083,8 @@ public final class ComparatorProtos {
       }
       if (hasBitwiseOp()) {
         hash = (37 * hash) + BITWISE_OP_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getBitwiseOp());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashEnum(
+            getBitwiseOp());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -2608,8 +3161,9 @@ public final class ComparatorProtos {
      * Protobuf type {@code BitComparator}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.BitComparatorOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:BitComparator)
+        org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.BitComparatorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_BitComparator_descriptor;
@@ -2748,7 +3302,6 @@ public final class ComparatorProtos {
       }
       private int bitField0_;
 
-      // required .ByteArrayComparable comparable = 1;
       private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable comparable_ = org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder> comparableBuilder_;
@@ -2857,7 +3410,7 @@ public final class ComparatorProtos {
         if (comparableBuilder_ == null) {
           comparableBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparable.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ByteArrayComparableOrBuilder>(
-                  comparable_,
+                  getComparable(),
                   getParentForChildren(),
                   isClean());
           comparable_ = null;
@@ -2865,7 +3418,6 @@ public final class ComparatorProtos {
         return comparableBuilder_;
       }
 
-      // required .BitComparator.BitwiseOp bitwise_op = 2;
       private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.BitComparator.BitwiseOp bitwiseOp_ = org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.BitComparator.BitwiseOp.AND;
       /**
        * <code>required .BitComparator.BitwiseOp bitwise_op = 2;</code>
@@ -2912,15 +3464,17 @@ public final class ComparatorProtos {
     // @@protoc_insertion_point(class_scope:BitComparator)
   }
 
-  public interface NullComparatorOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface NullComparatorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:NullComparator)
+      com.google.protobuf.MessageOrBuilder {
   }
   /**
    * Protobuf type {@code NullComparator}
    */
   public static final class NullComparator extends
-      com.google.protobuf.GeneratedMessage
-      implements NullComparatorOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:NullComparator)
+      NullComparatorOrBuilder {
     // Use NullComparator.newBuilder() to construct.
     private NullComparator(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -3009,7 +3563,8 @@ public final class ComparatorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -3055,7 +3610,6 @@ public final class ComparatorProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -3138,8 +3692,9 @@ public final class ComparatorProtos {
      * Protobuf type {@code NullComparator}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.NullComparatorOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:NullComparator)
+        org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.NullComparatorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_NullComparator_descriptor;
@@ -3250,10 +3805,10 @@ public final class ComparatorProtos {
     // @@protoc_insertion_point(class_scope:NullComparator)
   }
 
-  public interface RegexStringComparatorOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface RegexStringComparatorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RegexStringComparator)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string pattern = 1;
     /**
      * <code>required string pattern = 1;</code>
      */
@@ -3268,7 +3823,6 @@ public final class ComparatorProtos {
     com.google.protobuf.ByteString
         getPatternBytes();
 
-    // required int32 pattern_flags = 2;
     /**
      * <code>required int32 pattern_flags = 2;</code>
      */
@@ -3278,7 +3832,6 @@ public final class ComparatorProtos {
      */
     int getPatternFlags();
 
-    // required string charset = 3;
     /**
      * <code>required string charset = 3;</code>
      */
@@ -3293,7 +3846,6 @@ public final class ComparatorProtos {
     com.google.protobuf.ByteString
         getCharsetBytes();
 
-    // optional string engine = 4;
     /**
      * <code>optional string engine = 4;</code>
      */
@@ -3312,8 +3864,9 @@ public final class ComparatorProtos {
    * Protobuf type {@code RegexStringComparator}
    */
   public static final class RegexStringComparator extends
-      com.google.protobuf.GeneratedMessage
-      implements RegexStringComparatorOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:RegexStringComparator)
+      RegexStringComparatorOrBuilder {
     // Use RegexStringComparator.newBuilder() to construct.
     private RegexStringComparator(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -3360,8 +3913,9 @@ public final class ComparatorProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              pattern_ = input.readBytes();
+              pattern_ = bs;
               break;
             }
             case 16: {
@@ -3370,13 +3924,15 @@ public final class ComparatorProtos {
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              charset_ = input.readBytes();
+              charset_ = bs;
               break;
             }
             case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              engine_ = input.readBytes();
+              engine_ = bs;
               break;
             }
           }
@@ -3419,7 +3975,6 @@ public final class ComparatorProtos {
     }
 
     private int bitField0_;
-    // required string pattern = 1;
     public static final int PATTERN_FIELD_NUMBER = 1;
     private java.lang.Object pattern_;
     /**
@@ -3462,7 +4017,6 @@ public final class ComparatorProtos {
       }
     }
 
-    // required int32 pattern_flags = 2;
     public static final int PATTERN_FLAGS_FIELD_NUMBER = 2;
     private int patternFlags_;
     /**
@@ -3478,7 +4032,6 @@ public final class ComparatorProtos {
       return patternFlags_;
     }
 
-    // required string charset = 3;
     public static final int CHARSET_FIELD_NUMBER = 3;
     private java.lang.Object charset_;
     /**
@@ -3521,7 +4074,6 @@ public final class ComparatorProtos {
       }
     }
 
-    // optional string engine = 4;
     public static final int ENGINE_FIELD_NUMBER = 4;
     private java.lang.Object engine_;
     /**
@@ -3573,7 +4125,8 @@ public final class ComparatorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasPattern()) {
         memoizedIsInitialized = 0;
@@ -3679,7 +4232,6 @@ public final class ComparatorProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -3778,8 +4330,9 @@ public final class ComparatorProtos {
      * Protobuf type {@code RegexStringComparator}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.RegexStringComparatorOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RegexStringComparator)
+        org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.RegexStringComparatorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_RegexStringComparator_descriptor;
@@ -3937,7 +4490,6 @@ public final class ComparatorProtos {
       }
       private int bitField0_;
 
-      // required string pattern = 1;
       private java.lang.Object pattern_ = "";
       /**
        * <code>required string pattern = 1;</code>
@@ -3951,9 +4503,12 @@ public final class ComparatorProtos {
       public java.lang.String getPattern() {
         java.lang.Object ref = pattern_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          pattern_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            pattern_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -4011,7 +4566,6 @@ public final class ComparatorProtos {
         return this;
       }
 
-      // required int32 pattern_flags = 2;
       private int patternFlags_ ;
       /**
        * <code>required int32 pattern_flags = 2;</code>
@@ -4044,7 +4598,6 @@ public final class ComparatorProtos {
         return this;
       }
 
-      // required string charset = 3;
       private java.lang.Object charset_ = "";
       /**
        * <code>required string charset = 3;</code>
@@ -4058,9 +4611,12 @@ public final class ComparatorProtos {
       public java.lang.String getCharset() {
         java.lang.Object ref = charset_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          charset_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            charset_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -4118,7 +4674,6 @@ public final class ComparatorProtos {
         return this;
       }
 
-      // optional string engine = 4;
       private java.lang.Object engine_ = "";
       /**
        * <code>optional string engine = 4;</code>
@@ -4132,9 +4687,12 @@ public final class ComparatorProtos {
       public java.lang.String getEngine() {
         java.lang.Object ref = engine_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          engine_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            engine_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -4203,10 +4761,10 @@ public final class ComparatorProtos {
     // @@protoc_insertion_point(class_scope:RegexStringComparator)
   }
 
-  public interface SubstringComparatorOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SubstringComparatorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SubstringComparator)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string substr = 1;
     /**
      * <code>required string substr = 1;</code>
      */
@@ -4225,8 +4783,9 @@ public final class ComparatorProtos {
    * Protobuf type {@code SubstringComparator}
    */
   public static final class SubstringComparator extends
-      com.google.protobuf.GeneratedMessage
-      implements SubstringComparatorOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:SubstringComparator)
+      SubstringComparatorOrBuilder {
     // Use SubstringComparator.newBuilder() to construct.
     private SubstringComparator(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -4273,8 +4832,9 @@ public final class ComparatorProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              substr_ = input.readBytes();
+              substr_ = bs;
               break;
             }
           }
@@ -4317,7 +4877,6 @@ public final class ComparatorProtos {
     }
 
     private int bitField0_;
-    // required string substr = 1;
     public static final int SUBSTR_FIELD_NUMBER = 1;
     private java.lang.Object substr_;
     /**
@@ -4366,7 +4925,8 @@ public final class ComparatorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasSubstr()) {
         memoizedIsInitialized = 0;
@@ -4428,7 +4988,6 @@ public final class ComparatorProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -4515,8 +5074,9 @@ public final class ComparatorProtos {
      * Protobuf type {@code SubstringComparator}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.SubstringComparatorOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SubstringComparator)
+        org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.SubstringComparatorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.internal_static_SubstringComparator_descriptor;
@@ -4635,7 +5195,6 @@ public final class ComparatorProtos {
       }
       private int bitField0_;
 
-      // required string substr = 1;
       private java.lang.Object substr_ = "";
       /**
        * <code>required string substr = 1;</code>
@@ -4649,9 +5208,12 @@ public final class ComparatorProtos {
       public java.lang.String getSubstr() {
         java.lang.Object ref = substr_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          substr_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            substr_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -4720,42 +5282,47 @@ public final class ComparatorProtos {
     // @@protoc_insertion_point(class_scope:SubstringComparator)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Comparator_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_Comparator_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ByteArrayComparable_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ByteArrayComparable_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_BinaryComparator_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_BinaryComparator_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_LongComparator_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_LongComparator_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_BinaryPrefixComparator_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_BinaryPrefixComparator_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_BitComparator_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_BitComparator_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_NullComparator_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_NullComparator_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_RegexStringComparator_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_RegexStringComparator_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SubstringComparator_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -4773,79 +5340,86 @@ public final class ComparatorProtos {
       "\030\001 \002(\t\022\035\n\025serialized_comparator\030\002 \001(\014\"$\n" +
       "\023ByteArrayComparable\022\r\n\005value\030\001 \001(\014\"<\n\020B" +
       "inaryComparator\022(\n\ncomparable\030\001 \002(\0132\024.By" +
-      "teArrayComparable\"B\n\026BinaryPrefixCompara" +
+      "teArrayComparable\":\n\016LongComparator\022(\n\nc" +
+      "omparable\030\001 \002(\0132\024.ByteArrayComparable\"B\n" +
+      "\026BinaryPrefixComparator\022(\n\ncomparable\030\001 " +
+      "\002(\0132\024.ByteArrayComparable\"\216\001\n\rBitCompara" +
       "tor\022(\n\ncomparable\030\001 \002(\0132\024.ByteArrayCompa" +
-      "rable\"\216\001\n\rBitComparator\022(\n\ncomparable\030\001 " +
-      "\002(\0132\024.ByteArrayComparable\022,\n\nbitwise_op\030" +
-      "\002 \002(\0162\030.BitComparator.BitwiseOp\"%\n\tBitwi" +
-      "seOp\022\007\n\003AND\020\001\022\006\n\002OR\020\002\022\007\n\003XOR\020\003\"\020\n\016NullCo",
-      "mparator\"`\n\025RegexStringComparator\022\017\n\007pat" +
-      "tern\030\001 \002(\t\022\025\n\rpattern_flags\030\002 \002(\005\022\017\n\007cha" +
-      "rset\030\003 \002(\t\022\016\n\006engine\030\004 \001(\t\"%\n\023SubstringC" +
-      "omparator\022\016\n\006substr\030\001 \002(\tBF\n*org.apache." +
-      "hadoop.hbase.protobuf.generatedB\020Compara" +
-      "torProtosH\001\210\001\001\240\001\001"
+      "rable\022,\n\nbitwise_op\030\002 \002(\0162\030.BitComparato",
+      "r.BitwiseOp\"%\n\tBitwiseOp\022\007\n\003AND\020\001\022\006\n\002OR\020" +
+      "\002\022\007\n\003XOR\020\003\"\020\n\016NullComparator\"`\n\025RegexStr" +
+      "ingComparator\022\017\n\007pattern\030\001 \002(\t\022\025\n\rpatter" +
+      "n_flags\030\002 \002(\005\022\017\n\007charset\030\003 \002(\t\022\016\n\006engine" +
+      "\030\004 \001(\t\"%\n\023SubstringComparator\022\016\n\006substr\030" +
+      "\001 \002(\tBF\n*org.apache.hadoop.hbase.protobu" +
+      "f.generatedB\020ComparatorProtosH\001\210\001\001\240\001\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_Comparator_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_Comparator_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_Comparator_descriptor,
-              new java.lang.String[] { "Name", "SerializedComparator", });
-          internal_static_ByteArrayComparable_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_ByteArrayComparable_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ByteArrayComparable_descriptor,
-              new java.lang.String[] { "Value", });
-          internal_static_BinaryComparator_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_BinaryComparator_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_BinaryComparator_descriptor,
-              new java.lang.String[] { "Comparable", });
-          internal_static_BinaryPrefixComparator_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-          internal_static_BinaryPrefixComparator_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_BinaryPrefixComparator_descriptor,
-              new java.lang.String[] { "Comparable", });
-          internal_static_BitComparator_descriptor =
-            getDescriptor().getMessageTypes().get(4);
-          internal_static_BitComparator_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_BitComparator_descriptor,
-              new java.lang.String[] { "Comparable", "BitwiseOp", });
-          internal_static_NullComparator_descriptor =
-            getDescriptor().getMessageTypes().get(5);
-          internal_static_NullComparator_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_NullComparator_descriptor,
-              new java.lang.String[] { });
-          internal_static_RegexStringComparator_descriptor =
-            getDescriptor().getMessageTypes().get(6);
-          internal_static_RegexStringComparator_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_RegexStringComparator_descriptor,
-              new java.lang.String[] { "Pattern", "PatternFlags", "Charset", "Engine", });
-          internal_static_SubstringComparator_descriptor =
-            getDescriptor().getMessageTypes().get(7);
-          internal_static_SubstringComparator_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_SubstringComparator_descriptor,
-              new java.lang.String[] { "Substr", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_Comparator_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_Comparator_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_Comparator_descriptor,
+        new java.lang.String[] { "Name", "SerializedComparator", });
+    internal_static_ByteArrayComparable_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_ByteArrayComparable_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_ByteArrayComparable_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_BinaryComparator_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_BinaryComparator_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_BinaryComparator_descriptor,
+        new java.lang.String[] { "Comparable", });
+    internal_static_LongComparator_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_LongComparator_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_LongComparator_descriptor,
+        new java.lang.String[] { "Comparable", });
+    internal_static_BinaryPrefixComparator_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_BinaryPrefixComparator_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_BinaryPrefixComparator_descriptor,
+        new java.lang.String[] { "Comparable", });
+    internal_static_BitComparator_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_BitComparator_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_BitComparator_descriptor,
+        new java.lang.String[] { "Comparable", "BitwiseOp", });
+    internal_static_NullComparator_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_NullComparator_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_NullComparator_descriptor,
+        new java.lang.String[] { });
+    internal_static_RegexStringComparator_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_RegexStringComparator_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_RegexStringComparator_descriptor,
+        new java.lang.String[] { "Pattern", "PatternFlags", "Charset", "Engine", });
+    internal_static_SubstringComparator_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_SubstringComparator_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_SubstringComparator_descriptor,
+        new java.lang.String[] { "Substr", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

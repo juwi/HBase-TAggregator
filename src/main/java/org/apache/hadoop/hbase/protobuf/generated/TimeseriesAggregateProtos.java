@@ -8,10 +8,10 @@ public final class TimeseriesAggregateProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface TimeseriesAggregateRequestOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TimeseriesAggregateRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TimeseriesAggregateRequest)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string interpreter_class_name = 1;
     /**
      * <code>required string interpreter_class_name = 1;</code>
      *
@@ -50,7 +50,6 @@ public final class TimeseriesAggregateProtos {
     com.google.protobuf.ByteString
         getInterpreterClassNameBytes();
 
-    // required .Scan scan = 2;
     /**
      * <code>required .Scan scan = 2;</code>
      */
@@ -64,7 +63,6 @@ public final class TimeseriesAggregateProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.ClientProtos.ScanOrBuilder getScanOrBuilder();
 
-    // optional bytes interpreter_specific_bytes = 3;
     /**
      * <code>optional bytes interpreter_specific_bytes = 3;</code>
      */
@@ -74,7 +72,6 @@ public final class TimeseriesAggregateProtos {
      */
     com.google.protobuf.ByteString getInterpreterSpecificBytes();
 
-    // required int32 time_interval_seconds = 4;
     /**
      * <code>required int32 time_interval_seconds = 4;</code>
      */
@@ -84,7 +81,6 @@ public final class TimeseriesAggregateProtos {
      */
     int getTimeIntervalSeconds();
 
-    // optional .TimeseriesRange range = 5;
     /**
      * <code>optional .TimeseriesRange range = 5;</code>
      */
@@ -102,8 +98,9 @@ public final class TimeseriesAggregateProtos {
    * Protobuf type {@code TimeseriesAggregateRequest}
    */
   public static final class TimeseriesAggregateRequest extends
-      com.google.protobuf.GeneratedMessage
-      implements TimeseriesAggregateRequestOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:TimeseriesAggregateRequest)
+      TimeseriesAggregateRequestOrBuilder {
     // Use TimeseriesAggregateRequest.newBuilder() to construct.
     private TimeseriesAggregateRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -150,8 +147,9 @@ public final class TimeseriesAggregateProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              interpreterClassName_ = input.readBytes();
+              interpreterClassName_ = bs;
               break;
             }
             case 18: {
@@ -230,7 +228,6 @@ public final class TimeseriesAggregateProtos {
     }
 
     private int bitField0_;
-    // required string interpreter_class_name = 1;
     public static final int INTERPRETER_CLASS_NAME_FIELD_NUMBER = 1;
     private java.lang.Object interpreterClassName_;
     /**
@@ -297,7 +294,6 @@ public final class TimeseriesAggregateProtos {
       }
     }
 
-    // required .Scan scan = 2;
     public static final int SCAN_FIELD_NUMBER = 2;
     private org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Scan scan_;
     /**
@@ -319,7 +315,6 @@ public final class TimeseriesAggregateProtos {
       return scan_;
     }
 
-    // optional bytes interpreter_specific_bytes = 3;
     public static final int INTERPRETER_SPECIFIC_BYTES_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString interpreterSpecificBytes_;
     /**
@@ -335,7 +330,6 @@ public final class TimeseriesAggregateProtos {
       return interpreterSpecificBytes_;
     }
 
-    // required int32 time_interval_seconds = 4;
     public static final int TIME_INTERVAL_SECONDS_FIELD_NUMBER = 4;
     private int timeIntervalSeconds_;
     /**
@@ -351,7 +345,6 @@ public final class TimeseriesAggregateProtos {
       return timeIntervalSeconds_;
     }
 
-    // optional .TimeseriesRange range = 5;
     public static final int RANGE_FIELD_NUMBER = 5;
     private org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesRange range_;
     /**
@@ -383,7 +376,8 @@ public final class TimeseriesAggregateProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasInterpreterClassName()) {
         memoizedIsInitialized = 0;
@@ -511,7 +505,6 @@ public final class TimeseriesAggregateProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -614,8 +607,9 @@ public final class TimeseriesAggregateProtos {
      * Protobuf type {@code TimeseriesAggregateRequest}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateRequestOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TimeseriesAggregateRequest)
+        org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.internal_static_TimeseriesAggregateRequest_descriptor;
@@ -806,7 +800,6 @@ public final class TimeseriesAggregateProtos {
       }
       private int bitField0_;
 
-      // required string interpreter_class_name = 1;
       private java.lang.Object interpreterClassName_ = "";
       /**
        * <code>required string interpreter_class_name = 1;</code>
@@ -836,9 +829,12 @@ public final class TimeseriesAggregateProtos {
       public java.lang.String getInterpreterClassName() {
         java.lang.Object ref = interpreterClassName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          interpreterClassName_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            interpreterClassName_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -928,7 +924,6 @@ public final class TimeseriesAggregateProtos {
         return this;
       }
 
-      // required .Scan scan = 2;
       private org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Scan scan_ = org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Scan.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Scan, org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Scan.Builder, org.apache.hadoop.hbase.protobuf.generated.ClientProtos.ScanOrBuilder> scanBuilder_;
@@ -1037,7 +1032,7 @@ public final class TimeseriesAggregateProtos {
         if (scanBuilder_ == null) {
           scanBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Scan, org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Scan.Builder, org.apache.hadoop.hbase.protobuf.generated.ClientProtos.ScanOrBuilder>(
-                  scan_,
+                  getScan(),
                   getParentForChildren(),
                   isClean());
           scan_ = null;
@@ -1045,7 +1040,6 @@ public final class TimeseriesAggregateProtos {
         return scanBuilder_;
       }
 
-      // optional bytes interpreter_specific_bytes = 3;
       private com.google.protobuf.ByteString interpreterSpecificBytes_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes interpreter_specific_bytes = 3;</code>
@@ -1081,7 +1075,6 @@ public final class TimeseriesAggregateProtos {
         return this;
       }
 
-      // required int32 time_interval_seconds = 4;
       private int timeIntervalSeconds_ ;
       /**
        * <code>required int32 time_interval_seconds = 4;</code>
@@ -1114,7 +1107,6 @@ public final class TimeseriesAggregateProtos {
         return this;
       }
 
-      // optional .TimeseriesRange range = 5;
       private org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesRange range_ = org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesRange.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesRange, org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesRange.Builder, org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesRangeOrBuilder> rangeBuilder_;
@@ -1223,7 +1215,7 @@ public final class TimeseriesAggregateProtos {
         if (rangeBuilder_ == null) {
           rangeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesRange, org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesRange.Builder, org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesRangeOrBuilder>(
-                  range_,
+                  getRange(),
                   getParentForChildren(),
                   isClean());
           range_ = null;
@@ -1242,10 +1234,10 @@ public final class TimeseriesAggregateProtos {
     // @@protoc_insertion_point(class_scope:TimeseriesAggregateRequest)
   }
 
-  public interface TimeseriesRangeOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TimeseriesRangeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TimeseriesRange)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int32 key_timestamp_min = 1;
     /**
      * <code>required int32 key_timestamp_min = 1;</code>
      */
@@ -1255,7 +1247,6 @@ public final class TimeseriesAggregateProtos {
      */
     int getKeyTimestampMin();
 
-    // required int32 key_timestamp_max = 2;
     /**
      * <code>required int32 key_timestamp_max = 2;</code>
      */
@@ -1265,7 +1256,6 @@ public final class TimeseriesAggregateProtos {
      */
     int getKeyTimestampMax();
 
-    // required string key_timestamp_filter_pattern = 3;
     /**
      * <code>required string key_timestamp_filter_pattern = 3;</code>
      */
@@ -1284,8 +1274,9 @@ public final class TimeseriesAggregateProtos {
    * Protobuf type {@code TimeseriesRange}
    */
   public static final class TimeseriesRange extends
-      com.google.protobuf.GeneratedMessage
-      implements TimeseriesRangeOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:TimeseriesRange)
+      TimeseriesRangeOrBuilder {
     // Use TimeseriesRange.newBuilder() to construct.
     private TimeseriesRange(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -1342,8 +1333,9 @@ public final class TimeseriesAggregateProtos {
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              keyTimestampFilterPattern_ = input.readBytes();
+              keyTimestampFilterPattern_ = bs;
               break;
             }
           }
@@ -1386,7 +1378,6 @@ public final class TimeseriesAggregateProtos {
     }
 
     private int bitField0_;
-    // required int32 key_timestamp_min = 1;
     public static final int KEY_TIMESTAMP_MIN_FIELD_NUMBER = 1;
     private int keyTimestampMin_;
     /**
@@ -1402,7 +1393,6 @@ public final class TimeseriesAggregateProtos {
       return keyTimestampMin_;
     }
 
-    // required int32 key_timestamp_max = 2;
     public static final int KEY_TIMESTAMP_MAX_FIELD_NUMBER = 2;
     private int keyTimestampMax_;
     /**
@@ -1418,7 +1408,6 @@ public final class TimeseriesAggregateProtos {
       return keyTimestampMax_;
     }
 
-    // required string key_timestamp_filter_pattern = 3;
     public static final int KEY_TIMESTAMP_FILTER_PATTERN_FIELD_NUMBER = 3;
     private java.lang.Object keyTimestampFilterPattern_;
     /**
@@ -1469,7 +1458,8 @@ public final class TimeseriesAggregateProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasKeyTimestampMin()) {
         memoizedIsInitialized = 0;
@@ -1563,7 +1553,6 @@ public final class TimeseriesAggregateProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -1658,8 +1647,9 @@ public final class TimeseriesAggregateProtos {
      * Protobuf type {@code TimeseriesRange}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesRangeOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TimeseriesRange)
+        org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesRangeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.internal_static_TimeseriesRange_descriptor;
@@ -1804,7 +1794,6 @@ public final class TimeseriesAggregateProtos {
       }
       private int bitField0_;
 
-      // required int32 key_timestamp_min = 1;
       private int keyTimestampMin_ ;
       /**
        * <code>required int32 key_timestamp_min = 1;</code>
@@ -1837,7 +1826,6 @@ public final class TimeseriesAggregateProtos {
         return this;
       }
 
-      // required int32 key_timestamp_max = 2;
       private int keyTimestampMax_ ;
       /**
        * <code>required int32 key_timestamp_max = 2;</code>
@@ -1870,7 +1858,6 @@ public final class TimeseriesAggregateProtos {
         return this;
       }
 
-      // required string key_timestamp_filter_pattern = 3;
       private java.lang.Object keyTimestampFilterPattern_ = "";
       /**
        * <code>required string key_timestamp_filter_pattern = 3;</code>
@@ -1884,9 +1871,12 @@ public final class TimeseriesAggregateProtos {
       public java.lang.String getKeyTimestampFilterPattern() {
         java.lang.Object ref = keyTimestampFilterPattern_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          keyTimestampFilterPattern_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            keyTimestampFilterPattern_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1955,10 +1945,10 @@ public final class TimeseriesAggregateProtos {
     // @@protoc_insertion_point(class_scope:TimeseriesRange)
   }
 
-  public interface TimeseriesAggregateResponseEntryOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TimeseriesAggregateResponseEntryOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TimeseriesAggregateResponseEntry)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated bytes first_part = 1;
     /**
      * <code>repeated bytes first_part = 1;</code>
      *
@@ -1999,7 +1989,6 @@ public final class TimeseriesAggregateProtos {
      */
     com.google.protobuf.ByteString getFirstPart(int index);
 
-    // optional bytes second_part = 2;
     /**
      * <code>optional bytes second_part = 2;</code>
      */
@@ -2013,8 +2002,9 @@ public final class TimeseriesAggregateProtos {
    * Protobuf type {@code TimeseriesAggregateResponseEntry}
    */
   public static final class TimeseriesAggregateResponseEntry extends
-      com.google.protobuf.GeneratedMessage
-      implements TimeseriesAggregateResponseEntryOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:TimeseriesAggregateResponseEntry)
+      TimeseriesAggregateResponseEntryOrBuilder {
     // Use TimeseriesAggregateResponseEntry.newBuilder() to construct.
     private TimeseriesAggregateResponseEntry(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -2116,7 +2106,6 @@ public final class TimeseriesAggregateProtos {
     }
 
     private int bitField0_;
-    // repeated bytes first_part = 1;
     public static final int FIRST_PART_FIELD_NUMBER = 1;
     private java.util.List<com.google.protobuf.ByteString> firstPart_;
     /**
@@ -2166,7 +2155,6 @@ public final class TimeseriesAggregateProtos {
       return firstPart_.get(index);
     }
 
-    // optional bytes second_part = 2;
     public static final int SECOND_PART_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString secondPart_;
     /**
@@ -2189,7 +2177,8 @@ public final class TimeseriesAggregateProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -2261,7 +2250,6 @@ public final class TimeseriesAggregateProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -2352,8 +2340,9 @@ public final class TimeseriesAggregateProtos {
      * Protobuf type {@code TimeseriesAggregateResponseEntry}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseEntryOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TimeseriesAggregateResponseEntry)
+        org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseEntryOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.internal_static_TimeseriesAggregateResponseEntry_descriptor;
@@ -2483,7 +2472,6 @@ public final class TimeseriesAggregateProtos {
       }
       private int bitField0_;
 
-      // repeated bytes first_part = 1;
       private java.util.List<com.google.protobuf.ByteString> firstPart_ = java.util.Collections.emptyList();
       private void ensureFirstPartIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2595,7 +2583,8 @@ public final class TimeseriesAggregateProtos {
       public Builder addAllFirstPart(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureFirstPartIsMutable();
-        super.addAll(values, firstPart_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, firstPart_);
         onChanged();
         return this;
       }
@@ -2618,7 +2607,6 @@ public final class TimeseriesAggregateProtos {
         return this;
       }
 
-      // optional bytes second_part = 2;
       private com.google.protobuf.ByteString secondPart_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes second_part = 2;</code>
@@ -2665,10 +2653,10 @@ public final class TimeseriesAggregateProtos {
     // @@protoc_insertion_point(class_scope:TimeseriesAggregateResponseEntry)
   }
 
-  public interface TimeseriesAggregateResponseMapEntryOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TimeseriesAggregateResponseMapEntryOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TimeseriesAggregateResponseMapEntry)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int64 key = 1;
     /**
      * <code>required int64 key = 1;</code>
      */
@@ -2678,7 +2666,6 @@ public final class TimeseriesAggregateProtos {
      */
     long getKey();
 
-    // required .TimeseriesAggregateResponseEntry value = 2;
     /**
      * <code>required .TimeseriesAggregateResponseEntry value = 2;</code>
      */
@@ -2696,8 +2683,9 @@ public final class TimeseriesAggregateProtos {
    * Protobuf type {@code TimeseriesAggregateResponseMapEntry}
    */
   public static final class TimeseriesAggregateResponseMapEntry extends
-      com.google.protobuf.GeneratedMessage
-      implements TimeseriesAggregateResponseMapEntryOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:TimeseriesAggregateResponseMapEntry)
+      TimeseriesAggregateResponseMapEntryOrBuilder {
     // Use TimeseriesAggregateResponseMapEntry.newBuilder() to construct.
     private TimeseriesAggregateResponseMapEntry(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -2801,7 +2789,6 @@ public final class TimeseriesAggregateProtos {
     }
 
     private int bitField0_;
-    // required int64 key = 1;
     public static final int KEY_FIELD_NUMBER = 1;
     private long key_;
     /**
@@ -2817,7 +2804,6 @@ public final class TimeseriesAggregateProtos {
       return key_;
     }
 
-    // required .TimeseriesAggregateResponseEntry value = 2;
     public static final int VALUE_FIELD_NUMBER = 2;
     private org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseEntry value_;
     /**
@@ -2846,7 +2832,8 @@ public final class TimeseriesAggregateProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasKey()) {
         memoizedIsInitialized = 0;
@@ -2924,7 +2911,6 @@ public final class TimeseriesAggregateProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -2934,7 +2920,8 @@ public final class TimeseriesAggregateProtos {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasKey()) {
         hash = (37 * hash) + KEY_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getKey());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getKey());
       }
       if (hasValue()) {
         hash = (37 * hash) + VALUE_FIELD_NUMBER;
@@ -3015,8 +3002,9 @@ public final class TimeseriesAggregateProtos {
      * Protobuf type {@code TimeseriesAggregateResponseMapEntry}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseMapEntryOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TimeseriesAggregateResponseMapEntry)
+        org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseMapEntryOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.internal_static_TimeseriesAggregateResponseMapEntry_descriptor;
@@ -3155,7 +3143,6 @@ public final class TimeseriesAggregateProtos {
       }
       private int bitField0_;
 
-      // required int64 key = 1;
       private long key_ ;
       /**
        * <code>required int64 key = 1;</code>
@@ -3188,7 +3175,6 @@ public final class TimeseriesAggregateProtos {
         return this;
       }
 
-      // required .TimeseriesAggregateResponseEntry value = 2;
       private org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseEntry value_ = org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseEntry.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseEntry, org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseEntry.Builder, org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseEntryOrBuilder> valueBuilder_;
@@ -3297,7 +3283,7 @@ public final class TimeseriesAggregateProtos {
         if (valueBuilder_ == null) {
           valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseEntry, org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseEntry.Builder, org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseEntryOrBuilder>(
-                  value_,
+                  getValue(),
                   getParentForChildren(),
                   isClean());
           value_ = null;
@@ -3316,10 +3302,10 @@ public final class TimeseriesAggregateProtos {
     // @@protoc_insertion_point(class_scope:TimeseriesAggregateResponseMapEntry)
   }
 
-  public interface TimeseriesAggregateResponseOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TimeseriesAggregateResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TimeseriesAggregateResponse)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated .TimeseriesAggregateResponseMapEntry entry = 1;
     /**
      * <code>repeated .TimeseriesAggregateResponseMapEntry entry = 1;</code>
      */
@@ -3348,8 +3334,9 @@ public final class TimeseriesAggregateProtos {
    * Protobuf type {@code TimeseriesAggregateResponse}
    */
   public static final class TimeseriesAggregateResponse extends
-      com.google.protobuf.GeneratedMessage
-      implements TimeseriesAggregateResponseOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:TimeseriesAggregateResponse)
+      TimeseriesAggregateResponseOrBuilder {
     // Use TimeseriesAggregateResponse.newBuilder() to construct.
     private TimeseriesAggregateResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -3445,7 +3432,6 @@ public final class TimeseriesAggregateProtos {
       return PARSER;
     }
 
-    // repeated .TimeseriesAggregateResponseMapEntry entry = 1;
     public static final int ENTRY_FIELD_NUMBER = 1;
     private java.util.List<org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseMapEntry> entry_;
     /**
@@ -3487,7 +3473,8 @@ public final class TimeseriesAggregateProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getEntryCount(); i++) {
         if (!getEntry(i).isInitialized()) {
@@ -3548,7 +3535,6 @@ public final class TimeseriesAggregateProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -3635,8 +3621,9 @@ public final class TimeseriesAggregateProtos {
      * Protobuf type {@code TimeseriesAggregateResponse}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TimeseriesAggregateResponse)
+        org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.internal_static_TimeseriesAggregateResponse_descriptor;
@@ -3786,7 +3773,6 @@ public final class TimeseriesAggregateProtos {
       }
       private int bitField0_;
 
-      // repeated .TimeseriesAggregateResponseMapEntry entry = 1;
       private java.util.List<org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseMapEntry> entry_ =
         java.util.Collections.emptyList();
       private void ensureEntryIsMutable() {
@@ -3928,7 +3914,8 @@ public final class TimeseriesAggregateProtos {
           java.lang.Iterable<? extends org.apache.hadoop.hbase.protobuf.generated.TimeseriesAggregateProtos.TimeseriesAggregateResponseMapEntry> values) {
         if (entryBuilder_ == null) {
           ensureEntryIsMutable();
-          super.addAll(values, entry_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, entry_);
           onChanged();
         } else {
           entryBuilder_.addAllMessages(values);
@@ -4487,27 +4474,27 @@ public final class TimeseriesAggregateProtos {
     // @@protoc_insertion_point(class_scope:TimeseriesAggregateService)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TimeseriesAggregateRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_TimeseriesAggregateRequest_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TimeseriesRange_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_TimeseriesRange_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TimeseriesAggregateResponseEntry_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_TimeseriesAggregateResponseEntry_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TimeseriesAggregateResponseMapEntry_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_TimeseriesAggregateResponseMapEntry_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TimeseriesAggregateResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -4548,48 +4535,49 @@ public final class TimeseriesAggregateProtos {
       "riesAggregateProtosH\001\210\001\001\240\001\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_TimeseriesAggregateRequest_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_TimeseriesAggregateRequest_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_TimeseriesAggregateRequest_descriptor,
-              new java.lang.String[] { "InterpreterClassName", "Scan", "InterpreterSpecificBytes", "TimeIntervalSeconds", "Range", });
-          internal_static_TimeseriesRange_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_TimeseriesRange_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_TimeseriesRange_descriptor,
-              new java.lang.String[] { "KeyTimestampMin", "KeyTimestampMax", "KeyTimestampFilterPattern", });
-          internal_static_TimeseriesAggregateResponseEntry_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_TimeseriesAggregateResponseEntry_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_TimeseriesAggregateResponseEntry_descriptor,
-              new java.lang.String[] { "FirstPart", "SecondPart", });
-          internal_static_TimeseriesAggregateResponseMapEntry_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-          internal_static_TimeseriesAggregateResponseMapEntry_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_TimeseriesAggregateResponseMapEntry_descriptor,
-              new java.lang.String[] { "Key", "Value", });
-          internal_static_TimeseriesAggregateResponse_descriptor =
-            getDescriptor().getMessageTypes().get(4);
-          internal_static_TimeseriesAggregateResponse_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_TimeseriesAggregateResponse_descriptor,
-              new java.lang.String[] { "Entry", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           org.apache.hadoop.hbase.protobuf.generated.ClientProtos.getDescriptor(),
         }, assigner);
+    internal_static_TimeseriesAggregateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_TimeseriesAggregateRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_TimeseriesAggregateRequest_descriptor,
+        new java.lang.String[] { "InterpreterClassName", "Scan", "InterpreterSpecificBytes", "TimeIntervalSeconds", "Range", });
+    internal_static_TimeseriesRange_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_TimeseriesRange_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_TimeseriesRange_descriptor,
+        new java.lang.String[] { "KeyTimestampMin", "KeyTimestampMax", "KeyTimestampFilterPattern", });
+    internal_static_TimeseriesAggregateResponseEntry_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_TimeseriesAggregateResponseEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_TimeseriesAggregateResponseEntry_descriptor,
+        new java.lang.String[] { "FirstPart", "SecondPart", });
+    internal_static_TimeseriesAggregateResponseMapEntry_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_TimeseriesAggregateResponseMapEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_TimeseriesAggregateResponseMapEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_TimeseriesAggregateResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_TimeseriesAggregateResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_TimeseriesAggregateResponse_descriptor,
+        new java.lang.String[] { "Entry", });
+    org.apache.hadoop.hbase.protobuf.generated.ClientProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

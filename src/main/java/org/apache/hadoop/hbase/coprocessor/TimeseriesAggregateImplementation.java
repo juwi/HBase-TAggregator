@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Julian Wissmann 
+ * Copyright 2014-2015 Julian Wissmann 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy of the
@@ -78,7 +78,7 @@ public class TimeseriesAggregateImplementation<T, S, P extends Message, Q extend
 
   @Override
   public void stop(CoprocessorEnvironment env) throws IOException {
-    // TODO Implement Coprocessor.stop
+    // nothing to do
 
   }
 
@@ -186,14 +186,14 @@ public class TimeseriesAggregateImplementation<T, S, P extends Message, Q extend
           if (hasScannerRange) timestamp = kv.getTimestamp();
           else timestamp =
               getMillisTimestampFromOffset(getTimestampFromRowKeyAsMillis(kv, request),
-                Bytes.toInt(kv.getQualifier()));
+                Bytes.toInt(CellUtil.cloneQualifier(kv)));
           for (TimeRange t : timeRanges) {
             if (t.withinTimeRange(timestamp)) {
               long minTimestamp = t.getMin();
               if (maximums.containsKey(minTimestamp)) {
                 max = maximums.get(minTimestamp);
               } else max = null;
-              temp = ci.getValue(colFamily, kv.getQualifier(), kv);
+              temp = ci.getValue(colFamily, CellUtil.cloneQualifier(kv), kv);
               max = (max == null || (temp != null && ci.compare(temp, max) > 0)) ? temp : max;
               maximums.put(minTimestamp, max);
             }
@@ -229,7 +229,7 @@ public class TimeseriesAggregateImplementation<T, S, P extends Message, Q extend
         }
       }
     }
-    log.info("Maximums from this region are " + env.getRegion().getRegionNameAsString() + ": "
+    log.info("Maximums from this region are " + env.getRegion().getRegionInfo().getRegionNameAsString() + ": "
         + maximums.toString());
     done.run(response);
   }
@@ -296,14 +296,14 @@ public class TimeseriesAggregateImplementation<T, S, P extends Message, Q extend
           if (hasScannerRange) timestamp = kv.getTimestamp();
           else timestamp =
               getMillisTimestampFromOffset(getTimestampFromRowKeyAsMillis(kv, request),
-                Bytes.toInt(kv.getQualifier()));
+                Bytes.toInt(CellUtil.cloneQualifier(kv)));
           for (TimeRange t : timeRanges) {
             if (t.withinTimeRange(timestamp)) {
               long minTimestamp = t.getMin();
               if (minimums.containsKey(minTimestamp)) {
                 min = minimums.get(minTimestamp);
               } else min = null;
-              temp = ci.getValue(colFamily, kv.getQualifier(), kv);
+              temp = ci.getValue(colFamily, CellUtil.cloneQualifier(kv), kv);
               min = (min == null || (temp != null && ci.compare(temp, min) < 0)) ? temp : min;
               minimums.put(minTimestamp, min);
             }
@@ -339,7 +339,7 @@ public class TimeseriesAggregateImplementation<T, S, P extends Message, Q extend
         }
       }
     }
-    log.info("Minimums from this region are " + env.getRegion().getRegionNameAsString() + ": "
+    log.info("Minimums from this region are " + env.getRegion().getRegionInfo().getRegionNameAsString() + ": "
         + minimums.toString());
     done.run(response);
   }
@@ -377,14 +377,14 @@ public class TimeseriesAggregateImplementation<T, S, P extends Message, Q extend
           if (hasScannerRange) timestamp = kv.getTimestamp();
           else timestamp =
               getMillisTimestampFromOffset(getTimestampFromRowKeyAsMillis(kv, request),
-                Bytes.toInt(kv.getQualifier()));
+                Bytes.toInt(CellUtil.cloneQualifier(kv)));
           for (TimeRange t : timeRanges) {
             if (t.withinTimeRange(timestamp)) {
               long minTimestamp = t.getMin();
               if (sums.containsKey(minTimestamp)) {
                 sumVal = sums.get(minTimestamp);
               } else sumVal = null;
-              temp = ci.getValue(colFamily, kv.getQualifier(), kv);
+              temp = ci.getValue(colFamily, CellUtil.cloneQualifier(kv), kv);
               if (temp != null) sumVal = ci.add(sumVal, ci.castToReturnType(temp));
               sums.put(minTimestamp, sumVal);
             }
@@ -417,7 +417,7 @@ public class TimeseriesAggregateImplementation<T, S, P extends Message, Q extend
         }
       }
     }
-    log.info("Sums from this region are " + env.getRegion().getRegionNameAsString() + ": "
+    log.info("Sums from this region are " + env.getRegion().getRegionInfo().getRegionNameAsString() + ": "
         + sums.toString());
     done.run(response);
   }
@@ -458,7 +458,7 @@ public class TimeseriesAggregateImplementation<T, S, P extends Message, Q extend
           if (hasScannerRange) timestamp = kv.getTimestamp();
           else timestamp =
               getMillisTimestampFromOffset(getTimestampFromRowKeyAsMillis(kv, request),
-                Bytes.toInt(kv.getQualifier()));
+                Bytes.toInt(CellUtil.cloneQualifier(kv)));
           for (TimeRange t : timeRanges) {
             if (t.withinTimeRange(timestamp)) {
               long minTimestamp = t.getMin();
@@ -469,7 +469,7 @@ public class TimeseriesAggregateImplementation<T, S, P extends Message, Q extend
                 sumVal = null;
                 kvCountVal = 0l;
               }
-              temp = ci.getValue(colFamily, kv.getQualifier(), kv);
+              temp = ci.getValue(colFamily, CellUtil.cloneQualifier(kv), kv);
               if (temp != null) {
                 kvCountVal++;
                 sumVal = ci.add(sumVal, ci.castToReturnType(temp));
@@ -509,7 +509,7 @@ public class TimeseriesAggregateImplementation<T, S, P extends Message, Q extend
         }
       }
     }
-    log.info("Averages from this region are " + env.getRegion().getRegionNameAsString() + ": "
+    log.info("Averages from this region are " + env.getRegion().getRegionInfo().getRegionNameAsString() + ": "
         + averages.toString());
     done.run(response);
   }

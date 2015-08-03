@@ -1,19 +1,14 @@
 /**
- * Copyright 2014 Julian Wissmann 
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy of the
- * License at 
- * 
- * http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed
- * to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific
- * language governing permissions and limitations under the License.
+ * Copyright 2014-2015 Julian Wissmann Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable
+ * law or agreed to in writing, software distributed under the License is distributed on an "AS IS"
+ * BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License
+ * for the specific language governing permissions and limitations under the License.
  */
 package org.apache.hadoop.hbase.client.coprocessor;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -26,8 +21,10 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HConstants;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.classification.InterfaceAudience;
-import org.apache.hadoop.hbase.client.HTable;
+import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
 import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.coprocessor.ColumnInterpreter;
 import org.apache.hadoop.hbase.ipc.BlockingRpcCallback;
 import org.apache.hadoop.hbase.ipc.ServerRpcController;
@@ -65,10 +62,12 @@ import com.google.protobuf.Message;
  * transport Promoted (<S>) instance
  */
 @InterfaceAudience.Private
-public class TimeseriesAggregationClient {
+public class TimeseriesAggregationClient implements Closeable {
 
   private static final Log log = LogFactory.getLog(TimeseriesAggregationClient.class);
-  private Configuration conf;
+
+  private Connection connection;
+
   private int intervalSeconds;
   private Integer timestampSecondsMin, timestampSecondsMax;
   private String keyFilterPattern;
@@ -77,9 +76,11 @@ public class TimeseriesAggregationClient {
    * Constructor with Conf object
    * @param cfg
    */
-  public TimeseriesAggregationClient(Configuration cfg, int intervalSeconds) {
-    this.conf = cfg;
+  public TimeseriesAggregationClient(Configuration cfg, int intervalSeconds)
+      throws RuntimeException {
     this.intervalSeconds = intervalSeconds;
+    init(cfg);
+
   }
 
   /**
@@ -87,12 +88,30 @@ public class TimeseriesAggregationClient {
    * @param cfg
    */
   public TimeseriesAggregationClient(Configuration cfg, int intervalSeconds,
-      int timestampSecondsMin, int timestampSecondsMax, String keyFilterPattern) {
-    this.conf = cfg;
+      int timestampSecondsMin, int timestampSecondsMax, String keyFilterPattern)
+      throws RuntimeException {
     this.intervalSeconds = intervalSeconds;
     this.timestampSecondsMin = timestampSecondsMin;
     this.timestampSecondsMax = timestampSecondsMax;
     this.keyFilterPattern = keyFilterPattern;
+    init(cfg);
+  }
+
+  private void init(Configuration cfg) throws RuntimeException {
+    try {
+      // Create a connection on construction. Will use it making each of
+      // the calls below.
+      this.connection = ConnectionFactory.createConnection(cfg);
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+  
+  @Override
+  public void close() throws IOException {
+    if (this.connection != null && !this.connection.isClosed()) {
+      this.connection.close();
+    }
   }
 
   /**
@@ -109,9 +128,9 @@ public class TimeseriesAggregationClient {
   public <R, S, P extends Message, Q extends Message, T extends Message>
       ConcurrentSkipListMap<Long, R> max(final TableName tableName,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
-    HTable table = null;
+    Table table = null;
     try {
-      table = new HTable(conf, tableName);
+      table = connection.getTable(tableName);
       return max(table, ci, scan);
     } finally {
       if (table != null) {
@@ -132,7 +151,7 @@ public class TimeseriesAggregationClient {
    *           propagated to it.
    */
   public <R, S, P extends Message, Q extends Message, T extends Message>
-      ConcurrentSkipListMap<Long, R> max(final HTable table,
+      ConcurrentSkipListMap<Long, R> max(final Table table,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
     final TimeseriesAggregateRequest requestArg =
         validateArgAndGetPB(scan, ci, false, intervalSeconds, timestampSecondsMin,
@@ -209,9 +228,9 @@ public class TimeseriesAggregationClient {
   public <R, S, P extends Message, Q extends Message, T extends Message>
       ConcurrentSkipListMap<Long, R> min(final TableName tableName,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
-    HTable table = null;
+    Table table = null;
     try {
-      table = new HTable(conf, tableName);
+      table = connection.getTable(tableName);
       return min(table, ci, scan);
     } finally {
       if (table != null) {
@@ -232,7 +251,7 @@ public class TimeseriesAggregationClient {
    *           propagated to it.
    */
   public <R, S, P extends Message, Q extends Message, T extends Message>
-      ConcurrentSkipListMap<Long, R> min(final HTable table,
+      ConcurrentSkipListMap<Long, R> min(final Table table,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
     final TimeseriesAggregateRequest requestArg =
         validateArgAndGetPB(scan, ci, false, intervalSeconds, timestampSecondsMin,
@@ -289,7 +308,7 @@ public class TimeseriesAggregationClient {
           if (controller.failedOnException()) {
             throw controller.getFailedOn();
           }
-            return response;
+          return response;
         }
       }, aMinCallBack);
     return aMinCallBack.getMin();
@@ -309,9 +328,9 @@ public class TimeseriesAggregationClient {
   public <R, S, P extends Message, Q extends Message, T extends Message>
       ConcurrentSkipListMap<Long, S> sum(final TableName tableName,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
-    HTable table = null;
+    Table table = null;
     try {
-      table = new HTable(conf, tableName);
+      table = connection.getTable(tableName);
       return sum(table, ci, scan);
     } finally {
       if (table != null) {
@@ -332,7 +351,7 @@ public class TimeseriesAggregationClient {
    *           propagated to it.
    */
   public <R, S, P extends Message, Q extends Message, T extends Message>
-      ConcurrentSkipListMap<Long, S> sum(final HTable table,
+      ConcurrentSkipListMap<Long, S> sum(final Table table,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
     final TimeseriesAggregateRequest requestArg =
         validateArgAndGetPB(scan, ci, false, intervalSeconds, timestampSecondsMin,
@@ -414,13 +433,14 @@ public class TimeseriesAggregationClient {
    * @throws Throwable
    */
   private <R, S, P extends Message, Q extends Message, T extends Message>
-      ConcurrentSkipListMap<Long, Pair<S, Long>> getAvgArgs(final HTable table,
+      ConcurrentSkipListMap<Long, Pair<S, Long>> getAvgArgs(final Table table,
           final ColumnInterpreter<R, S, P, Q, T> ci, final Scan scan) throws Throwable {
     final TimeseriesAggregateRequest requestArg =
         validateArgAndGetPB(scan, ci, false, intervalSeconds, timestampSecondsMin,
           timestampSecondsMax, keyFilterPattern);
     class AvgCallBack implements Batch.Callback<TimeseriesAggregateResponse> {
-      ConcurrentSkipListMap<Long, Pair<S, Long>> averages = new ConcurrentSkipListMap<Long, Pair<S, Long>>();
+      ConcurrentSkipListMap<Long, Pair<S, Long>> averages =
+          new ConcurrentSkipListMap<Long, Pair<S, Long>>();
 
       public synchronized ConcurrentSkipListMap<Long, Pair<S, Long>> getAvgArgs() {
         return averages;
@@ -501,9 +521,9 @@ public class TimeseriesAggregationClient {
   public <R, S, P extends Message, Q extends Message, T extends Message>
       ConcurrentSkipListMap<Long, Double> avg(final TableName tableName,
           final ColumnInterpreter<R, S, P, Q, T> ci, Scan scan) throws Throwable {
-    HTable table = null;
+    Table table = null;
     try {
-      table = new HTable(conf, tableName);
+      table = connection.getTable(tableName);
       return avg(table, ci, scan);
     } finally {
       if (table != null) {
@@ -524,7 +544,7 @@ public class TimeseriesAggregationClient {
    * @throws Throwable
    */
   public <R, S, P extends Message, Q extends Message, T extends Message>
-      ConcurrentSkipListMap<Long, Double> avg(final HTable table,
+      ConcurrentSkipListMap<Long, Double> avg(final Table table,
           final ColumnInterpreter<R, S, P, Q, T> ci, Scan scan) throws Throwable {
     ConcurrentSkipListMap<Long, Pair<S, Long>> p = getAvgArgs(table, ci, scan);
     ConcurrentSkipListMap<Long, Double> avg = new ConcurrentSkipListMap<Long, Double>();

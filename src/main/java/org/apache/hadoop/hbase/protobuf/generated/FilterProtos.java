@@ -8,10 +8,10 @@ public final class FilterProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface FilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface FilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Filter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string name = 1;
     /**
      * <code>required string name = 1;</code>
      */
@@ -26,7 +26,6 @@ public final class FilterProtos {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // optional bytes serialized_filter = 2;
     /**
      * <code>optional bytes serialized_filter = 2;</code>
      */
@@ -40,8 +39,9 @@ public final class FilterProtos {
    * Protobuf type {@code Filter}
    */
   public static final class Filter extends
-      com.google.protobuf.GeneratedMessage
-      implements FilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:Filter)
+      FilterOrBuilder {
     // Use Filter.newBuilder() to construct.
     private Filter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -88,8 +88,9 @@ public final class FilterProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 18: {
@@ -137,7 +138,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -180,7 +180,6 @@ public final class FilterProtos {
       }
     }
 
-    // optional bytes serialized_filter = 2;
     public static final int SERIALIZED_FILTER_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString serializedFilter_;
     /**
@@ -203,7 +202,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasName()) {
         memoizedIsInitialized = 0;
@@ -277,7 +277,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -368,8 +367,9 @@ public final class FilterProtos {
      * Protobuf type {@code Filter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Filter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_Filter_descriptor;
@@ -497,7 +497,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>required string name = 1;</code>
@@ -511,9 +510,12 @@ public final class FilterProtos {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -571,7 +573,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // optional bytes serialized_filter = 2;
       private com.google.protobuf.ByteString serializedFilter_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes serialized_filter = 2;</code>
@@ -618,10 +619,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:Filter)
   }
 
-  public interface ColumnCountGetFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ColumnCountGetFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ColumnCountGetFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int32 limit = 1;
     /**
      * <code>required int32 limit = 1;</code>
      */
@@ -635,8 +636,9 @@ public final class FilterProtos {
    * Protobuf type {@code ColumnCountGetFilter}
    */
   public static final class ColumnCountGetFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements ColumnCountGetFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:ColumnCountGetFilter)
+      ColumnCountGetFilterOrBuilder {
     // Use ColumnCountGetFilter.newBuilder() to construct.
     private ColumnCountGetFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -727,7 +729,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required int32 limit = 1;
     public static final int LIMIT_FIELD_NUMBER = 1;
     private int limit_;
     /**
@@ -749,7 +750,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasLimit()) {
         memoizedIsInitialized = 0;
@@ -811,7 +813,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -898,8 +899,9 @@ public final class FilterProtos {
      * Protobuf type {@code ColumnCountGetFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.ColumnCountGetFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ColumnCountGetFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.ColumnCountGetFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_ColumnCountGetFilter_descriptor;
@@ -1016,7 +1018,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required int32 limit = 1;
       private int limit_ ;
       /**
        * <code>required int32 limit = 1;</code>
@@ -1060,10 +1061,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:ColumnCountGetFilter)
   }
 
-  public interface ColumnPaginationFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ColumnPaginationFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ColumnPaginationFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int32 limit = 1;
     /**
      * <code>required int32 limit = 1;</code>
      */
@@ -1073,7 +1074,6 @@ public final class FilterProtos {
      */
     int getLimit();
 
-    // optional int32 offset = 2;
     /**
      * <code>optional int32 offset = 2;</code>
      */
@@ -1083,7 +1083,6 @@ public final class FilterProtos {
      */
     int getOffset();
 
-    // optional bytes column_offset = 3;
     /**
      * <code>optional bytes column_offset = 3;</code>
      */
@@ -1097,8 +1096,9 @@ public final class FilterProtos {
    * Protobuf type {@code ColumnPaginationFilter}
    */
   public static final class ColumnPaginationFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements ColumnPaginationFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:ColumnPaginationFilter)
+      ColumnPaginationFilterOrBuilder {
     // Use ColumnPaginationFilter.newBuilder() to construct.
     private ColumnPaginationFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -1199,7 +1199,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required int32 limit = 1;
     public static final int LIMIT_FIELD_NUMBER = 1;
     private int limit_;
     /**
@@ -1215,7 +1214,6 @@ public final class FilterProtos {
       return limit_;
     }
 
-    // optional int32 offset = 2;
     public static final int OFFSET_FIELD_NUMBER = 2;
     private int offset_;
     /**
@@ -1231,7 +1229,6 @@ public final class FilterProtos {
       return offset_;
     }
 
-    // optional bytes column_offset = 3;
     public static final int COLUMN_OFFSET_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString columnOffset_;
     /**
@@ -1255,7 +1252,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasLimit()) {
         memoizedIsInitialized = 0;
@@ -1341,7 +1339,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -1436,8 +1433,9 @@ public final class FilterProtos {
      * Protobuf type {@code ColumnPaginationFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.ColumnPaginationFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ColumnPaginationFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.ColumnPaginationFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_ColumnPaginationFilter_descriptor;
@@ -1572,7 +1570,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required int32 limit = 1;
       private int limit_ ;
       /**
        * <code>required int32 limit = 1;</code>
@@ -1605,7 +1602,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // optional int32 offset = 2;
       private int offset_ ;
       /**
        * <code>optional int32 offset = 2;</code>
@@ -1638,7 +1634,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // optional bytes column_offset = 3;
       private com.google.protobuf.ByteString columnOffset_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes column_offset = 3;</code>
@@ -1685,10 +1680,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:ColumnPaginationFilter)
   }
 
-  public interface ColumnPrefixFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ColumnPrefixFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ColumnPrefixFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required bytes prefix = 1;
     /**
      * <code>required bytes prefix = 1;</code>
      */
@@ -1702,8 +1697,9 @@ public final class FilterProtos {
    * Protobuf type {@code ColumnPrefixFilter}
    */
   public static final class ColumnPrefixFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements ColumnPrefixFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:ColumnPrefixFilter)
+      ColumnPrefixFilterOrBuilder {
     // Use ColumnPrefixFilter.newBuilder() to construct.
     private ColumnPrefixFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -1794,7 +1790,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required bytes prefix = 1;
     public static final int PREFIX_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString prefix_;
     /**
@@ -1816,7 +1811,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasPrefix()) {
         memoizedIsInitialized = 0;
@@ -1878,7 +1874,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -1965,8 +1960,9 @@ public final class FilterProtos {
      * Protobuf type {@code ColumnPrefixFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.ColumnPrefixFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ColumnPrefixFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.ColumnPrefixFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_ColumnPrefixFilter_descriptor;
@@ -2083,7 +2079,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required bytes prefix = 1;
       private com.google.protobuf.ByteString prefix_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>required bytes prefix = 1;</code>
@@ -2130,10 +2125,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:ColumnPrefixFilter)
   }
 
-  public interface ColumnRangeFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ColumnRangeFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ColumnRangeFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional bytes min_column = 1;
     /**
      * <code>optional bytes min_column = 1;</code>
      */
@@ -2143,7 +2138,6 @@ public final class FilterProtos {
      */
     com.google.protobuf.ByteString getMinColumn();
 
-    // optional bool min_column_inclusive = 2;
     /**
      * <code>optional bool min_column_inclusive = 2;</code>
      */
@@ -2153,7 +2147,6 @@ public final class FilterProtos {
      */
     boolean getMinColumnInclusive();
 
-    // optional bytes max_column = 3;
     /**
      * <code>optional bytes max_column = 3;</code>
      */
@@ -2163,7 +2156,6 @@ public final class FilterProtos {
      */
     com.google.protobuf.ByteString getMaxColumn();
 
-    // optional bool max_column_inclusive = 4;
     /**
      * <code>optional bool max_column_inclusive = 4;</code>
      */
@@ -2177,8 +2169,9 @@ public final class FilterProtos {
    * Protobuf type {@code ColumnRangeFilter}
    */
   public static final class ColumnRangeFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements ColumnRangeFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:ColumnRangeFilter)
+      ColumnRangeFilterOrBuilder {
     // Use ColumnRangeFilter.newBuilder() to construct.
     private ColumnRangeFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -2284,7 +2277,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // optional bytes min_column = 1;
     public static final int MIN_COLUMN_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString minColumn_;
     /**
@@ -2300,7 +2292,6 @@ public final class FilterProtos {
       return minColumn_;
     }
 
-    // optional bool min_column_inclusive = 2;
     public static final int MIN_COLUMN_INCLUSIVE_FIELD_NUMBER = 2;
     private boolean minColumnInclusive_;
     /**
@@ -2316,7 +2307,6 @@ public final class FilterProtos {
       return minColumnInclusive_;
     }
 
-    // optional bytes max_column = 3;
     public static final int MAX_COLUMN_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString maxColumn_;
     /**
@@ -2332,7 +2322,6 @@ public final class FilterProtos {
       return maxColumn_;
     }
 
-    // optional bool max_column_inclusive = 4;
     public static final int MAX_COLUMN_INCLUSIVE_FIELD_NUMBER = 4;
     private boolean maxColumnInclusive_;
     /**
@@ -2357,7 +2346,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -2451,7 +2441,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -2465,7 +2454,8 @@ public final class FilterProtos {
       }
       if (hasMinColumnInclusive()) {
         hash = (37 * hash) + MIN_COLUMN_INCLUSIVE_FIELD_NUMBER;
-        hash = (53 * hash) + hashBoolean(getMinColumnInclusive());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getMinColumnInclusive());
       }
       if (hasMaxColumn()) {
         hash = (37 * hash) + MAX_COLUMN_FIELD_NUMBER;
@@ -2473,7 +2463,8 @@ public final class FilterProtos {
       }
       if (hasMaxColumnInclusive()) {
         hash = (37 * hash) + MAX_COLUMN_INCLUSIVE_FIELD_NUMBER;
-        hash = (53 * hash) + hashBoolean(getMaxColumnInclusive());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getMaxColumnInclusive());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -2550,8 +2541,9 @@ public final class FilterProtos {
      * Protobuf type {@code ColumnRangeFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.ColumnRangeFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ColumnRangeFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.ColumnRangeFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_ColumnRangeFilter_descriptor;
@@ -2691,7 +2683,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // optional bytes min_column = 1;
       private com.google.protobuf.ByteString minColumn_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes min_column = 1;</code>
@@ -2727,7 +2718,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // optional bool min_column_inclusive = 2;
       private boolean minColumnInclusive_ ;
       /**
        * <code>optional bool min_column_inclusive = 2;</code>
@@ -2760,7 +2750,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // optional bytes max_column = 3;
       private com.google.protobuf.ByteString maxColumn_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes max_column = 3;</code>
@@ -2796,7 +2785,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // optional bool max_column_inclusive = 4;
       private boolean maxColumnInclusive_ ;
       /**
        * <code>optional bool max_column_inclusive = 4;</code>
@@ -2840,10 +2828,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:ColumnRangeFilter)
   }
 
-  public interface CompareFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface CompareFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:CompareFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .CompareType compare_op = 1;
     /**
      * <code>required .CompareType compare_op = 1;</code>
      */
@@ -2853,7 +2841,6 @@ public final class FilterProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.CompareType getCompareOp();
 
-    // optional .Comparator comparator = 2;
     /**
      * <code>optional .Comparator comparator = 2;</code>
      */
@@ -2871,8 +2858,9 @@ public final class FilterProtos {
    * Protobuf type {@code CompareFilter}
    */
   public static final class CompareFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements CompareFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:CompareFilter)
+      CompareFilterOrBuilder {
     // Use CompareFilter.newBuilder() to construct.
     private CompareFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -2982,7 +2970,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required .CompareType compare_op = 1;
     public static final int COMPARE_OP_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.CompareType compareOp_;
     /**
@@ -2998,7 +2985,6 @@ public final class FilterProtos {
       return compareOp_;
     }
 
-    // optional .Comparator comparator = 2;
     public static final int COMPARATOR_FIELD_NUMBER = 2;
     private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator comparator_;
     /**
@@ -3027,7 +3013,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasCompareOp()) {
         memoizedIsInitialized = 0;
@@ -3107,7 +3094,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -3117,7 +3103,8 @@ public final class FilterProtos {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasCompareOp()) {
         hash = (37 * hash) + COMPARE_OP_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getCompareOp());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashEnum(
+            getCompareOp());
       }
       if (hasComparator()) {
         hash = (37 * hash) + COMPARATOR_FIELD_NUMBER;
@@ -3198,8 +3185,9 @@ public final class FilterProtos {
      * Protobuf type {@code CompareFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:CompareFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_CompareFilter_descriptor;
@@ -3340,7 +3328,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required .CompareType compare_op = 1;
       private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.CompareType compareOp_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.CompareType.LESS;
       /**
        * <code>required .CompareType compare_op = 1;</code>
@@ -3376,7 +3363,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // optional .Comparator comparator = 2;
       private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator comparator_ = org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ComparatorOrBuilder> comparatorBuilder_;
@@ -3485,7 +3471,7 @@ public final class FilterProtos {
         if (comparatorBuilder_ == null) {
           comparatorBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ComparatorOrBuilder>(
-                  comparator_,
+                  getComparator(),
                   getParentForChildren(),
                   isClean());
           comparator_ = null;
@@ -3504,10 +3490,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:CompareFilter)
   }
 
-  public interface DependentColumnFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface DependentColumnFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DependentColumnFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .CompareFilter compare_filter = 1;
     /**
      * <code>required .CompareFilter compare_filter = 1;</code>
      */
@@ -3521,7 +3507,6 @@ public final class FilterProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder getCompareFilterOrBuilder();
 
-    // optional bytes column_family = 2;
     /**
      * <code>optional bytes column_family = 2;</code>
      */
@@ -3531,7 +3516,6 @@ public final class FilterProtos {
      */
     com.google.protobuf.ByteString getColumnFamily();
 
-    // optional bytes column_qualifier = 3;
     /**
      * <code>optional bytes column_qualifier = 3;</code>
      */
@@ -3541,7 +3525,6 @@ public final class FilterProtos {
      */
     com.google.protobuf.ByteString getColumnQualifier();
 
-    // optional bool drop_dependent_column = 4;
     /**
      * <code>optional bool drop_dependent_column = 4;</code>
      */
@@ -3555,8 +3538,9 @@ public final class FilterProtos {
    * Protobuf type {@code DependentColumnFilter}
    */
   public static final class DependentColumnFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements DependentColumnFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:DependentColumnFilter)
+      DependentColumnFilterOrBuilder {
     // Use DependentColumnFilter.newBuilder() to construct.
     private DependentColumnFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -3670,7 +3654,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required .CompareFilter compare_filter = 1;
     public static final int COMPARE_FILTER_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter compareFilter_;
     /**
@@ -3692,7 +3675,6 @@ public final class FilterProtos {
       return compareFilter_;
     }
 
-    // optional bytes column_family = 2;
     public static final int COLUMN_FAMILY_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString columnFamily_;
     /**
@@ -3708,7 +3690,6 @@ public final class FilterProtos {
       return columnFamily_;
     }
 
-    // optional bytes column_qualifier = 3;
     public static final int COLUMN_QUALIFIER_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString columnQualifier_;
     /**
@@ -3724,7 +3705,6 @@ public final class FilterProtos {
       return columnQualifier_;
     }
 
-    // optional bool drop_dependent_column = 4;
     public static final int DROP_DEPENDENT_COLUMN_FIELD_NUMBER = 4;
     private boolean dropDependentColumn_;
     /**
@@ -3749,7 +3729,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasCompareFilter()) {
         memoizedIsInitialized = 0;
@@ -3851,7 +3832,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -3873,7 +3853,8 @@ public final class FilterProtos {
       }
       if (hasDropDependentColumn()) {
         hash = (37 * hash) + DROP_DEPENDENT_COLUMN_FIELD_NUMBER;
-        hash = (53 * hash) + hashBoolean(getDropDependentColumn());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getDropDependentColumn());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -3950,8 +3931,9 @@ public final class FilterProtos {
      * Protobuf type {@code DependentColumnFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.DependentColumnFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:DependentColumnFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.DependentColumnFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_DependentColumnFilter_descriptor;
@@ -4108,7 +4090,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required .CompareFilter compare_filter = 1;
       private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter compareFilter_ = org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder> compareFilterBuilder_;
@@ -4217,7 +4198,7 @@ public final class FilterProtos {
         if (compareFilterBuilder_ == null) {
           compareFilterBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder>(
-                  compareFilter_,
+                  getCompareFilter(),
                   getParentForChildren(),
                   isClean());
           compareFilter_ = null;
@@ -4225,7 +4206,6 @@ public final class FilterProtos {
         return compareFilterBuilder_;
       }
 
-      // optional bytes column_family = 2;
       private com.google.protobuf.ByteString columnFamily_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes column_family = 2;</code>
@@ -4261,7 +4241,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // optional bytes column_qualifier = 3;
       private com.google.protobuf.ByteString columnQualifier_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes column_qualifier = 3;</code>
@@ -4297,7 +4276,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // optional bool drop_dependent_column = 4;
       private boolean dropDependentColumn_ ;
       /**
        * <code>optional bool drop_dependent_column = 4;</code>
@@ -4341,10 +4319,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:DependentColumnFilter)
   }
 
-  public interface FamilyFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface FamilyFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FamilyFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .CompareFilter compare_filter = 1;
     /**
      * <code>required .CompareFilter compare_filter = 1;</code>
      */
@@ -4362,8 +4340,9 @@ public final class FilterProtos {
    * Protobuf type {@code FamilyFilter}
    */
   public static final class FamilyFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements FamilyFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:FamilyFilter)
+      FamilyFilterOrBuilder {
     // Use FamilyFilter.newBuilder() to construct.
     private FamilyFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -4462,7 +4441,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required .CompareFilter compare_filter = 1;
     public static final int COMPARE_FILTER_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter compareFilter_;
     /**
@@ -4490,7 +4468,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasCompareFilter()) {
         memoizedIsInitialized = 0;
@@ -4556,7 +4535,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -4643,8 +4621,9 @@ public final class FilterProtos {
      * Protobuf type {@code FamilyFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FamilyFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FamilyFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FamilyFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_FamilyFilter_descriptor;
@@ -4774,7 +4753,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required .CompareFilter compare_filter = 1;
       private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter compareFilter_ = org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder> compareFilterBuilder_;
@@ -4883,7 +4861,7 @@ public final class FilterProtos {
         if (compareFilterBuilder_ == null) {
           compareFilterBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder>(
-                  compareFilter_,
+                  getCompareFilter(),
                   getParentForChildren(),
                   isClean());
           compareFilter_ = null;
@@ -4902,10 +4880,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:FamilyFilter)
   }
 
-  public interface FilterListOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface FilterListOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FilterList)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .FilterList.Operator operator = 1;
     /**
      * <code>required .FilterList.Operator operator = 1;</code>
      */
@@ -4915,7 +4893,6 @@ public final class FilterProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterList.Operator getOperator();
 
-    // repeated .Filter filters = 2;
     /**
      * <code>repeated .Filter filters = 2;</code>
      */
@@ -4944,8 +4921,9 @@ public final class FilterProtos {
    * Protobuf type {@code FilterList}
    */
   public static final class FilterList extends
-      com.google.protobuf.GeneratedMessage
-      implements FilterListOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:FilterList)
+      FilterListOrBuilder {
     // Use FilterList.newBuilder() to construct.
     private FilterList(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -5135,7 +5113,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required .FilterList.Operator operator = 1;
     public static final int OPERATOR_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterList.Operator operator_;
     /**
@@ -5151,7 +5128,6 @@ public final class FilterProtos {
       return operator_;
     }
 
-    // repeated .Filter filters = 2;
     public static final int FILTERS_FIELD_NUMBER = 2;
     private java.util.List<org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter> filters_;
     /**
@@ -5194,7 +5170,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasOperator()) {
         memoizedIsInitialized = 0;
@@ -5271,7 +5248,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -5281,7 +5257,8 @@ public final class FilterProtos {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasOperator()) {
         hash = (37 * hash) + OPERATOR_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getOperator());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashEnum(
+            getOperator());
       }
       if (getFiltersCount() > 0) {
         hash = (37 * hash) + FILTERS_FIELD_NUMBER;
@@ -5362,8 +5339,9 @@ public final class FilterProtos {
      * Protobuf type {@code FilterList}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterListOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FilterList)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterListOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_FilterList_descriptor;
@@ -5528,7 +5506,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required .FilterList.Operator operator = 1;
       private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterList.Operator operator_ = org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterList.Operator.MUST_PASS_ALL;
       /**
        * <code>required .FilterList.Operator operator = 1;</code>
@@ -5564,7 +5541,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // repeated .Filter filters = 2;
       private java.util.List<org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter> filters_ =
         java.util.Collections.emptyList();
       private void ensureFiltersIsMutable() {
@@ -5706,7 +5682,8 @@ public final class FilterProtos {
           java.lang.Iterable<? extends org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter> values) {
         if (filtersBuilder_ == null) {
           ensureFiltersIsMutable();
-          super.addAll(values, filters_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, filters_);
           onChanged();
         } else {
           filtersBuilder_.addAllMessages(values);
@@ -5815,10 +5792,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:FilterList)
   }
 
-  public interface FilterWrapperOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface FilterWrapperOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FilterWrapper)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .Filter filter = 1;
     /**
      * <code>required .Filter filter = 1;</code>
      */
@@ -5836,8 +5813,9 @@ public final class FilterProtos {
    * Protobuf type {@code FilterWrapper}
    */
   public static final class FilterWrapper extends
-      com.google.protobuf.GeneratedMessage
-      implements FilterWrapperOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:FilterWrapper)
+      FilterWrapperOrBuilder {
     // Use FilterWrapper.newBuilder() to construct.
     private FilterWrapper(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -5936,7 +5914,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required .Filter filter = 1;
     public static final int FILTER_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter filter_;
     /**
@@ -5964,7 +5941,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasFilter()) {
         memoizedIsInitialized = 0;
@@ -6030,7 +6008,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -6117,8 +6094,9 @@ public final class FilterProtos {
      * Protobuf type {@code FilterWrapper}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterWrapperOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FilterWrapper)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterWrapperOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_FilterWrapper_descriptor;
@@ -6248,7 +6226,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required .Filter filter = 1;
       private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter filter_ = org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterOrBuilder> filterBuilder_;
@@ -6357,7 +6334,7 @@ public final class FilterProtos {
         if (filterBuilder_ == null) {
           filterBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterOrBuilder>(
-                  filter_,
+                  getFilter(),
                   getParentForChildren(),
                   isClean());
           filter_ = null;
@@ -6376,15 +6353,17 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:FilterWrapper)
   }
 
-  public interface FirstKeyOnlyFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface FirstKeyOnlyFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FirstKeyOnlyFilter)
+      com.google.protobuf.MessageOrBuilder {
   }
   /**
    * Protobuf type {@code FirstKeyOnlyFilter}
    */
   public static final class FirstKeyOnlyFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements FirstKeyOnlyFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:FirstKeyOnlyFilter)
+      FirstKeyOnlyFilterOrBuilder {
     // Use FirstKeyOnlyFilter.newBuilder() to construct.
     private FirstKeyOnlyFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -6473,7 +6452,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -6519,7 +6499,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -6602,8 +6581,9 @@ public final class FilterProtos {
      * Protobuf type {@code FirstKeyOnlyFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FirstKeyOnlyFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FirstKeyOnlyFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FirstKeyOnlyFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_FirstKeyOnlyFilter_descriptor;
@@ -6714,10 +6694,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:FirstKeyOnlyFilter)
   }
 
-  public interface FirstKeyValueMatchingQualifiersFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface FirstKeyValueMatchingQualifiersFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FirstKeyValueMatchingQualifiersFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated bytes qualifiers = 1;
     /**
      * <code>repeated bytes qualifiers = 1;</code>
      */
@@ -6735,8 +6715,9 @@ public final class FilterProtos {
    * Protobuf type {@code FirstKeyValueMatchingQualifiersFilter}
    */
   public static final class FirstKeyValueMatchingQualifiersFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements FirstKeyValueMatchingQualifiersFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:FirstKeyValueMatchingQualifiersFilter)
+      FirstKeyValueMatchingQualifiersFilterOrBuilder {
     // Use FirstKeyValueMatchingQualifiersFilter.newBuilder() to construct.
     private FirstKeyValueMatchingQualifiersFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -6832,7 +6813,6 @@ public final class FilterProtos {
       return PARSER;
     }
 
-    // repeated bytes qualifiers = 1;
     public static final int QUALIFIERS_FIELD_NUMBER = 1;
     private java.util.List<com.google.protobuf.ByteString> qualifiers_;
     /**
@@ -6861,7 +6841,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -6921,7 +6902,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -7008,8 +6988,9 @@ public final class FilterProtos {
      * Protobuf type {@code FirstKeyValueMatchingQualifiersFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FirstKeyValueMatchingQualifiersFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FirstKeyValueMatchingQualifiersFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FirstKeyValueMatchingQualifiersFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_FirstKeyValueMatchingQualifiersFilter_descriptor;
@@ -7128,7 +7109,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // repeated bytes qualifiers = 1;
       private java.util.List<com.google.protobuf.ByteString> qualifiers_ = java.util.Collections.emptyList();
       private void ensureQualifiersIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7186,7 +7166,8 @@ public final class FilterProtos {
       public Builder addAllQualifiers(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureQualifiersIsMutable();
-        super.addAll(values, qualifiers_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, qualifiers_);
         onChanged();
         return this;
       }
@@ -7211,10 +7192,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:FirstKeyValueMatchingQualifiersFilter)
   }
 
-  public interface FuzzyRowFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface FuzzyRowFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FuzzyRowFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated .BytesBytesPair fuzzy_keys_data = 1;
     /**
      * <code>repeated .BytesBytesPair fuzzy_keys_data = 1;</code>
      */
@@ -7243,8 +7224,9 @@ public final class FilterProtos {
    * Protobuf type {@code FuzzyRowFilter}
    */
   public static final class FuzzyRowFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements FuzzyRowFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:FuzzyRowFilter)
+      FuzzyRowFilterOrBuilder {
     // Use FuzzyRowFilter.newBuilder() to construct.
     private FuzzyRowFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -7340,7 +7322,6 @@ public final class FilterProtos {
       return PARSER;
     }
 
-    // repeated .BytesBytesPair fuzzy_keys_data = 1;
     public static final int FUZZY_KEYS_DATA_FIELD_NUMBER = 1;
     private java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair> fuzzyKeysData_;
     /**
@@ -7382,7 +7363,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getFuzzyKeysDataCount(); i++) {
         if (!getFuzzyKeysData(i).isInitialized()) {
@@ -7443,7 +7425,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -7530,8 +7511,9 @@ public final class FilterProtos {
      * Protobuf type {@code FuzzyRowFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FuzzyRowFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FuzzyRowFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FuzzyRowFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_FuzzyRowFilter_descriptor;
@@ -7681,7 +7663,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // repeated .BytesBytesPair fuzzy_keys_data = 1;
       private java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair> fuzzyKeysData_ =
         java.util.Collections.emptyList();
       private void ensureFuzzyKeysDataIsMutable() {
@@ -7823,7 +7804,8 @@ public final class FilterProtos {
           java.lang.Iterable<? extends org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair> values) {
         if (fuzzyKeysDataBuilder_ == null) {
           ensureFuzzyKeysDataIsMutable();
-          super.addAll(values, fuzzyKeysData_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, fuzzyKeysData_);
           onChanged();
         } else {
           fuzzyKeysDataBuilder_.addAllMessages(values);
@@ -7932,10 +7914,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:FuzzyRowFilter)
   }
 
-  public interface InclusiveStopFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface InclusiveStopFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:InclusiveStopFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional bytes stop_row_key = 1;
     /**
      * <code>optional bytes stop_row_key = 1;</code>
      */
@@ -7949,8 +7931,9 @@ public final class FilterProtos {
    * Protobuf type {@code InclusiveStopFilter}
    */
   public static final class InclusiveStopFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements InclusiveStopFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:InclusiveStopFilter)
+      InclusiveStopFilterOrBuilder {
     // Use InclusiveStopFilter.newBuilder() to construct.
     private InclusiveStopFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -8041,7 +8024,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // optional bytes stop_row_key = 1;
     public static final int STOP_ROW_KEY_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString stopRowKey_;
     /**
@@ -8063,7 +8045,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -8121,7 +8104,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -8208,8 +8190,9 @@ public final class FilterProtos {
      * Protobuf type {@code InclusiveStopFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.InclusiveStopFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:InclusiveStopFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.InclusiveStopFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_InclusiveStopFilter_descriptor;
@@ -8322,7 +8305,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // optional bytes stop_row_key = 1;
       private com.google.protobuf.ByteString stopRowKey_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes stop_row_key = 1;</code>
@@ -8369,10 +8351,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:InclusiveStopFilter)
   }
 
-  public interface KeyOnlyFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface KeyOnlyFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:KeyOnlyFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required bool len_as_val = 1;
     /**
      * <code>required bool len_as_val = 1;</code>
      */
@@ -8386,8 +8368,9 @@ public final class FilterProtos {
    * Protobuf type {@code KeyOnlyFilter}
    */
   public static final class KeyOnlyFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements KeyOnlyFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:KeyOnlyFilter)
+      KeyOnlyFilterOrBuilder {
     // Use KeyOnlyFilter.newBuilder() to construct.
     private KeyOnlyFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -8478,7 +8461,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required bool len_as_val = 1;
     public static final int LEN_AS_VAL_FIELD_NUMBER = 1;
     private boolean lenAsVal_;
     /**
@@ -8500,7 +8482,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasLenAsVal()) {
         memoizedIsInitialized = 0;
@@ -8562,7 +8545,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -8572,7 +8554,8 @@ public final class FilterProtos {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasLenAsVal()) {
         hash = (37 * hash) + LEN_AS_VAL_FIELD_NUMBER;
-        hash = (53 * hash) + hashBoolean(getLenAsVal());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getLenAsVal());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -8649,8 +8632,9 @@ public final class FilterProtos {
      * Protobuf type {@code KeyOnlyFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.KeyOnlyFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:KeyOnlyFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.KeyOnlyFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_KeyOnlyFilter_descriptor;
@@ -8767,7 +8751,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required bool len_as_val = 1;
       private boolean lenAsVal_ ;
       /**
        * <code>required bool len_as_val = 1;</code>
@@ -8811,10 +8794,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:KeyOnlyFilter)
   }
 
-  public interface MultipleColumnPrefixFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface MultipleColumnPrefixFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:MultipleColumnPrefixFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated bytes sorted_prefixes = 1;
     /**
      * <code>repeated bytes sorted_prefixes = 1;</code>
      */
@@ -8832,8 +8815,9 @@ public final class FilterProtos {
    * Protobuf type {@code MultipleColumnPrefixFilter}
    */
   public static final class MultipleColumnPrefixFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements MultipleColumnPrefixFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:MultipleColumnPrefixFilter)
+      MultipleColumnPrefixFilterOrBuilder {
     // Use MultipleColumnPrefixFilter.newBuilder() to construct.
     private MultipleColumnPrefixFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -8929,7 +8913,6 @@ public final class FilterProtos {
       return PARSER;
     }
 
-    // repeated bytes sorted_prefixes = 1;
     public static final int SORTED_PREFIXES_FIELD_NUMBER = 1;
     private java.util.List<com.google.protobuf.ByteString> sortedPrefixes_;
     /**
@@ -8958,7 +8941,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -9018,7 +9002,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -9105,8 +9088,9 @@ public final class FilterProtos {
      * Protobuf type {@code MultipleColumnPrefixFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultipleColumnPrefixFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:MultipleColumnPrefixFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultipleColumnPrefixFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_MultipleColumnPrefixFilter_descriptor;
@@ -9225,7 +9209,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // repeated bytes sorted_prefixes = 1;
       private java.util.List<com.google.protobuf.ByteString> sortedPrefixes_ = java.util.Collections.emptyList();
       private void ensureSortedPrefixesIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9283,7 +9266,8 @@ public final class FilterProtos {
       public Builder addAllSortedPrefixes(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureSortedPrefixesIsMutable();
-        super.addAll(values, sortedPrefixes_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, sortedPrefixes_);
         onChanged();
         return this;
       }
@@ -9308,10 +9292,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:MultipleColumnPrefixFilter)
   }
 
-  public interface PageFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface PageFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:PageFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int64 page_size = 1;
     /**
      * <code>required int64 page_size = 1;</code>
      */
@@ -9325,8 +9309,9 @@ public final class FilterProtos {
    * Protobuf type {@code PageFilter}
    */
   public static final class PageFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements PageFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:PageFilter)
+      PageFilterOrBuilder {
     // Use PageFilter.newBuilder() to construct.
     private PageFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -9417,7 +9402,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required int64 page_size = 1;
     public static final int PAGE_SIZE_FIELD_NUMBER = 1;
     private long pageSize_;
     /**
@@ -9439,7 +9423,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasPageSize()) {
         memoizedIsInitialized = 0;
@@ -9501,7 +9486,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -9511,7 +9495,8 @@ public final class FilterProtos {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasPageSize()) {
         hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getPageSize());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getPageSize());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -9588,8 +9573,9 @@ public final class FilterProtos {
      * Protobuf type {@code PageFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.PageFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:PageFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.PageFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_PageFilter_descriptor;
@@ -9706,7 +9692,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required int64 page_size = 1;
       private long pageSize_ ;
       /**
        * <code>required int64 page_size = 1;</code>
@@ -9750,10 +9735,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:PageFilter)
   }
 
-  public interface PrefixFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface PrefixFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:PrefixFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional bytes prefix = 1;
     /**
      * <code>optional bytes prefix = 1;</code>
      */
@@ -9767,8 +9752,9 @@ public final class FilterProtos {
    * Protobuf type {@code PrefixFilter}
    */
   public static final class PrefixFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements PrefixFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:PrefixFilter)
+      PrefixFilterOrBuilder {
     // Use PrefixFilter.newBuilder() to construct.
     private PrefixFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -9859,7 +9845,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // optional bytes prefix = 1;
     public static final int PREFIX_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString prefix_;
     /**
@@ -9881,7 +9866,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -9939,7 +9925,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -10026,8 +10011,9 @@ public final class FilterProtos {
      * Protobuf type {@code PrefixFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.PrefixFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:PrefixFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.PrefixFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_PrefixFilter_descriptor;
@@ -10140,7 +10126,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // optional bytes prefix = 1;
       private com.google.protobuf.ByteString prefix_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes prefix = 1;</code>
@@ -10187,10 +10172,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:PrefixFilter)
   }
 
-  public interface QualifierFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface QualifierFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:QualifierFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .CompareFilter compare_filter = 1;
     /**
      * <code>required .CompareFilter compare_filter = 1;</code>
      */
@@ -10208,8 +10193,9 @@ public final class FilterProtos {
    * Protobuf type {@code QualifierFilter}
    */
   public static final class QualifierFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements QualifierFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:QualifierFilter)
+      QualifierFilterOrBuilder {
     // Use QualifierFilter.newBuilder() to construct.
     private QualifierFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -10308,7 +10294,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required .CompareFilter compare_filter = 1;
     public static final int COMPARE_FILTER_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter compareFilter_;
     /**
@@ -10336,7 +10321,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasCompareFilter()) {
         memoizedIsInitialized = 0;
@@ -10402,7 +10388,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -10489,8 +10474,9 @@ public final class FilterProtos {
      * Protobuf type {@code QualifierFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.QualifierFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:QualifierFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.QualifierFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_QualifierFilter_descriptor;
@@ -10620,7 +10606,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required .CompareFilter compare_filter = 1;
       private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter compareFilter_ = org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder> compareFilterBuilder_;
@@ -10729,7 +10714,7 @@ public final class FilterProtos {
         if (compareFilterBuilder_ == null) {
           compareFilterBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder>(
-                  compareFilter_,
+                  getCompareFilter(),
                   getParentForChildren(),
                   isClean());
           compareFilter_ = null;
@@ -10748,10 +10733,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:QualifierFilter)
   }
 
-  public interface RandomRowFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface RandomRowFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RandomRowFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required float chance = 1;
     /**
      * <code>required float chance = 1;</code>
      */
@@ -10765,8 +10750,9 @@ public final class FilterProtos {
    * Protobuf type {@code RandomRowFilter}
    */
   public static final class RandomRowFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements RandomRowFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:RandomRowFilter)
+      RandomRowFilterOrBuilder {
     // Use RandomRowFilter.newBuilder() to construct.
     private RandomRowFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -10857,7 +10843,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required float chance = 1;
     public static final int CHANCE_FIELD_NUMBER = 1;
     private float chance_;
     /**
@@ -10879,7 +10864,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasChance()) {
         memoizedIsInitialized = 0;
@@ -10933,14 +10919,16 @@ public final class FilterProtos {
       boolean result = true;
       result = result && (hasChance() == other.hasChance());
       if (hasChance()) {
-        result = result && (Float.floatToIntBits(getChance())    == Float.floatToIntBits(other.getChance()));
+        result = result && (
+            java.lang.Float.floatToIntBits(getChance())
+            == java.lang.Float.floatToIntBits(
+                other.getChance()));
       }
       result = result &&
           getUnknownFields().equals(other.getUnknownFields());
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -10950,7 +10938,7 @@ public final class FilterProtos {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasChance()) {
         hash = (37 * hash) + CHANCE_FIELD_NUMBER;
-        hash = (53 * hash) + Float.floatToIntBits(
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
             getChance());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
@@ -11028,8 +11016,9 @@ public final class FilterProtos {
      * Protobuf type {@code RandomRowFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RandomRowFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RandomRowFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RandomRowFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_RandomRowFilter_descriptor;
@@ -11146,7 +11135,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required float chance = 1;
       private float chance_ ;
       /**
        * <code>required float chance = 1;</code>
@@ -11190,10 +11178,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:RandomRowFilter)
   }
 
-  public interface RowFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface RowFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RowFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .CompareFilter compare_filter = 1;
     /**
      * <code>required .CompareFilter compare_filter = 1;</code>
      */
@@ -11211,8 +11199,9 @@ public final class FilterProtos {
    * Protobuf type {@code RowFilter}
    */
   public static final class RowFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements RowFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:RowFilter)
+      RowFilterOrBuilder {
     // Use RowFilter.newBuilder() to construct.
     private RowFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -11311,7 +11300,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required .CompareFilter compare_filter = 1;
     public static final int COMPARE_FILTER_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter compareFilter_;
     /**
@@ -11339,7 +11327,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasCompareFilter()) {
         memoizedIsInitialized = 0;
@@ -11405,7 +11394,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -11492,8 +11480,9 @@ public final class FilterProtos {
      * Protobuf type {@code RowFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RowFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_RowFilter_descriptor;
@@ -11623,7 +11612,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required .CompareFilter compare_filter = 1;
       private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter compareFilter_ = org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder> compareFilterBuilder_;
@@ -11732,7 +11720,7 @@ public final class FilterProtos {
         if (compareFilterBuilder_ == null) {
           compareFilterBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder>(
-                  compareFilter_,
+                  getCompareFilter(),
                   getParentForChildren(),
                   isClean());
           compareFilter_ = null;
@@ -11751,10 +11739,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:RowFilter)
   }
 
-  public interface SingleColumnValueExcludeFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SingleColumnValueExcludeFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SingleColumnValueExcludeFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .SingleColumnValueFilter single_column_value_filter = 1;
     /**
      * <code>required .SingleColumnValueFilter single_column_value_filter = 1;</code>
      */
@@ -11772,8 +11760,9 @@ public final class FilterProtos {
    * Protobuf type {@code SingleColumnValueExcludeFilter}
    */
   public static final class SingleColumnValueExcludeFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements SingleColumnValueExcludeFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:SingleColumnValueExcludeFilter)
+      SingleColumnValueExcludeFilterOrBuilder {
     // Use SingleColumnValueExcludeFilter.newBuilder() to construct.
     private SingleColumnValueExcludeFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -11872,7 +11861,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required .SingleColumnValueFilter single_column_value_filter = 1;
     public static final int SINGLE_COLUMN_VALUE_FILTER_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueFilter singleColumnValueFilter_;
     /**
@@ -11900,7 +11888,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasSingleColumnValueFilter()) {
         memoizedIsInitialized = 0;
@@ -11966,7 +11955,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -12053,8 +12041,9 @@ public final class FilterProtos {
      * Protobuf type {@code SingleColumnValueExcludeFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueExcludeFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SingleColumnValueExcludeFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueExcludeFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_SingleColumnValueExcludeFilter_descriptor;
@@ -12184,7 +12173,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required .SingleColumnValueFilter single_column_value_filter = 1;
       private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueFilter singleColumnValueFilter_ = org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueFilter.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueFilter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueFilter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueFilterOrBuilder> singleColumnValueFilterBuilder_;
@@ -12293,7 +12281,7 @@ public final class FilterProtos {
         if (singleColumnValueFilterBuilder_ == null) {
           singleColumnValueFilterBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueFilter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueFilter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueFilterOrBuilder>(
-                  singleColumnValueFilter_,
+                  getSingleColumnValueFilter(),
                   getParentForChildren(),
                   isClean());
           singleColumnValueFilter_ = null;
@@ -12312,10 +12300,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:SingleColumnValueExcludeFilter)
   }
 
-  public interface SingleColumnValueFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SingleColumnValueFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SingleColumnValueFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional bytes column_family = 1;
     /**
      * <code>optional bytes column_family = 1;</code>
      */
@@ -12325,7 +12313,6 @@ public final class FilterProtos {
      */
     com.google.protobuf.ByteString getColumnFamily();
 
-    // optional bytes column_qualifier = 2;
     /**
      * <code>optional bytes column_qualifier = 2;</code>
      */
@@ -12335,7 +12322,6 @@ public final class FilterProtos {
      */
     com.google.protobuf.ByteString getColumnQualifier();
 
-    // required .CompareType compare_op = 3;
     /**
      * <code>required .CompareType compare_op = 3;</code>
      */
@@ -12345,7 +12331,6 @@ public final class FilterProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.CompareType getCompareOp();
 
-    // required .Comparator comparator = 4;
     /**
      * <code>required .Comparator comparator = 4;</code>
      */
@@ -12359,7 +12344,6 @@ public final class FilterProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ComparatorOrBuilder getComparatorOrBuilder();
 
-    // optional bool filter_if_missing = 5;
     /**
      * <code>optional bool filter_if_missing = 5;</code>
      */
@@ -12369,7 +12353,6 @@ public final class FilterProtos {
      */
     boolean getFilterIfMissing();
 
-    // optional bool latest_version_only = 6;
     /**
      * <code>optional bool latest_version_only = 6;</code>
      */
@@ -12383,8 +12366,9 @@ public final class FilterProtos {
    * Protobuf type {@code SingleColumnValueFilter}
    */
   public static final class SingleColumnValueFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements SingleColumnValueFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:SingleColumnValueFilter)
+      SingleColumnValueFilterOrBuilder {
     // Use SingleColumnValueFilter.newBuilder() to construct.
     private SingleColumnValueFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -12514,7 +12498,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // optional bytes column_family = 1;
     public static final int COLUMN_FAMILY_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString columnFamily_;
     /**
@@ -12530,7 +12513,6 @@ public final class FilterProtos {
       return columnFamily_;
     }
 
-    // optional bytes column_qualifier = 2;
     public static final int COLUMN_QUALIFIER_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString columnQualifier_;
     /**
@@ -12546,7 +12528,6 @@ public final class FilterProtos {
       return columnQualifier_;
     }
 
-    // required .CompareType compare_op = 3;
     public static final int COMPARE_OP_FIELD_NUMBER = 3;
     private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.CompareType compareOp_;
     /**
@@ -12562,7 +12543,6 @@ public final class FilterProtos {
       return compareOp_;
     }
 
-    // required .Comparator comparator = 4;
     public static final int COMPARATOR_FIELD_NUMBER = 4;
     private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator comparator_;
     /**
@@ -12584,7 +12564,6 @@ public final class FilterProtos {
       return comparator_;
     }
 
-    // optional bool filter_if_missing = 5;
     public static final int FILTER_IF_MISSING_FIELD_NUMBER = 5;
     private boolean filterIfMissing_;
     /**
@@ -12600,7 +12579,6 @@ public final class FilterProtos {
       return filterIfMissing_;
     }
 
-    // optional bool latest_version_only = 6;
     public static final int LATEST_VERSION_ONLY_FIELD_NUMBER = 6;
     private boolean latestVersionOnly_;
     /**
@@ -12627,7 +12605,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasCompareOp()) {
         memoizedIsInitialized = 0;
@@ -12757,7 +12736,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -12775,7 +12753,8 @@ public final class FilterProtos {
       }
       if (hasCompareOp()) {
         hash = (37 * hash) + COMPARE_OP_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getCompareOp());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashEnum(
+            getCompareOp());
       }
       if (hasComparator()) {
         hash = (37 * hash) + COMPARATOR_FIELD_NUMBER;
@@ -12783,11 +12762,13 @@ public final class FilterProtos {
       }
       if (hasFilterIfMissing()) {
         hash = (37 * hash) + FILTER_IF_MISSING_FIELD_NUMBER;
-        hash = (53 * hash) + hashBoolean(getFilterIfMissing());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getFilterIfMissing());
       }
       if (hasLatestVersionOnly()) {
         hash = (37 * hash) + LATEST_VERSION_ONLY_FIELD_NUMBER;
-        hash = (53 * hash) + hashBoolean(getLatestVersionOnly());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getLatestVersionOnly());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -12864,8 +12845,9 @@ public final class FilterProtos {
      * Protobuf type {@code SingleColumnValueFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SingleColumnValueFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SingleColumnValueFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_SingleColumnValueFilter_descriptor;
@@ -13044,7 +13026,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // optional bytes column_family = 1;
       private com.google.protobuf.ByteString columnFamily_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes column_family = 1;</code>
@@ -13080,7 +13061,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // optional bytes column_qualifier = 2;
       private com.google.protobuf.ByteString columnQualifier_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes column_qualifier = 2;</code>
@@ -13116,7 +13096,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // required .CompareType compare_op = 3;
       private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.CompareType compareOp_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.CompareType.LESS;
       /**
        * <code>required .CompareType compare_op = 3;</code>
@@ -13152,7 +13131,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // required .Comparator comparator = 4;
       private org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator comparator_ = org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ComparatorOrBuilder> comparatorBuilder_;
@@ -13261,7 +13239,7 @@ public final class FilterProtos {
         if (comparatorBuilder_ == null) {
           comparatorBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.Comparator.Builder, org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.ComparatorOrBuilder>(
-                  comparator_,
+                  getComparator(),
                   getParentForChildren(),
                   isClean());
           comparator_ = null;
@@ -13269,7 +13247,6 @@ public final class FilterProtos {
         return comparatorBuilder_;
       }
 
-      // optional bool filter_if_missing = 5;
       private boolean filterIfMissing_ ;
       /**
        * <code>optional bool filter_if_missing = 5;</code>
@@ -13302,7 +13279,6 @@ public final class FilterProtos {
         return this;
       }
 
-      // optional bool latest_version_only = 6;
       private boolean latestVersionOnly_ ;
       /**
        * <code>optional bool latest_version_only = 6;</code>
@@ -13346,10 +13322,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:SingleColumnValueFilter)
   }
 
-  public interface SkipFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SkipFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SkipFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .Filter filter = 1;
     /**
      * <code>required .Filter filter = 1;</code>
      */
@@ -13367,8 +13343,9 @@ public final class FilterProtos {
    * Protobuf type {@code SkipFilter}
    */
   public static final class SkipFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements SkipFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:SkipFilter)
+      SkipFilterOrBuilder {
     // Use SkipFilter.newBuilder() to construct.
     private SkipFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -13467,7 +13444,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required .Filter filter = 1;
     public static final int FILTER_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter filter_;
     /**
@@ -13495,7 +13471,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasFilter()) {
         memoizedIsInitialized = 0;
@@ -13561,7 +13538,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -13648,8 +13624,9 @@ public final class FilterProtos {
      * Protobuf type {@code SkipFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SkipFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SkipFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.SkipFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_SkipFilter_descriptor;
@@ -13779,7 +13756,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required .Filter filter = 1;
       private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter filter_ = org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterOrBuilder> filterBuilder_;
@@ -13888,7 +13864,7 @@ public final class FilterProtos {
         if (filterBuilder_ == null) {
           filterBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterOrBuilder>(
-                  filter_,
+                  getFilter(),
                   getParentForChildren(),
                   isClean());
           filter_ = null;
@@ -13907,10 +13883,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:SkipFilter)
   }
 
-  public interface TimestampsFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TimestampsFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TimestampsFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated int64 timestamps = 1 [packed = true];
     /**
      * <code>repeated int64 timestamps = 1 [packed = true];</code>
      */
@@ -13928,8 +13904,9 @@ public final class FilterProtos {
    * Protobuf type {@code TimestampsFilter}
    */
   public static final class TimestampsFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements TimestampsFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:TimestampsFilter)
+      TimestampsFilterOrBuilder {
     // Use TimestampsFilter.newBuilder() to construct.
     private TimestampsFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -14038,7 +14015,6 @@ public final class FilterProtos {
       return PARSER;
     }
 
-    // repeated int64 timestamps = 1 [packed = true];
     public static final int TIMESTAMPS_FIELD_NUMBER = 1;
     private java.util.List<java.lang.Long> timestamps_;
     /**
@@ -14068,7 +14044,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -14137,7 +14114,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -14224,8 +14200,9 @@ public final class FilterProtos {
      * Protobuf type {@code TimestampsFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.TimestampsFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TimestampsFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.TimestampsFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_TimestampsFilter_descriptor;
@@ -14344,7 +14321,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // repeated int64 timestamps = 1 [packed = true];
       private java.util.List<java.lang.Long> timestamps_ = java.util.Collections.emptyList();
       private void ensureTimestampsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -14396,7 +14372,8 @@ public final class FilterProtos {
       public Builder addAllTimestamps(
           java.lang.Iterable<? extends java.lang.Long> values) {
         ensureTimestampsIsMutable();
-        super.addAll(values, timestamps_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, timestamps_);
         onChanged();
         return this;
       }
@@ -14421,10 +14398,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:TimestampsFilter)
   }
 
-  public interface ValueFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ValueFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ValueFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .CompareFilter compare_filter = 1;
     /**
      * <code>required .CompareFilter compare_filter = 1;</code>
      */
@@ -14442,8 +14419,9 @@ public final class FilterProtos {
    * Protobuf type {@code ValueFilter}
    */
   public static final class ValueFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements ValueFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:ValueFilter)
+      ValueFilterOrBuilder {
     // Use ValueFilter.newBuilder() to construct.
     private ValueFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -14542,7 +14520,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required .CompareFilter compare_filter = 1;
     public static final int COMPARE_FILTER_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter compareFilter_;
     /**
@@ -14570,7 +14547,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasCompareFilter()) {
         memoizedIsInitialized = 0;
@@ -14636,7 +14614,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -14723,8 +14700,9 @@ public final class FilterProtos {
      * Protobuf type {@code ValueFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.ValueFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ValueFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.ValueFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_ValueFilter_descriptor;
@@ -14854,7 +14832,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required .CompareFilter compare_filter = 1;
       private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter compareFilter_ = org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder> compareFilterBuilder_;
@@ -14963,7 +14940,7 @@ public final class FilterProtos {
         if (compareFilterBuilder_ == null) {
           compareFilterBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.CompareFilterOrBuilder>(
-                  compareFilter_,
+                  getCompareFilter(),
                   getParentForChildren(),
                   isClean());
           compareFilter_ = null;
@@ -14982,10 +14959,10 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:ValueFilter)
   }
 
-  public interface WhileMatchFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface WhileMatchFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:WhileMatchFilter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .Filter filter = 1;
     /**
      * <code>required .Filter filter = 1;</code>
      */
@@ -15003,8 +14980,9 @@ public final class FilterProtos {
    * Protobuf type {@code WhileMatchFilter}
    */
   public static final class WhileMatchFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements WhileMatchFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:WhileMatchFilter)
+      WhileMatchFilterOrBuilder {
     // Use WhileMatchFilter.newBuilder() to construct.
     private WhileMatchFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -15103,7 +15081,6 @@ public final class FilterProtos {
     }
 
     private int bitField0_;
-    // required .Filter filter = 1;
     public static final int FILTER_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter filter_;
     /**
@@ -15131,7 +15108,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasFilter()) {
         memoizedIsInitialized = 0;
@@ -15197,7 +15175,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -15284,8 +15261,9 @@ public final class FilterProtos {
      * Protobuf type {@code WhileMatchFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.WhileMatchFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:WhileMatchFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.WhileMatchFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_WhileMatchFilter_descriptor;
@@ -15415,7 +15393,6 @@ public final class FilterProtos {
       }
       private int bitField0_;
 
-      // required .Filter filter = 1;
       private org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter filter_ = org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterOrBuilder> filterBuilder_;
@@ -15524,7 +15501,7 @@ public final class FilterProtos {
         if (filterBuilder_ == null) {
           filterBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.Filter.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterOrBuilder>(
-                  filter_,
+                  getFilter(),
                   getParentForChildren(),
                   isClean());
           filter_ = null;
@@ -15543,15 +15520,17 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:WhileMatchFilter)
   }
 
-  public interface FilterAllFilterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface FilterAllFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FilterAllFilter)
+      com.google.protobuf.MessageOrBuilder {
   }
   /**
    * Protobuf type {@code FilterAllFilter}
    */
   public static final class FilterAllFilter extends
-      com.google.protobuf.GeneratedMessage
-      implements FilterAllFilterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:FilterAllFilter)
+      FilterAllFilterOrBuilder {
     // Use FilterAllFilter.newBuilder() to construct.
     private FilterAllFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -15640,7 +15619,8 @@ public final class FilterProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -15686,7 +15666,6 @@ public final class FilterProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -15769,8 +15748,9 @@ public final class FilterProtos {
      * Protobuf type {@code FilterAllFilter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterAllFilterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FilterAllFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.FilterAllFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_FilterAllFilter_descriptor;
@@ -15881,146 +15861,1569 @@ public final class FilterProtos {
     // @@protoc_insertion_point(class_scope:FilterAllFilter)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  public interface RowRangeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RowRange)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional bytes start_row = 1;</code>
+     */
+    boolean hasStartRow();
+    /**
+     * <code>optional bytes start_row = 1;</code>
+     */
+    com.google.protobuf.ByteString getStartRow();
+
+    /**
+     * <code>optional bool start_row_inclusive = 2;</code>
+     */
+    boolean hasStartRowInclusive();
+    /**
+     * <code>optional bool start_row_inclusive = 2;</code>
+     */
+    boolean getStartRowInclusive();
+
+    /**
+     * <code>optional bytes stop_row = 3;</code>
+     */
+    boolean hasStopRow();
+    /**
+     * <code>optional bytes stop_row = 3;</code>
+     */
+    com.google.protobuf.ByteString getStopRow();
+
+    /**
+     * <code>optional bool stop_row_inclusive = 4;</code>
+     */
+    boolean hasStopRowInclusive();
+    /**
+     * <code>optional bool stop_row_inclusive = 4;</code>
+     */
+    boolean getStopRowInclusive();
+  }
+  /**
+   * Protobuf type {@code RowRange}
+   */
+  public static final class RowRange extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:RowRange)
+      RowRangeOrBuilder {
+    // Use RowRange.newBuilder() to construct.
+    private RowRange(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private RowRange(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final RowRange defaultInstance;
+    public static RowRange getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public RowRange getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RowRange(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              startRow_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              startRowInclusive_ = input.readBool();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              stopRow_ = input.readBytes();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              stopRowInclusive_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_RowRange_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_RowRange_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.class, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<RowRange> PARSER =
+        new com.google.protobuf.AbstractParser<RowRange>() {
+      public RowRange parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RowRange(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RowRange> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int START_ROW_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString startRow_;
+    /**
+     * <code>optional bytes start_row = 1;</code>
+     */
+    public boolean hasStartRow() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional bytes start_row = 1;</code>
+     */
+    public com.google.protobuf.ByteString getStartRow() {
+      return startRow_;
+    }
+
+    public static final int START_ROW_INCLUSIVE_FIELD_NUMBER = 2;
+    private boolean startRowInclusive_;
+    /**
+     * <code>optional bool start_row_inclusive = 2;</code>
+     */
+    public boolean hasStartRowInclusive() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional bool start_row_inclusive = 2;</code>
+     */
+    public boolean getStartRowInclusive() {
+      return startRowInclusive_;
+    }
+
+    public static final int STOP_ROW_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString stopRow_;
+    /**
+     * <code>optional bytes stop_row = 3;</code>
+     */
+    public boolean hasStopRow() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional bytes stop_row = 3;</code>
+     */
+    public com.google.protobuf.ByteString getStopRow() {
+      return stopRow_;
+    }
+
+    public static final int STOP_ROW_INCLUSIVE_FIELD_NUMBER = 4;
+    private boolean stopRowInclusive_;
+    /**
+     * <code>optional bool stop_row_inclusive = 4;</code>
+     */
+    public boolean hasStopRowInclusive() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional bool stop_row_inclusive = 4;</code>
+     */
+    public boolean getStopRowInclusive() {
+      return stopRowInclusive_;
+    }
+
+    private void initFields() {
+      startRow_ = com.google.protobuf.ByteString.EMPTY;
+      startRowInclusive_ = false;
+      stopRow_ = com.google.protobuf.ByteString.EMPTY;
+      stopRowInclusive_ = false;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, startRow_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(2, startRowInclusive_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, stopRow_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBool(4, stopRowInclusive_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, startRow_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, startRowInclusive_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, stopRow_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, stopRowInclusive_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange)) {
+        return super.equals(obj);
+      }
+      org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange other = (org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange) obj;
+
+      boolean result = true;
+      result = result && (hasStartRow() == other.hasStartRow());
+      if (hasStartRow()) {
+        result = result && getStartRow()
+            .equals(other.getStartRow());
+      }
+      result = result && (hasStartRowInclusive() == other.hasStartRowInclusive());
+      if (hasStartRowInclusive()) {
+        result = result && (getStartRowInclusive()
+            == other.getStartRowInclusive());
+      }
+      result = result && (hasStopRow() == other.hasStopRow());
+      if (hasStopRow()) {
+        result = result && getStopRow()
+            .equals(other.getStopRow());
+      }
+      result = result && (hasStopRowInclusive() == other.hasStopRowInclusive());
+      if (hasStopRowInclusive()) {
+        result = result && (getStopRowInclusive()
+            == other.getStopRowInclusive());
+      }
+      result = result &&
+          getUnknownFields().equals(other.getUnknownFields());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasStartRow()) {
+        hash = (37 * hash) + START_ROW_FIELD_NUMBER;
+        hash = (53 * hash) + getStartRow().hashCode();
+      }
+      if (hasStartRowInclusive()) {
+        hash = (37 * hash) + START_ROW_INCLUSIVE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getStartRowInclusive());
+      }
+      if (hasStopRow()) {
+        hash = (37 * hash) + STOP_ROW_FIELD_NUMBER;
+        hash = (53 * hash) + getStopRow().hashCode();
+      }
+      if (hasStopRowInclusive()) {
+        hash = (37 * hash) + STOP_ROW_INCLUSIVE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getStopRowInclusive());
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code RowRange}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RowRange)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRangeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_RowRange_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_RowRange_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.class, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.Builder.class);
+      }
+
+      // Construct using org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        startRow_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        startRowInclusive_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        stopRow_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        stopRowInclusive_ = false;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_RowRange_descriptor;
+      }
+
+      public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange getDefaultInstanceForType() {
+        return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.getDefaultInstance();
+      }
+
+      public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange build() {
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange buildPartial() {
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange result = new org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.startRow_ = startRow_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.startRowInclusive_ = startRowInclusive_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.stopRow_ = stopRow_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.stopRowInclusive_ = stopRowInclusive_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange) {
+          return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange other) {
+        if (other == org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.getDefaultInstance()) return this;
+        if (other.hasStartRow()) {
+          setStartRow(other.getStartRow());
+        }
+        if (other.hasStartRowInclusive()) {
+          setStartRowInclusive(other.getStartRowInclusive());
+        }
+        if (other.hasStopRow()) {
+          setStopRow(other.getStopRow());
+        }
+        if (other.hasStopRowInclusive()) {
+          setStopRowInclusive(other.getStopRowInclusive());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.ByteString startRow_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes start_row = 1;</code>
+       */
+      public boolean hasStartRow() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional bytes start_row = 1;</code>
+       */
+      public com.google.protobuf.ByteString getStartRow() {
+        return startRow_;
+      }
+      /**
+       * <code>optional bytes start_row = 1;</code>
+       */
+      public Builder setStartRow(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        startRow_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes start_row = 1;</code>
+       */
+      public Builder clearStartRow() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        startRow_ = getDefaultInstance().getStartRow();
+        onChanged();
+        return this;
+      }
+
+      private boolean startRowInclusive_ ;
+      /**
+       * <code>optional bool start_row_inclusive = 2;</code>
+       */
+      public boolean hasStartRowInclusive() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional bool start_row_inclusive = 2;</code>
+       */
+      public boolean getStartRowInclusive() {
+        return startRowInclusive_;
+      }
+      /**
+       * <code>optional bool start_row_inclusive = 2;</code>
+       */
+      public Builder setStartRowInclusive(boolean value) {
+        bitField0_ |= 0x00000002;
+        startRowInclusive_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool start_row_inclusive = 2;</code>
+       */
+      public Builder clearStartRowInclusive() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        startRowInclusive_ = false;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString stopRow_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes stop_row = 3;</code>
+       */
+      public boolean hasStopRow() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional bytes stop_row = 3;</code>
+       */
+      public com.google.protobuf.ByteString getStopRow() {
+        return stopRow_;
+      }
+      /**
+       * <code>optional bytes stop_row = 3;</code>
+       */
+      public Builder setStopRow(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        stopRow_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes stop_row = 3;</code>
+       */
+      public Builder clearStopRow() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        stopRow_ = getDefaultInstance().getStopRow();
+        onChanged();
+        return this;
+      }
+
+      private boolean stopRowInclusive_ ;
+      /**
+       * <code>optional bool stop_row_inclusive = 4;</code>
+       */
+      public boolean hasStopRowInclusive() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional bool stop_row_inclusive = 4;</code>
+       */
+      public boolean getStopRowInclusive() {
+        return stopRowInclusive_;
+      }
+      /**
+       * <code>optional bool stop_row_inclusive = 4;</code>
+       */
+      public Builder setStopRowInclusive(boolean value) {
+        bitField0_ |= 0x00000008;
+        stopRowInclusive_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool stop_row_inclusive = 4;</code>
+       */
+      public Builder clearStopRowInclusive() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        stopRowInclusive_ = false;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:RowRange)
+    }
+
+    static {
+      defaultInstance = new RowRange(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:RowRange)
+  }
+
+  public interface MultiRowRangeFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:MultiRowRangeFilter)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .RowRange row_range_list = 1;</code>
+     */
+    java.util.List<org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange> 
+        getRowRangeListList();
+    /**
+     * <code>repeated .RowRange row_range_list = 1;</code>
+     */
+    org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange getRowRangeList(int index);
+    /**
+     * <code>repeated .RowRange row_range_list = 1;</code>
+     */
+    int getRowRangeListCount();
+    /**
+     * <code>repeated .RowRange row_range_list = 1;</code>
+     */
+    java.util.List<? extends org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRangeOrBuilder> 
+        getRowRangeListOrBuilderList();
+    /**
+     * <code>repeated .RowRange row_range_list = 1;</code>
+     */
+    org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRangeOrBuilder getRowRangeListOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code MultiRowRangeFilter}
+   */
+  public static final class MultiRowRangeFilter extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:MultiRowRangeFilter)
+      MultiRowRangeFilterOrBuilder {
+    // Use MultiRowRangeFilter.newBuilder() to construct.
+    private MultiRowRangeFilter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private MultiRowRangeFilter(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final MultiRowRangeFilter defaultInstance;
+    public static MultiRowRangeFilter getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public MultiRowRangeFilter getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MultiRowRangeFilter(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                rowRangeList_ = new java.util.ArrayList<org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              rowRangeList_.add(input.readMessage(org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          rowRangeList_ = java.util.Collections.unmodifiableList(rowRangeList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_MultiRowRangeFilter_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_MultiRowRangeFilter_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter.class, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<MultiRowRangeFilter> PARSER =
+        new com.google.protobuf.AbstractParser<MultiRowRangeFilter>() {
+      public MultiRowRangeFilter parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MultiRowRangeFilter(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MultiRowRangeFilter> getParserForType() {
+      return PARSER;
+    }
+
+    public static final int ROW_RANGE_LIST_FIELD_NUMBER = 1;
+    private java.util.List<org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange> rowRangeList_;
+    /**
+     * <code>repeated .RowRange row_range_list = 1;</code>
+     */
+    public java.util.List<org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange> getRowRangeListList() {
+      return rowRangeList_;
+    }
+    /**
+     * <code>repeated .RowRange row_range_list = 1;</code>
+     */
+    public java.util.List<? extends org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRangeOrBuilder> 
+        getRowRangeListOrBuilderList() {
+      return rowRangeList_;
+    }
+    /**
+     * <code>repeated .RowRange row_range_list = 1;</code>
+     */
+    public int getRowRangeListCount() {
+      return rowRangeList_.size();
+    }
+    /**
+     * <code>repeated .RowRange row_range_list = 1;</code>
+     */
+    public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange getRowRangeList(int index) {
+      return rowRangeList_.get(index);
+    }
+    /**
+     * <code>repeated .RowRange row_range_list = 1;</code>
+     */
+    public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRangeOrBuilder getRowRangeListOrBuilder(
+        int index) {
+      return rowRangeList_.get(index);
+    }
+
+    private void initFields() {
+      rowRangeList_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < rowRangeList_.size(); i++) {
+        output.writeMessage(1, rowRangeList_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < rowRangeList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, rowRangeList_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter)) {
+        return super.equals(obj);
+      }
+      org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter other = (org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter) obj;
+
+      boolean result = true;
+      result = result && getRowRangeListList()
+          .equals(other.getRowRangeListList());
+      result = result &&
+          getUnknownFields().equals(other.getUnknownFields());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (getRowRangeListCount() > 0) {
+        hash = (37 * hash) + ROW_RANGE_LIST_FIELD_NUMBER;
+        hash = (53 * hash) + getRowRangeListList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code MultiRowRangeFilter}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:MultiRowRangeFilter)
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilterOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_MultiRowRangeFilter_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_MultiRowRangeFilter_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter.class, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter.Builder.class);
+      }
+
+      // Construct using org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getRowRangeListFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (rowRangeListBuilder_ == null) {
+          rowRangeList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          rowRangeListBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.internal_static_MultiRowRangeFilter_descriptor;
+      }
+
+      public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter getDefaultInstanceForType() {
+        return org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter.getDefaultInstance();
+      }
+
+      public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter build() {
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter buildPartial() {
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter result = new org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter(this);
+        int from_bitField0_ = bitField0_;
+        if (rowRangeListBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            rowRangeList_ = java.util.Collections.unmodifiableList(rowRangeList_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.rowRangeList_ = rowRangeList_;
+        } else {
+          result.rowRangeList_ = rowRangeListBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter) {
+          return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter other) {
+        if (other == org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter.getDefaultInstance()) return this;
+        if (rowRangeListBuilder_ == null) {
+          if (!other.rowRangeList_.isEmpty()) {
+            if (rowRangeList_.isEmpty()) {
+              rowRangeList_ = other.rowRangeList_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureRowRangeListIsMutable();
+              rowRangeList_.addAll(other.rowRangeList_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.rowRangeList_.isEmpty()) {
+            if (rowRangeListBuilder_.isEmpty()) {
+              rowRangeListBuilder_.dispose();
+              rowRangeListBuilder_ = null;
+              rowRangeList_ = other.rowRangeList_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              rowRangeListBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getRowRangeListFieldBuilder() : null;
+            } else {
+              rowRangeListBuilder_.addAllMessages(other.rowRangeList_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.FilterProtos.MultiRowRangeFilter) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange> rowRangeList_ =
+        java.util.Collections.emptyList();
+      private void ensureRowRangeListIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          rowRangeList_ = new java.util.ArrayList<org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange>(rowRangeList_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRangeOrBuilder> rowRangeListBuilder_;
+
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public java.util.List<org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange> getRowRangeListList() {
+        if (rowRangeListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(rowRangeList_);
+        } else {
+          return rowRangeListBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public int getRowRangeListCount() {
+        if (rowRangeListBuilder_ == null) {
+          return rowRangeList_.size();
+        } else {
+          return rowRangeListBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange getRowRangeList(int index) {
+        if (rowRangeListBuilder_ == null) {
+          return rowRangeList_.get(index);
+        } else {
+          return rowRangeListBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public Builder setRowRangeList(
+          int index, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange value) {
+        if (rowRangeListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRowRangeListIsMutable();
+          rowRangeList_.set(index, value);
+          onChanged();
+        } else {
+          rowRangeListBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public Builder setRowRangeList(
+          int index, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.Builder builderForValue) {
+        if (rowRangeListBuilder_ == null) {
+          ensureRowRangeListIsMutable();
+          rowRangeList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          rowRangeListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public Builder addRowRangeList(org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange value) {
+        if (rowRangeListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRowRangeListIsMutable();
+          rowRangeList_.add(value);
+          onChanged();
+        } else {
+          rowRangeListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public Builder addRowRangeList(
+          int index, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange value) {
+        if (rowRangeListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRowRangeListIsMutable();
+          rowRangeList_.add(index, value);
+          onChanged();
+        } else {
+          rowRangeListBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public Builder addRowRangeList(
+          org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.Builder builderForValue) {
+        if (rowRangeListBuilder_ == null) {
+          ensureRowRangeListIsMutable();
+          rowRangeList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          rowRangeListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public Builder addRowRangeList(
+          int index, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.Builder builderForValue) {
+        if (rowRangeListBuilder_ == null) {
+          ensureRowRangeListIsMutable();
+          rowRangeList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          rowRangeListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public Builder addAllRowRangeList(
+          java.lang.Iterable<? extends org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange> values) {
+        if (rowRangeListBuilder_ == null) {
+          ensureRowRangeListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, rowRangeList_);
+          onChanged();
+        } else {
+          rowRangeListBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public Builder clearRowRangeList() {
+        if (rowRangeListBuilder_ == null) {
+          rowRangeList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          rowRangeListBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public Builder removeRowRangeList(int index) {
+        if (rowRangeListBuilder_ == null) {
+          ensureRowRangeListIsMutable();
+          rowRangeList_.remove(index);
+          onChanged();
+        } else {
+          rowRangeListBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.Builder getRowRangeListBuilder(
+          int index) {
+        return getRowRangeListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRangeOrBuilder getRowRangeListOrBuilder(
+          int index) {
+        if (rowRangeListBuilder_ == null) {
+          return rowRangeList_.get(index);  } else {
+          return rowRangeListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public java.util.List<? extends org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRangeOrBuilder> 
+           getRowRangeListOrBuilderList() {
+        if (rowRangeListBuilder_ != null) {
+          return rowRangeListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(rowRangeList_);
+        }
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.Builder addRowRangeListBuilder() {
+        return getRowRangeListFieldBuilder().addBuilder(
+            org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.Builder addRowRangeListBuilder(
+          int index) {
+        return getRowRangeListFieldBuilder().addBuilder(
+            index, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .RowRange row_range_list = 1;</code>
+       */
+      public java.util.List<org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.Builder> 
+           getRowRangeListBuilderList() {
+        return getRowRangeListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRangeOrBuilder> 
+          getRowRangeListFieldBuilder() {
+        if (rowRangeListBuilder_ == null) {
+          rowRangeListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRange.Builder, org.apache.hadoop.hbase.protobuf.generated.FilterProtos.RowRangeOrBuilder>(
+                  rowRangeList_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          rowRangeList_ = null;
+        }
+        return rowRangeListBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:MultiRowRangeFilter)
+    }
+
+    static {
+      defaultInstance = new MultiRowRangeFilter(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:MultiRowRangeFilter)
+  }
+
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Filter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_Filter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ColumnCountGetFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ColumnCountGetFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ColumnPaginationFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ColumnPaginationFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ColumnPrefixFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ColumnPrefixFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ColumnRangeFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ColumnRangeFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CompareFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_CompareFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_DependentColumnFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_DependentColumnFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_FamilyFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_FamilyFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_FilterList_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_FilterList_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_FilterWrapper_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_FilterWrapper_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_FirstKeyOnlyFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_FirstKeyOnlyFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_FirstKeyValueMatchingQualifiersFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_FirstKeyValueMatchingQualifiersFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_FuzzyRowFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_FuzzyRowFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_InclusiveStopFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_InclusiveStopFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_KeyOnlyFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_KeyOnlyFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_MultipleColumnPrefixFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_MultipleColumnPrefixFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_PageFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_PageFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_PrefixFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_PrefixFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_QualifierFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_QualifierFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_RandomRowFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_RandomRowFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_RowFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_RowFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SingleColumnValueExcludeFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_SingleColumnValueExcludeFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SingleColumnValueFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_SingleColumnValueFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SkipFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_SkipFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TimestampsFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_TimestampsFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ValueFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ValueFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_WhileMatchFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_WhileMatchFilter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_FilterAllFilter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_FilterAllFilter_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RowRange_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_RowRange_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MultiRowRangeFilter_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MultiRowRangeFilter_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -16075,192 +17478,210 @@ public final class FilterProtos {
       "\022\026\n\ntimestamps\030\001 \003(\003B\002\020\001\"5\n\013ValueFilter\022" +
       "&\n\016compare_filter\030\001 \002(\0132\016.CompareFilter\"" +
       "+\n\020WhileMatchFilter\022\027\n\006filter\030\001 \002(\0132\007.Fi" +
-      "lter\"\021\n\017FilterAllFilterBB\n*org.apache.ha" +
-      "doop.hbase.protobuf.generatedB\014FilterPro" +
-      "tosH\001\210\001\001\240\001\001"
+      "lter\"\021\n\017FilterAllFilter\"h\n\010RowRange\022\021\n\ts" +
+      "tart_row\030\001 \001(\014\022\033\n\023start_row_inclusive\030\002 " +
+      "\001(\010\022\020\n\010stop_row\030\003 \001(\014\022\032\n\022stop_row_inclus" +
+      "ive\030\004 \001(\010\"8\n\023MultiRowRangeFilter\022!\n\016row_" +
+      "range_list\030\001 \003(\0132\t.RowRangeBB\n*org.apach",
+      "e.hadoop.hbase.protobuf.generatedB\014Filte" +
+      "rProtosH\001\210\001\001\240\001\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_Filter_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_Filter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_Filter_descriptor,
-              new java.lang.String[] { "Name", "SerializedFilter", });
-          internal_static_ColumnCountGetFilter_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_ColumnCountGetFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ColumnCountGetFilter_descriptor,
-              new java.lang.String[] { "Limit", });
-          internal_static_ColumnPaginationFilter_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_ColumnPaginationFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ColumnPaginationFilter_descriptor,
-              new java.lang.String[] { "Limit", "Offset", "ColumnOffset", });
-          internal_static_ColumnPrefixFilter_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-          internal_static_ColumnPrefixFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ColumnPrefixFilter_descriptor,
-              new java.lang.String[] { "Prefix", });
-          internal_static_ColumnRangeFilter_descriptor =
-            getDescriptor().getMessageTypes().get(4);
-          internal_static_ColumnRangeFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ColumnRangeFilter_descriptor,
-              new java.lang.String[] { "MinColumn", "MinColumnInclusive", "MaxColumn", "MaxColumnInclusive", });
-          internal_static_CompareFilter_descriptor =
-            getDescriptor().getMessageTypes().get(5);
-          internal_static_CompareFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_CompareFilter_descriptor,
-              new java.lang.String[] { "CompareOp", "Comparator", });
-          internal_static_DependentColumnFilter_descriptor =
-            getDescriptor().getMessageTypes().get(6);
-          internal_static_DependentColumnFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_DependentColumnFilter_descriptor,
-              new java.lang.String[] { "CompareFilter", "ColumnFamily", "ColumnQualifier", "DropDependentColumn", });
-          internal_static_FamilyFilter_descriptor =
-            getDescriptor().getMessageTypes().get(7);
-          internal_static_FamilyFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_FamilyFilter_descriptor,
-              new java.lang.String[] { "CompareFilter", });
-          internal_static_FilterList_descriptor =
-            getDescriptor().getMessageTypes().get(8);
-          internal_static_FilterList_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_FilterList_descriptor,
-              new java.lang.String[] { "Operator", "Filters", });
-          internal_static_FilterWrapper_descriptor =
-            getDescriptor().getMessageTypes().get(9);
-          internal_static_FilterWrapper_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_FilterWrapper_descriptor,
-              new java.lang.String[] { "Filter", });
-          internal_static_FirstKeyOnlyFilter_descriptor =
-            getDescriptor().getMessageTypes().get(10);
-          internal_static_FirstKeyOnlyFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_FirstKeyOnlyFilter_descriptor,
-              new java.lang.String[] { });
-          internal_static_FirstKeyValueMatchingQualifiersFilter_descriptor =
-            getDescriptor().getMessageTypes().get(11);
-          internal_static_FirstKeyValueMatchingQualifiersFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_FirstKeyValueMatchingQualifiersFilter_descriptor,
-              new java.lang.String[] { "Qualifiers", });
-          internal_static_FuzzyRowFilter_descriptor =
-            getDescriptor().getMessageTypes().get(12);
-          internal_static_FuzzyRowFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_FuzzyRowFilter_descriptor,
-              new java.lang.String[] { "FuzzyKeysData", });
-          internal_static_InclusiveStopFilter_descriptor =
-            getDescriptor().getMessageTypes().get(13);
-          internal_static_InclusiveStopFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_InclusiveStopFilter_descriptor,
-              new java.lang.String[] { "StopRowKey", });
-          internal_static_KeyOnlyFilter_descriptor =
-            getDescriptor().getMessageTypes().get(14);
-          internal_static_KeyOnlyFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_KeyOnlyFilter_descriptor,
-              new java.lang.String[] { "LenAsVal", });
-          internal_static_MultipleColumnPrefixFilter_descriptor =
-            getDescriptor().getMessageTypes().get(15);
-          internal_static_MultipleColumnPrefixFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_MultipleColumnPrefixFilter_descriptor,
-              new java.lang.String[] { "SortedPrefixes", });
-          internal_static_PageFilter_descriptor =
-            getDescriptor().getMessageTypes().get(16);
-          internal_static_PageFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_PageFilter_descriptor,
-              new java.lang.String[] { "PageSize", });
-          internal_static_PrefixFilter_descriptor =
-            getDescriptor().getMessageTypes().get(17);
-          internal_static_PrefixFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_PrefixFilter_descriptor,
-              new java.lang.String[] { "Prefix", });
-          internal_static_QualifierFilter_descriptor =
-            getDescriptor().getMessageTypes().get(18);
-          internal_static_QualifierFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_QualifierFilter_descriptor,
-              new java.lang.String[] { "CompareFilter", });
-          internal_static_RandomRowFilter_descriptor =
-            getDescriptor().getMessageTypes().get(19);
-          internal_static_RandomRowFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_RandomRowFilter_descriptor,
-              new java.lang.String[] { "Chance", });
-          internal_static_RowFilter_descriptor =
-            getDescriptor().getMessageTypes().get(20);
-          internal_static_RowFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_RowFilter_descriptor,
-              new java.lang.String[] { "CompareFilter", });
-          internal_static_SingleColumnValueExcludeFilter_descriptor =
-            getDescriptor().getMessageTypes().get(21);
-          internal_static_SingleColumnValueExcludeFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_SingleColumnValueExcludeFilter_descriptor,
-              new java.lang.String[] { "SingleColumnValueFilter", });
-          internal_static_SingleColumnValueFilter_descriptor =
-            getDescriptor().getMessageTypes().get(22);
-          internal_static_SingleColumnValueFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_SingleColumnValueFilter_descriptor,
-              new java.lang.String[] { "ColumnFamily", "ColumnQualifier", "CompareOp", "Comparator", "FilterIfMissing", "LatestVersionOnly", });
-          internal_static_SkipFilter_descriptor =
-            getDescriptor().getMessageTypes().get(23);
-          internal_static_SkipFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_SkipFilter_descriptor,
-              new java.lang.String[] { "Filter", });
-          internal_static_TimestampsFilter_descriptor =
-            getDescriptor().getMessageTypes().get(24);
-          internal_static_TimestampsFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_TimestampsFilter_descriptor,
-              new java.lang.String[] { "Timestamps", });
-          internal_static_ValueFilter_descriptor =
-            getDescriptor().getMessageTypes().get(25);
-          internal_static_ValueFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ValueFilter_descriptor,
-              new java.lang.String[] { "CompareFilter", });
-          internal_static_WhileMatchFilter_descriptor =
-            getDescriptor().getMessageTypes().get(26);
-          internal_static_WhileMatchFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_WhileMatchFilter_descriptor,
-              new java.lang.String[] { "Filter", });
-          internal_static_FilterAllFilter_descriptor =
-            getDescriptor().getMessageTypes().get(27);
-          internal_static_FilterAllFilter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_FilterAllFilter_descriptor,
-              new java.lang.String[] { });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.getDescriptor(),
           org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.getDescriptor(),
         }, assigner);
+    internal_static_Filter_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_Filter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_Filter_descriptor,
+        new java.lang.String[] { "Name", "SerializedFilter", });
+    internal_static_ColumnCountGetFilter_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_ColumnCountGetFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_ColumnCountGetFilter_descriptor,
+        new java.lang.String[] { "Limit", });
+    internal_static_ColumnPaginationFilter_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_ColumnPaginationFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_ColumnPaginationFilter_descriptor,
+        new java.lang.String[] { "Limit", "Offset", "ColumnOffset", });
+    internal_static_ColumnPrefixFilter_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_ColumnPrefixFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_ColumnPrefixFilter_descriptor,
+        new java.lang.String[] { "Prefix", });
+    internal_static_ColumnRangeFilter_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_ColumnRangeFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_ColumnRangeFilter_descriptor,
+        new java.lang.String[] { "MinColumn", "MinColumnInclusive", "MaxColumn", "MaxColumnInclusive", });
+    internal_static_CompareFilter_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_CompareFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_CompareFilter_descriptor,
+        new java.lang.String[] { "CompareOp", "Comparator", });
+    internal_static_DependentColumnFilter_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_DependentColumnFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_DependentColumnFilter_descriptor,
+        new java.lang.String[] { "CompareFilter", "ColumnFamily", "ColumnQualifier", "DropDependentColumn", });
+    internal_static_FamilyFilter_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_FamilyFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_FamilyFilter_descriptor,
+        new java.lang.String[] { "CompareFilter", });
+    internal_static_FilterList_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_FilterList_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_FilterList_descriptor,
+        new java.lang.String[] { "Operator", "Filters", });
+    internal_static_FilterWrapper_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_FilterWrapper_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_FilterWrapper_descriptor,
+        new java.lang.String[] { "Filter", });
+    internal_static_FirstKeyOnlyFilter_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_FirstKeyOnlyFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_FirstKeyOnlyFilter_descriptor,
+        new java.lang.String[] { });
+    internal_static_FirstKeyValueMatchingQualifiersFilter_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_FirstKeyValueMatchingQualifiersFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_FirstKeyValueMatchingQualifiersFilter_descriptor,
+        new java.lang.String[] { "Qualifiers", });
+    internal_static_FuzzyRowFilter_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_FuzzyRowFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_FuzzyRowFilter_descriptor,
+        new java.lang.String[] { "FuzzyKeysData", });
+    internal_static_InclusiveStopFilter_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_InclusiveStopFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_InclusiveStopFilter_descriptor,
+        new java.lang.String[] { "StopRowKey", });
+    internal_static_KeyOnlyFilter_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_KeyOnlyFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_KeyOnlyFilter_descriptor,
+        new java.lang.String[] { "LenAsVal", });
+    internal_static_MultipleColumnPrefixFilter_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_MultipleColumnPrefixFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_MultipleColumnPrefixFilter_descriptor,
+        new java.lang.String[] { "SortedPrefixes", });
+    internal_static_PageFilter_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_PageFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_PageFilter_descriptor,
+        new java.lang.String[] { "PageSize", });
+    internal_static_PrefixFilter_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_PrefixFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_PrefixFilter_descriptor,
+        new java.lang.String[] { "Prefix", });
+    internal_static_QualifierFilter_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_QualifierFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_QualifierFilter_descriptor,
+        new java.lang.String[] { "CompareFilter", });
+    internal_static_RandomRowFilter_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_RandomRowFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_RandomRowFilter_descriptor,
+        new java.lang.String[] { "Chance", });
+    internal_static_RowFilter_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_RowFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_RowFilter_descriptor,
+        new java.lang.String[] { "CompareFilter", });
+    internal_static_SingleColumnValueExcludeFilter_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_SingleColumnValueExcludeFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_SingleColumnValueExcludeFilter_descriptor,
+        new java.lang.String[] { "SingleColumnValueFilter", });
+    internal_static_SingleColumnValueFilter_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_SingleColumnValueFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_SingleColumnValueFilter_descriptor,
+        new java.lang.String[] { "ColumnFamily", "ColumnQualifier", "CompareOp", "Comparator", "FilterIfMissing", "LatestVersionOnly", });
+    internal_static_SkipFilter_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_SkipFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_SkipFilter_descriptor,
+        new java.lang.String[] { "Filter", });
+    internal_static_TimestampsFilter_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_TimestampsFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_TimestampsFilter_descriptor,
+        new java.lang.String[] { "Timestamps", });
+    internal_static_ValueFilter_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_ValueFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_ValueFilter_descriptor,
+        new java.lang.String[] { "CompareFilter", });
+    internal_static_WhileMatchFilter_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_WhileMatchFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_WhileMatchFilter_descriptor,
+        new java.lang.String[] { "Filter", });
+    internal_static_FilterAllFilter_descriptor =
+      getDescriptor().getMessageTypes().get(27);
+    internal_static_FilterAllFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_FilterAllFilter_descriptor,
+        new java.lang.String[] { });
+    internal_static_RowRange_descriptor =
+      getDescriptor().getMessageTypes().get(28);
+    internal_static_RowRange_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_RowRange_descriptor,
+        new java.lang.String[] { "StartRow", "StartRowInclusive", "StopRow", "StopRowInclusive", });
+    internal_static_MultiRowRangeFilter_descriptor =
+      getDescriptor().getMessageTypes().get(29);
+    internal_static_MultiRowRangeFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_MultiRowRangeFilter_descriptor,
+        new java.lang.String[] { "RowRangeList", });
+    org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.getDescriptor();
+    org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

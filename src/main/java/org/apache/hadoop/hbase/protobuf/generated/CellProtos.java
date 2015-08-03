@@ -139,10 +139,10 @@ public final class CellProtos {
     // @@protoc_insertion_point(enum_scope:CellType)
   }
 
-  public interface CellOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface CellOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Cell)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional bytes row = 1;
     /**
      * <code>optional bytes row = 1;</code>
      */
@@ -152,7 +152,6 @@ public final class CellProtos {
      */
     com.google.protobuf.ByteString getRow();
 
-    // optional bytes family = 2;
     /**
      * <code>optional bytes family = 2;</code>
      */
@@ -162,7 +161,6 @@ public final class CellProtos {
      */
     com.google.protobuf.ByteString getFamily();
 
-    // optional bytes qualifier = 3;
     /**
      * <code>optional bytes qualifier = 3;</code>
      */
@@ -172,7 +170,6 @@ public final class CellProtos {
      */
     com.google.protobuf.ByteString getQualifier();
 
-    // optional uint64 timestamp = 4;
     /**
      * <code>optional uint64 timestamp = 4;</code>
      */
@@ -182,7 +179,6 @@ public final class CellProtos {
      */
     long getTimestamp();
 
-    // optional .CellType cell_type = 5;
     /**
      * <code>optional .CellType cell_type = 5;</code>
      */
@@ -192,7 +188,6 @@ public final class CellProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.CellProtos.CellType getCellType();
 
-    // optional bytes value = 6;
     /**
      * <code>optional bytes value = 6;</code>
      */
@@ -202,7 +197,6 @@ public final class CellProtos {
      */
     com.google.protobuf.ByteString getValue();
 
-    // optional bytes tags = 7;
     /**
      * <code>optional bytes tags = 7;</code>
      */
@@ -221,8 +215,9 @@ public final class CellProtos {
    * </pre>
    */
   public static final class Cell extends
-      com.google.protobuf.GeneratedMessage
-      implements CellOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:Cell)
+      CellOrBuilder {
     // Use Cell.newBuilder() to construct.
     private Cell(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -349,7 +344,6 @@ public final class CellProtos {
     }
 
     private int bitField0_;
-    // optional bytes row = 1;
     public static final int ROW_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString row_;
     /**
@@ -365,7 +359,6 @@ public final class CellProtos {
       return row_;
     }
 
-    // optional bytes family = 2;
     public static final int FAMILY_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString family_;
     /**
@@ -381,7 +374,6 @@ public final class CellProtos {
       return family_;
     }
 
-    // optional bytes qualifier = 3;
     public static final int QUALIFIER_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString qualifier_;
     /**
@@ -397,7 +389,6 @@ public final class CellProtos {
       return qualifier_;
     }
 
-    // optional uint64 timestamp = 4;
     public static final int TIMESTAMP_FIELD_NUMBER = 4;
     private long timestamp_;
     /**
@@ -413,7 +404,6 @@ public final class CellProtos {
       return timestamp_;
     }
 
-    // optional .CellType cell_type = 5;
     public static final int CELL_TYPE_FIELD_NUMBER = 5;
     private org.apache.hadoop.hbase.protobuf.generated.CellProtos.CellType cellType_;
     /**
@@ -429,7 +419,6 @@ public final class CellProtos {
       return cellType_;
     }
 
-    // optional bytes value = 6;
     public static final int VALUE_FIELD_NUMBER = 6;
     private com.google.protobuf.ByteString value_;
     /**
@@ -445,7 +434,6 @@ public final class CellProtos {
       return value_;
     }
 
-    // optional bytes tags = 7;
     public static final int TAGS_FIELD_NUMBER = 7;
     private com.google.protobuf.ByteString tags_;
     /**
@@ -473,7 +461,8 @@ public final class CellProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -603,7 +592,6 @@ public final class CellProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -625,11 +613,13 @@ public final class CellProtos {
       }
       if (hasTimestamp()) {
         hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getTimestamp());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
       }
       if (hasCellType()) {
         hash = (37 * hash) + CELL_TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getCellType());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashEnum(
+            getCellType());
       }
       if (hasValue()) {
         hash = (37 * hash) + VALUE_FIELD_NUMBER;
@@ -719,8 +709,9 @@ public final class CellProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.CellProtos.CellOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Cell)
+        org.apache.hadoop.hbase.protobuf.generated.CellProtos.CellOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.CellProtos.internal_static_Cell_descriptor;
@@ -887,7 +878,6 @@ public final class CellProtos {
       }
       private int bitField0_;
 
-      // optional bytes row = 1;
       private com.google.protobuf.ByteString row_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes row = 1;</code>
@@ -923,7 +913,6 @@ public final class CellProtos {
         return this;
       }
 
-      // optional bytes family = 2;
       private com.google.protobuf.ByteString family_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes family = 2;</code>
@@ -959,7 +948,6 @@ public final class CellProtos {
         return this;
       }
 
-      // optional bytes qualifier = 3;
       private com.google.protobuf.ByteString qualifier_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes qualifier = 3;</code>
@@ -995,7 +983,6 @@ public final class CellProtos {
         return this;
       }
 
-      // optional uint64 timestamp = 4;
       private long timestamp_ ;
       /**
        * <code>optional uint64 timestamp = 4;</code>
@@ -1028,7 +1015,6 @@ public final class CellProtos {
         return this;
       }
 
-      // optional .CellType cell_type = 5;
       private org.apache.hadoop.hbase.protobuf.generated.CellProtos.CellType cellType_ = org.apache.hadoop.hbase.protobuf.generated.CellProtos.CellType.MINIMUM;
       /**
        * <code>optional .CellType cell_type = 5;</code>
@@ -1064,7 +1050,6 @@ public final class CellProtos {
         return this;
       }
 
-      // optional bytes value = 6;
       private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes value = 6;</code>
@@ -1100,7 +1085,6 @@ public final class CellProtos {
         return this;
       }
 
-      // optional bytes tags = 7;
       private com.google.protobuf.ByteString tags_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes tags = 7;</code>
@@ -1147,10 +1131,10 @@ public final class CellProtos {
     // @@protoc_insertion_point(class_scope:Cell)
   }
 
-  public interface KeyValueOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface KeyValueOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:KeyValue)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required bytes row = 1;
     /**
      * <code>required bytes row = 1;</code>
      */
@@ -1160,7 +1144,6 @@ public final class CellProtos {
      */
     com.google.protobuf.ByteString getRow();
 
-    // required bytes family = 2;
     /**
      * <code>required bytes family = 2;</code>
      */
@@ -1170,7 +1153,6 @@ public final class CellProtos {
      */
     com.google.protobuf.ByteString getFamily();
 
-    // required bytes qualifier = 3;
     /**
      * <code>required bytes qualifier = 3;</code>
      */
@@ -1180,7 +1162,6 @@ public final class CellProtos {
      */
     com.google.protobuf.ByteString getQualifier();
 
-    // optional uint64 timestamp = 4;
     /**
      * <code>optional uint64 timestamp = 4;</code>
      */
@@ -1190,7 +1171,6 @@ public final class CellProtos {
      */
     long getTimestamp();
 
-    // optional .CellType key_type = 5;
     /**
      * <code>optional .CellType key_type = 5;</code>
      */
@@ -1200,7 +1180,6 @@ public final class CellProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.CellProtos.CellType getKeyType();
 
-    // optional bytes value = 6;
     /**
      * <code>optional bytes value = 6;</code>
      */
@@ -1210,7 +1189,6 @@ public final class CellProtos {
      */
     com.google.protobuf.ByteString getValue();
 
-    // optional bytes tags = 7;
     /**
      * <code>optional bytes tags = 7;</code>
      */
@@ -1230,8 +1208,9 @@ public final class CellProtos {
    * </pre>
    */
   public static final class KeyValue extends
-      com.google.protobuf.GeneratedMessage
-      implements KeyValueOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:KeyValue)
+      KeyValueOrBuilder {
     // Use KeyValue.newBuilder() to construct.
     private KeyValue(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -1358,7 +1337,6 @@ public final class CellProtos {
     }
 
     private int bitField0_;
-    // required bytes row = 1;
     public static final int ROW_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString row_;
     /**
@@ -1374,7 +1352,6 @@ public final class CellProtos {
       return row_;
     }
 
-    // required bytes family = 2;
     public static final int FAMILY_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString family_;
     /**
@@ -1390,7 +1367,6 @@ public final class CellProtos {
       return family_;
     }
 
-    // required bytes qualifier = 3;
     public static final int QUALIFIER_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString qualifier_;
     /**
@@ -1406,7 +1382,6 @@ public final class CellProtos {
       return qualifier_;
     }
 
-    // optional uint64 timestamp = 4;
     public static final int TIMESTAMP_FIELD_NUMBER = 4;
     private long timestamp_;
     /**
@@ -1422,7 +1397,6 @@ public final class CellProtos {
       return timestamp_;
     }
 
-    // optional .CellType key_type = 5;
     public static final int KEY_TYPE_FIELD_NUMBER = 5;
     private org.apache.hadoop.hbase.protobuf.generated.CellProtos.CellType keyType_;
     /**
@@ -1438,7 +1412,6 @@ public final class CellProtos {
       return keyType_;
     }
 
-    // optional bytes value = 6;
     public static final int VALUE_FIELD_NUMBER = 6;
     private com.google.protobuf.ByteString value_;
     /**
@@ -1454,7 +1427,6 @@ public final class CellProtos {
       return value_;
     }
 
-    // optional bytes tags = 7;
     public static final int TAGS_FIELD_NUMBER = 7;
     private com.google.protobuf.ByteString tags_;
     /**
@@ -1482,7 +1454,8 @@ public final class CellProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasRow()) {
         memoizedIsInitialized = 0;
@@ -1624,7 +1597,6 @@ public final class CellProtos {
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -1646,11 +1618,13 @@ public final class CellProtos {
       }
       if (hasTimestamp()) {
         hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getTimestamp());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
       }
       if (hasKeyType()) {
         hash = (37 * hash) + KEY_TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getKeyType());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashEnum(
+            getKeyType());
       }
       if (hasValue()) {
         hash = (37 * hash) + VALUE_FIELD_NUMBER;
@@ -1741,8 +1715,9 @@ public final class CellProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.CellProtos.KeyValueOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:KeyValue)
+        org.apache.hadoop.hbase.protobuf.generated.CellProtos.KeyValueOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.CellProtos.internal_static_KeyValue_descriptor;
@@ -1921,7 +1896,6 @@ public final class CellProtos {
       }
       private int bitField0_;
 
-      // required bytes row = 1;
       private com.google.protobuf.ByteString row_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>required bytes row = 1;</code>
@@ -1957,7 +1931,6 @@ public final class CellProtos {
         return this;
       }
 
-      // required bytes family = 2;
       private com.google.protobuf.ByteString family_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>required bytes family = 2;</code>
@@ -1993,7 +1966,6 @@ public final class CellProtos {
         return this;
       }
 
-      // required bytes qualifier = 3;
       private com.google.protobuf.ByteString qualifier_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>required bytes qualifier = 3;</code>
@@ -2029,7 +2001,6 @@ public final class CellProtos {
         return this;
       }
 
-      // optional uint64 timestamp = 4;
       private long timestamp_ ;
       /**
        * <code>optional uint64 timestamp = 4;</code>
@@ -2062,7 +2033,6 @@ public final class CellProtos {
         return this;
       }
 
-      // optional .CellType key_type = 5;
       private org.apache.hadoop.hbase.protobuf.generated.CellProtos.CellType keyType_ = org.apache.hadoop.hbase.protobuf.generated.CellProtos.CellType.MINIMUM;
       /**
        * <code>optional .CellType key_type = 5;</code>
@@ -2098,7 +2068,6 @@ public final class CellProtos {
         return this;
       }
 
-      // optional bytes value = 6;
       private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes value = 6;</code>
@@ -2134,7 +2103,6 @@ public final class CellProtos {
         return this;
       }
 
-      // optional bytes tags = 7;
       private com.google.protobuf.ByteString tags_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes tags = 7;</code>
@@ -2181,12 +2149,12 @@ public final class CellProtos {
     // @@protoc_insertion_point(class_scope:KeyValue)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Cell_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_Cell_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_KeyValue_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -2214,29 +2182,29 @@ public final class CellProtos {
       "sH\001\240\001\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_Cell_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_Cell_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_Cell_descriptor,
-              new java.lang.String[] { "Row", "Family", "Qualifier", "Timestamp", "CellType", "Value", "Tags", });
-          internal_static_KeyValue_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_KeyValue_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_KeyValue_descriptor,
-              new java.lang.String[] { "Row", "Family", "Qualifier", "Timestamp", "KeyType", "Value", "Tags", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_Cell_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_Cell_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_Cell_descriptor,
+        new java.lang.String[] { "Row", "Family", "Qualifier", "Timestamp", "CellType", "Value", "Tags", });
+    internal_static_KeyValue_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_KeyValue_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_KeyValue_descriptor,
+        new java.lang.String[] { "Row", "Family", "Qualifier", "Timestamp", "KeyType", "Value", "Tags", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
