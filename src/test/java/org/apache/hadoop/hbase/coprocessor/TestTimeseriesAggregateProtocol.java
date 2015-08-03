@@ -17,9 +17,9 @@ import org.apache.hadoop.hbase.HBaseTestingUtility;
 import org.apache.hadoop.hbase.HConstants;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Durability;
-import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.client.coprocessor.LongColumnInterpreter;
 import org.apache.hadoop.hbase.client.coprocessor.TimeseriesAggregationClient;
 import org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.EmptyMsg;
@@ -69,10 +69,11 @@ public class TestTimeseriesAggregateProtocol {
     conf.set(CoprocessorHost.REGION_COPROCESSOR_CONF_KEY,
       "org.apache.hadoop.hbase.coprocessor.TimeseriesAggregateImplementation");
 
-    util.startMiniCluster(3);
-    HTable table = util.createTable(TEST_TABLE, TEST_FAMILY);
-    util.createTable(table.getTableName(), TEST_FAMILY, new byte[][] { HConstants.EMPTY_BYTE_ARRAY,
-        ROWS.get(rowSeperator1).getFirst(), ROWS.get(rowSeperator2).getFirst() });
+    util.startMiniCluster(1, 3);
+
+    Table table =
+        util.createTable(TEST_TABLE, TEST_FAMILY, new byte[][] {
+            ROWS.get(rowSeperator1).getFirst(), ROWS.get(rowSeperator2).getFirst() });
     /**
      * The testtable has one CQ which is always populated and one variable CQ for each row rowkey1:
      * CF:CQ CF:CQ1 rowKey2: CF:CQ CF:CQ2
@@ -159,6 +160,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> maximum = aClient.max(TEST_TABLE, ci, scan);
     assertEquals(results, maximum);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -188,6 +190,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> maximum = aClient.max(TEST_TABLE, ci, scan);
     assertEquals(results, maximum);
+    aClient.close();
   }
 
   /**
@@ -218,6 +221,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> maximum = aClient.max(TEST_TABLE, ci, scan);
     assertEquals(results, maximum);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -245,6 +249,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> maximum = aClient.max(TEST_TABLE, ci, scan);
     assertEquals(results, maximum);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -275,6 +280,7 @@ public class TestTimeseriesAggregateProtocol {
     results.put(1415916000000l, 99l);
     ConcurrentSkipListMap<Long, Long> maximum = aClient.max(TEST_TABLE, ci, scan);
     assertEquals(results, maximum);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -298,6 +304,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> maximum = aClient.max(TEST_TABLE, ci, scan);
     assertEquals(results, maximum);
+    aClient.close();
   }
 
   /**
@@ -332,6 +339,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> minimum = aClient.min(TEST_TABLE, ci, scan);
     assertEquals(results, minimum);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -361,6 +369,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> minimum = aClient.min(TEST_TABLE, ci, scan);
     assertEquals(results, minimum);
+    aClient.close();
   }
 
   /**
@@ -391,6 +400,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> minimum = aClient.min(TEST_TABLE, ci, scan);
     assertEquals(results, minimum);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -418,6 +428,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> minimum = aClient.min(TEST_TABLE, ci, scan);
     assertEquals(results, minimum);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -448,6 +459,7 @@ public class TestTimeseriesAggregateProtocol {
     results.put(1415916000000l, 0l);
     ConcurrentSkipListMap<Long, Long> minimum = aClient.min(TEST_TABLE, ci, scan);
     assertEquals(results, minimum);
+    aClient.close();
   }
 
   /**
@@ -482,6 +494,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> sums = aClient.sum(TEST_TABLE, ci, scan);
     assertEquals(results, sums);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -511,6 +524,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> sums = aClient.sum(TEST_TABLE, ci, scan);
     assertEquals(results, sums);
+    aClient.close();
   }
 
   /**
@@ -541,6 +555,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> sums = aClient.sum(TEST_TABLE, ci, scan);
     assertEquals(results, sums);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -568,6 +583,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Long> sums = aClient.sum(TEST_TABLE, ci, scan);
     assertEquals(results, sums);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -598,6 +614,7 @@ public class TestTimeseriesAggregateProtocol {
     results.put(1415916000000l, 24750l);
     ConcurrentSkipListMap<Long, Long> sums = aClient.sum(TEST_TABLE, ci, scan);
     assertEquals(results, sums);
+    aClient.close();
   }
 
   /**
@@ -632,6 +649,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Double> avgs = aClient.avg(TEST_TABLE, ci, scan);
     assertEquals(results, avgs);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -661,6 +679,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Double> avgs = aClient.avg(TEST_TABLE, ci, scan);
     assertEquals(results, avgs);
+    aClient.close();
   }
 
   /**
@@ -691,6 +710,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Double> avgs = aClient.avg(TEST_TABLE, ci, scan);
     assertEquals(results, avgs);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -718,6 +738,7 @@ public class TestTimeseriesAggregateProtocol {
 
     ConcurrentSkipListMap<Long, Double> avgs = aClient.avg(TEST_TABLE, ci, scan);
     assertEquals(results, avgs);
+    aClient.close();
   }
 
   @Test(timeout = 300000)
@@ -748,5 +769,6 @@ public class TestTimeseriesAggregateProtocol {
     results.put(1415916000000l, 49.5d);
     ConcurrentSkipListMap<Long, Double> avgs = aClient.avg(TEST_TABLE, ci, scan);
     assertEquals(results, avgs);
+    aClient.close();
   }
 }
