@@ -6,7 +6,7 @@
  * BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License
  * for the specific language governing permissions and limitations under the License.
  */
-package org.apache.hadoop.hbase.client.coprocessor;
+package org.apache.hadoop.hbase.coprocessor.client;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -25,6 +25,7 @@ import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.ConnectionFactory;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.client.Table;
+import org.apache.hadoop.hbase.client.coprocessor.Batch;
 import org.apache.hadoop.hbase.coprocessor.ColumnInterpreter;
 import org.apache.hadoop.hbase.ipc.BlockingRpcCallback;
 import org.apache.hadoop.hbase.ipc.ServerRpcController;
@@ -359,7 +360,7 @@ public class TimeseriesAggregationClient implements Closeable {
     class SumCallBack implements Batch.Callback<TimeseriesAggregateResponse> {
       ConcurrentSkipListMap<Long, S> sum = new ConcurrentSkipListMap<Long, S>();
 
-      ConcurrentSkipListMap<Long, S> getMax() {
+      ConcurrentSkipListMap<Long, S> getSum() {
         return sum;
       }
 
@@ -421,7 +422,7 @@ public class TimeseriesAggregationClient implements Closeable {
           // return null;
         }
       }, aSumCallBack);
-    return aSumCallBack.getMax();
+    return aSumCallBack.getSum();
   }
 
   /**

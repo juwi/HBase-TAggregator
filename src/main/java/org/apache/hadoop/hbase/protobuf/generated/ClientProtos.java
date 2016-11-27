@@ -1947,6 +1947,30 @@ public final class ClientProtos {
      * <code>optional .Consistency consistency = 12 [default = STRONG];</code>
      */
     org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Consistency getConsistency();
+
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+     */
+    java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange> 
+        getCfTimeRangeList();
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+     */
+    org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange getCfTimeRange(int index);
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+     */
+    int getCfTimeRangeCount();
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+     */
+    java.util.List<? extends org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder> 
+        getCfTimeRangeOrBuilderList();
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+     */
+    org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder getCfTimeRangeOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code Get}
@@ -2096,6 +2120,14 @@ public final class ClientProtos {
               }
               break;
             }
+            case 106: {
+              if (!((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
+                cfTimeRange_ = new java.util.ArrayList<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange>();
+                mutable_bitField0_ |= 0x00001000;
+              }
+              cfTimeRange_.add(input.readMessage(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.PARSER, extensionRegistry));
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2109,6 +2141,9 @@ public final class ClientProtos {
         }
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           attribute_ = java.util.Collections.unmodifiableList(attribute_);
+        }
+        if (((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
+          cfTimeRange_ = java.util.Collections.unmodifiableList(cfTimeRange_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2394,6 +2429,41 @@ public final class ClientProtos {
       return consistency_;
     }
 
+    public static final int CF_TIME_RANGE_FIELD_NUMBER = 13;
+    private java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange> cfTimeRange_;
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+     */
+    public java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange> getCfTimeRangeList() {
+      return cfTimeRange_;
+    }
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+     */
+    public java.util.List<? extends org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder> 
+        getCfTimeRangeOrBuilderList() {
+      return cfTimeRange_;
+    }
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+     */
+    public int getCfTimeRangeCount() {
+      return cfTimeRange_.size();
+    }
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+     */
+    public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange getCfTimeRange(int index) {
+      return cfTimeRange_.get(index);
+    }
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+     */
+    public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder getCfTimeRangeOrBuilder(
+        int index) {
+      return cfTimeRange_.get(index);
+    }
+
     private void initFields() {
       row_ = com.google.protobuf.ByteString.EMPTY;
       column_ = java.util.Collections.emptyList();
@@ -2407,6 +2477,7 @@ public final class ClientProtos {
       existenceOnly_ = false;
       closestRowBefore_ = false;
       consistency_ = org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Consistency.STRONG;
+      cfTimeRange_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -2432,6 +2503,12 @@ public final class ClientProtos {
       }
       if (hasFilter()) {
         if (!getFilter().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      for (int i = 0; i < getCfTimeRangeCount(); i++) {
+        if (!getCfTimeRange(i).isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
@@ -2478,6 +2555,9 @@ public final class ClientProtos {
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         output.writeEnum(12, consistency_.getNumber());
+      }
+      for (int i = 0; i < cfTimeRange_.size(); i++) {
+        output.writeMessage(13, cfTimeRange_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -2535,6 +2615,10 @@ public final class ClientProtos {
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(12, consistency_.getNumber());
+      }
+      for (int i = 0; i < cfTimeRange_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, cfTimeRange_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2613,6 +2697,8 @@ public final class ClientProtos {
         result = result &&
             (getConsistency() == other.getConsistency());
       }
+      result = result && getCfTimeRangeList()
+          .equals(other.getCfTimeRangeList());
       result = result &&
           getUnknownFields().equals(other.getUnknownFields());
       return result;
@@ -2676,6 +2762,10 @@ public final class ClientProtos {
         hash = (37 * hash) + CONSISTENCY_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashEnum(
             getConsistency());
+      }
+      if (getCfTimeRangeCount() > 0) {
+        hash = (37 * hash) + CF_TIME_RANGE_FIELD_NUMBER;
+        hash = (53 * hash) + getCfTimeRangeList().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -2791,6 +2881,7 @@ public final class ClientProtos {
           getAttributeFieldBuilder();
           getFilterFieldBuilder();
           getTimeRangeFieldBuilder();
+          getCfTimeRangeFieldBuilder();
         }
       }
       private static Builder create() {
@@ -2839,6 +2930,12 @@ public final class ClientProtos {
         bitField0_ = (bitField0_ & ~0x00000400);
         consistency_ = org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Consistency.STRONG;
         bitField0_ = (bitField0_ & ~0x00000800);
+        if (cfTimeRangeBuilder_ == null) {
+          cfTimeRange_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00001000);
+        } else {
+          cfTimeRangeBuilder_.clear();
+        }
         return this;
       }
 
@@ -2933,6 +3030,15 @@ public final class ClientProtos {
           to_bitField0_ |= 0x00000200;
         }
         result.consistency_ = consistency_;
+        if (cfTimeRangeBuilder_ == null) {
+          if (((bitField0_ & 0x00001000) == 0x00001000)) {
+            cfTimeRange_ = java.util.Collections.unmodifiableList(cfTimeRange_);
+            bitField0_ = (bitField0_ & ~0x00001000);
+          }
+          result.cfTimeRange_ = cfTimeRange_;
+        } else {
+          result.cfTimeRange_ = cfTimeRangeBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3031,6 +3137,32 @@ public final class ClientProtos {
         if (other.hasConsistency()) {
           setConsistency(other.getConsistency());
         }
+        if (cfTimeRangeBuilder_ == null) {
+          if (!other.cfTimeRange_.isEmpty()) {
+            if (cfTimeRange_.isEmpty()) {
+              cfTimeRange_ = other.cfTimeRange_;
+              bitField0_ = (bitField0_ & ~0x00001000);
+            } else {
+              ensureCfTimeRangeIsMutable();
+              cfTimeRange_.addAll(other.cfTimeRange_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.cfTimeRange_.isEmpty()) {
+            if (cfTimeRangeBuilder_.isEmpty()) {
+              cfTimeRangeBuilder_.dispose();
+              cfTimeRangeBuilder_ = null;
+              cfTimeRange_ = other.cfTimeRange_;
+              bitField0_ = (bitField0_ & ~0x00001000);
+              cfTimeRangeBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getCfTimeRangeFieldBuilder() : null;
+            } else {
+              cfTimeRangeBuilder_.addAllMessages(other.cfTimeRange_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -3054,6 +3186,12 @@ public final class ClientProtos {
         }
         if (hasFilter()) {
           if (!getFilter().isInitialized()) {
+            
+            return false;
+          }
+        }
+        for (int i = 0; i < getCfTimeRangeCount(); i++) {
+          if (!getCfTimeRange(i).isInitialized()) {
             
             return false;
           }
@@ -4092,6 +4230,246 @@ public final class ClientProtos {
         consistency_ = org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Consistency.STRONG;
         onChanged();
         return this;
+      }
+
+      private java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange> cfTimeRange_ =
+        java.util.Collections.emptyList();
+      private void ensureCfTimeRangeIsMutable() {
+        if (!((bitField0_ & 0x00001000) == 0x00001000)) {
+          cfTimeRange_ = new java.util.ArrayList<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange>(cfTimeRange_);
+          bitField0_ |= 0x00001000;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder> cfTimeRangeBuilder_;
+
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange> getCfTimeRangeList() {
+        if (cfTimeRangeBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(cfTimeRange_);
+        } else {
+          return cfTimeRangeBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public int getCfTimeRangeCount() {
+        if (cfTimeRangeBuilder_ == null) {
+          return cfTimeRange_.size();
+        } else {
+          return cfTimeRangeBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange getCfTimeRange(int index) {
+        if (cfTimeRangeBuilder_ == null) {
+          return cfTimeRange_.get(index);
+        } else {
+          return cfTimeRangeBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public Builder setCfTimeRange(
+          int index, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange value) {
+        if (cfTimeRangeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.set(index, value);
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public Builder setCfTimeRange(
+          int index, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder builderForValue) {
+        if (cfTimeRangeBuilder_ == null) {
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public Builder addCfTimeRange(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange value) {
+        if (cfTimeRangeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.add(value);
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public Builder addCfTimeRange(
+          int index, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange value) {
+        if (cfTimeRangeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.add(index, value);
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public Builder addCfTimeRange(
+          org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder builderForValue) {
+        if (cfTimeRangeBuilder_ == null) {
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.add(builderForValue.build());
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public Builder addCfTimeRange(
+          int index, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder builderForValue) {
+        if (cfTimeRangeBuilder_ == null) {
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public Builder addAllCfTimeRange(
+          java.lang.Iterable<? extends org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange> values) {
+        if (cfTimeRangeBuilder_ == null) {
+          ensureCfTimeRangeIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, cfTimeRange_);
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public Builder clearCfTimeRange() {
+        if (cfTimeRangeBuilder_ == null) {
+          cfTimeRange_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00001000);
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public Builder removeCfTimeRange(int index) {
+        if (cfTimeRangeBuilder_ == null) {
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.remove(index);
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder getCfTimeRangeBuilder(
+          int index) {
+        return getCfTimeRangeFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder getCfTimeRangeOrBuilder(
+          int index) {
+        if (cfTimeRangeBuilder_ == null) {
+          return cfTimeRange_.get(index);  } else {
+          return cfTimeRangeBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public java.util.List<? extends org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder> 
+           getCfTimeRangeOrBuilderList() {
+        if (cfTimeRangeBuilder_ != null) {
+          return cfTimeRangeBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(cfTimeRange_);
+        }
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder addCfTimeRangeBuilder() {
+        return getCfTimeRangeFieldBuilder().addBuilder(
+            org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder addCfTimeRangeBuilder(
+          int index) {
+        return getCfTimeRangeFieldBuilder().addBuilder(
+            index, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 13;</code>
+       */
+      public java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder> 
+           getCfTimeRangeBuilderList() {
+        return getCfTimeRangeFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder> 
+          getCfTimeRangeFieldBuilder() {
+        if (cfTimeRangeBuilder_ == null) {
+          cfTimeRangeBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder>(
+                  cfTimeRange_,
+                  ((bitField0_ & 0x00001000) == 0x00001000),
+                  getParentForChildren(),
+                  isClean());
+          cfTimeRange_ = null;
+        }
+        return cfTimeRangeBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:Get)
@@ -13708,6 +14086,39 @@ public final class ClientProtos {
      * <code>optional uint32 caching = 17;</code>
      */
     int getCaching();
+
+    /**
+     * <code>optional bool allow_partial_results = 18;</code>
+     */
+    boolean hasAllowPartialResults();
+    /**
+     * <code>optional bool allow_partial_results = 18;</code>
+     */
+    boolean getAllowPartialResults();
+
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+     */
+    java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange> 
+        getCfTimeRangeList();
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+     */
+    org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange getCfTimeRange(int index);
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+     */
+    int getCfTimeRangeCount();
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+     */
+    java.util.List<? extends org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder> 
+        getCfTimeRangeOrBuilderList();
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+     */
+    org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder getCfTimeRangeOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code Scan}
@@ -13884,6 +14295,19 @@ public final class ClientProtos {
               caching_ = input.readUInt32();
               break;
             }
+            case 144: {
+              bitField0_ |= 0x00008000;
+              allowPartialResults_ = input.readBool();
+              break;
+            }
+            case 154: {
+              if (!((mutable_bitField0_ & 0x00040000) == 0x00040000)) {
+                cfTimeRange_ = new java.util.ArrayList<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange>();
+                mutable_bitField0_ |= 0x00040000;
+              }
+              cfTimeRange_.add(input.readMessage(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.PARSER, extensionRegistry));
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -13897,6 +14321,9 @@ public final class ClientProtos {
         }
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           attribute_ = java.util.Collections.unmodifiableList(attribute_);
+        }
+        if (((mutable_bitField0_ & 0x00040000) == 0x00040000)) {
+          cfTimeRange_ = java.util.Collections.unmodifiableList(cfTimeRange_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -14245,6 +14672,56 @@ public final class ClientProtos {
       return caching_;
     }
 
+    public static final int ALLOW_PARTIAL_RESULTS_FIELD_NUMBER = 18;
+    private boolean allowPartialResults_;
+    /**
+     * <code>optional bool allow_partial_results = 18;</code>
+     */
+    public boolean hasAllowPartialResults() {
+      return ((bitField0_ & 0x00008000) == 0x00008000);
+    }
+    /**
+     * <code>optional bool allow_partial_results = 18;</code>
+     */
+    public boolean getAllowPartialResults() {
+      return allowPartialResults_;
+    }
+
+    public static final int CF_TIME_RANGE_FIELD_NUMBER = 19;
+    private java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange> cfTimeRange_;
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+     */
+    public java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange> getCfTimeRangeList() {
+      return cfTimeRange_;
+    }
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+     */
+    public java.util.List<? extends org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder> 
+        getCfTimeRangeOrBuilderList() {
+      return cfTimeRange_;
+    }
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+     */
+    public int getCfTimeRangeCount() {
+      return cfTimeRange_.size();
+    }
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+     */
+    public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange getCfTimeRange(int index) {
+      return cfTimeRange_.get(index);
+    }
+    /**
+     * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+     */
+    public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder getCfTimeRangeOrBuilder(
+        int index) {
+      return cfTimeRange_.get(index);
+    }
+
     private void initFields() {
       column_ = java.util.Collections.emptyList();
       attribute_ = java.util.Collections.emptyList();
@@ -14263,6 +14740,8 @@ public final class ClientProtos {
       reversed_ = false;
       consistency_ = org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Consistency.STRONG;
       caching_ = 0;
+      allowPartialResults_ = false;
+      cfTimeRange_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -14284,6 +14763,12 @@ public final class ClientProtos {
       }
       if (hasFilter()) {
         if (!getFilter().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      for (int i = 0; i < getCfTimeRangeCount(); i++) {
+        if (!getCfTimeRange(i).isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
@@ -14345,6 +14830,12 @@ public final class ClientProtos {
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
         output.writeUInt32(17, caching_);
+      }
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        output.writeBool(18, allowPartialResults_);
+      }
+      for (int i = 0; i < cfTimeRange_.size(); i++) {
+        output.writeMessage(19, cfTimeRange_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -14422,6 +14913,14 @@ public final class ClientProtos {
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(17, caching_);
+      }
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(18, allowPartialResults_);
+      }
+      for (int i = 0; i < cfTimeRange_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(19, cfTimeRange_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -14525,6 +15024,13 @@ public final class ClientProtos {
         result = result && (getCaching()
             == other.getCaching());
       }
+      result = result && (hasAllowPartialResults() == other.hasAllowPartialResults());
+      if (hasAllowPartialResults()) {
+        result = result && (getAllowPartialResults()
+            == other.getAllowPartialResults());
+      }
+      result = result && getCfTimeRangeList()
+          .equals(other.getCfTimeRangeList());
       result = result &&
           getUnknownFields().equals(other.getUnknownFields());
       return result;
@@ -14610,6 +15116,15 @@ public final class ClientProtos {
       if (hasCaching()) {
         hash = (37 * hash) + CACHING_FIELD_NUMBER;
         hash = (53 * hash) + getCaching();
+      }
+      if (hasAllowPartialResults()) {
+        hash = (37 * hash) + ALLOW_PARTIAL_RESULTS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getAllowPartialResults());
+      }
+      if (getCfTimeRangeCount() > 0) {
+        hash = (37 * hash) + CF_TIME_RANGE_FIELD_NUMBER;
+        hash = (53 * hash) + getCfTimeRangeList().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -14727,6 +15242,7 @@ public final class ClientProtos {
           getAttributeFieldBuilder();
           getFilterFieldBuilder();
           getTimeRangeFieldBuilder();
+          getCfTimeRangeFieldBuilder();
         }
       }
       private static Builder create() {
@@ -14785,6 +15301,14 @@ public final class ClientProtos {
         bitField0_ = (bitField0_ & ~0x00008000);
         caching_ = 0;
         bitField0_ = (bitField0_ & ~0x00010000);
+        allowPartialResults_ = false;
+        bitField0_ = (bitField0_ & ~0x00020000);
+        if (cfTimeRangeBuilder_ == null) {
+          cfTimeRange_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00040000);
+        } else {
+          cfTimeRangeBuilder_.clear();
+        }
         return this;
       }
 
@@ -14899,6 +15423,19 @@ public final class ClientProtos {
           to_bitField0_ |= 0x00004000;
         }
         result.caching_ = caching_;
+        if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
+          to_bitField0_ |= 0x00008000;
+        }
+        result.allowPartialResults_ = allowPartialResults_;
+        if (cfTimeRangeBuilder_ == null) {
+          if (((bitField0_ & 0x00040000) == 0x00040000)) {
+            cfTimeRange_ = java.util.Collections.unmodifiableList(cfTimeRange_);
+            bitField0_ = (bitField0_ & ~0x00040000);
+          }
+          result.cfTimeRange_ = cfTimeRange_;
+        } else {
+          result.cfTimeRange_ = cfTimeRangeBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -15012,6 +15549,35 @@ public final class ClientProtos {
         if (other.hasCaching()) {
           setCaching(other.getCaching());
         }
+        if (other.hasAllowPartialResults()) {
+          setAllowPartialResults(other.getAllowPartialResults());
+        }
+        if (cfTimeRangeBuilder_ == null) {
+          if (!other.cfTimeRange_.isEmpty()) {
+            if (cfTimeRange_.isEmpty()) {
+              cfTimeRange_ = other.cfTimeRange_;
+              bitField0_ = (bitField0_ & ~0x00040000);
+            } else {
+              ensureCfTimeRangeIsMutable();
+              cfTimeRange_.addAll(other.cfTimeRange_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.cfTimeRange_.isEmpty()) {
+            if (cfTimeRangeBuilder_.isEmpty()) {
+              cfTimeRangeBuilder_.dispose();
+              cfTimeRangeBuilder_ = null;
+              cfTimeRange_ = other.cfTimeRange_;
+              bitField0_ = (bitField0_ & ~0x00040000);
+              cfTimeRangeBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getCfTimeRangeFieldBuilder() : null;
+            } else {
+              cfTimeRangeBuilder_.addAllMessages(other.cfTimeRange_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -15031,6 +15597,12 @@ public final class ClientProtos {
         }
         if (hasFilter()) {
           if (!getFilter().isInitialized()) {
+            
+            return false;
+          }
+        }
+        for (int i = 0; i < getCfTimeRangeCount(); i++) {
+          if (!getCfTimeRange(i).isInitialized()) {
             
             return false;
           }
@@ -16210,6 +16782,278 @@ public final class ClientProtos {
         return this;
       }
 
+      private boolean allowPartialResults_ ;
+      /**
+       * <code>optional bool allow_partial_results = 18;</code>
+       */
+      public boolean hasAllowPartialResults() {
+        return ((bitField0_ & 0x00020000) == 0x00020000);
+      }
+      /**
+       * <code>optional bool allow_partial_results = 18;</code>
+       */
+      public boolean getAllowPartialResults() {
+        return allowPartialResults_;
+      }
+      /**
+       * <code>optional bool allow_partial_results = 18;</code>
+       */
+      public Builder setAllowPartialResults(boolean value) {
+        bitField0_ |= 0x00020000;
+        allowPartialResults_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool allow_partial_results = 18;</code>
+       */
+      public Builder clearAllowPartialResults() {
+        bitField0_ = (bitField0_ & ~0x00020000);
+        allowPartialResults_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange> cfTimeRange_ =
+        java.util.Collections.emptyList();
+      private void ensureCfTimeRangeIsMutable() {
+        if (!((bitField0_ & 0x00040000) == 0x00040000)) {
+          cfTimeRange_ = new java.util.ArrayList<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange>(cfTimeRange_);
+          bitField0_ |= 0x00040000;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder> cfTimeRangeBuilder_;
+
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange> getCfTimeRangeList() {
+        if (cfTimeRangeBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(cfTimeRange_);
+        } else {
+          return cfTimeRangeBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public int getCfTimeRangeCount() {
+        if (cfTimeRangeBuilder_ == null) {
+          return cfTimeRange_.size();
+        } else {
+          return cfTimeRangeBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange getCfTimeRange(int index) {
+        if (cfTimeRangeBuilder_ == null) {
+          return cfTimeRange_.get(index);
+        } else {
+          return cfTimeRangeBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public Builder setCfTimeRange(
+          int index, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange value) {
+        if (cfTimeRangeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.set(index, value);
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public Builder setCfTimeRange(
+          int index, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder builderForValue) {
+        if (cfTimeRangeBuilder_ == null) {
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public Builder addCfTimeRange(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange value) {
+        if (cfTimeRangeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.add(value);
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public Builder addCfTimeRange(
+          int index, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange value) {
+        if (cfTimeRangeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.add(index, value);
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public Builder addCfTimeRange(
+          org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder builderForValue) {
+        if (cfTimeRangeBuilder_ == null) {
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.add(builderForValue.build());
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public Builder addCfTimeRange(
+          int index, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder builderForValue) {
+        if (cfTimeRangeBuilder_ == null) {
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public Builder addAllCfTimeRange(
+          java.lang.Iterable<? extends org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange> values) {
+        if (cfTimeRangeBuilder_ == null) {
+          ensureCfTimeRangeIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, cfTimeRange_);
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public Builder clearCfTimeRange() {
+        if (cfTimeRangeBuilder_ == null) {
+          cfTimeRange_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00040000);
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public Builder removeCfTimeRange(int index) {
+        if (cfTimeRangeBuilder_ == null) {
+          ensureCfTimeRangeIsMutable();
+          cfTimeRange_.remove(index);
+          onChanged();
+        } else {
+          cfTimeRangeBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder getCfTimeRangeBuilder(
+          int index) {
+        return getCfTimeRangeFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder getCfTimeRangeOrBuilder(
+          int index) {
+        if (cfTimeRangeBuilder_ == null) {
+          return cfTimeRange_.get(index);  } else {
+          return cfTimeRangeBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public java.util.List<? extends org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder> 
+           getCfTimeRangeOrBuilderList() {
+        if (cfTimeRangeBuilder_ != null) {
+          return cfTimeRangeBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(cfTimeRange_);
+        }
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder addCfTimeRangeBuilder() {
+        return getCfTimeRangeFieldBuilder().addBuilder(
+            org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder addCfTimeRangeBuilder(
+          int index) {
+        return getCfTimeRangeFieldBuilder().addBuilder(
+            index, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ColumnFamilyTimeRange cf_time_range = 19;</code>
+       */
+      public java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder> 
+           getCfTimeRangeBuilderList() {
+        return getCfTimeRangeFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder> 
+          getCfTimeRangeFieldBuilder() {
+        if (cfTimeRangeBuilder_ == null) {
+          cfTimeRangeBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRange.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ColumnFamilyTimeRangeOrBuilder>(
+                  cfTimeRange_,
+                  ((bitField0_ & 0x00040000) == 0x00040000),
+                  getParentForChildren(),
+                  isClean());
+          cfTimeRange_ = null;
+        }
+        return cfTimeRangeBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:Scan)
     }
 
@@ -16304,6 +17148,24 @@ public final class ClientProtos {
      * <code>optional bool client_handles_heartbeats = 8;</code>
      */
     boolean getClientHandlesHeartbeats();
+
+    /**
+     * <code>optional bool track_scan_metrics = 9;</code>
+     */
+    boolean hasTrackScanMetrics();
+    /**
+     * <code>optional bool track_scan_metrics = 9;</code>
+     */
+    boolean getTrackScanMetrics();
+
+    /**
+     * <code>optional bool renew = 10 [default = false];</code>
+     */
+    boolean hasRenew();
+    /**
+     * <code>optional bool renew = 10 [default = false];</code>
+     */
+    boolean getRenew();
   }
   /**
    * Protobuf type {@code ScanRequest}
@@ -16422,6 +17284,16 @@ public final class ClientProtos {
             case 64: {
               bitField0_ |= 0x00000080;
               clientHandlesHeartbeats_ = input.readBool();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              trackScanMetrics_ = input.readBool();
+              break;
+            }
+            case 80: {
+              bitField0_ |= 0x00000200;
+              renew_ = input.readBool();
               break;
             }
           }
@@ -16596,6 +17468,36 @@ public final class ClientProtos {
       return clientHandlesHeartbeats_;
     }
 
+    public static final int TRACK_SCAN_METRICS_FIELD_NUMBER = 9;
+    private boolean trackScanMetrics_;
+    /**
+     * <code>optional bool track_scan_metrics = 9;</code>
+     */
+    public boolean hasTrackScanMetrics() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional bool track_scan_metrics = 9;</code>
+     */
+    public boolean getTrackScanMetrics() {
+      return trackScanMetrics_;
+    }
+
+    public static final int RENEW_FIELD_NUMBER = 10;
+    private boolean renew_;
+    /**
+     * <code>optional bool renew = 10 [default = false];</code>
+     */
+    public boolean hasRenew() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
+    }
+    /**
+     * <code>optional bool renew = 10 [default = false];</code>
+     */
+    public boolean getRenew() {
+      return renew_;
+    }
+
     private void initFields() {
       region_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.RegionSpecifier.getDefaultInstance();
       scan_ = org.apache.hadoop.hbase.protobuf.generated.ClientProtos.Scan.getDefaultInstance();
@@ -16605,6 +17507,8 @@ public final class ClientProtos {
       nextCallSeq_ = 0L;
       clientHandlesPartials_ = false;
       clientHandlesHeartbeats_ = false;
+      trackScanMetrics_ = false;
+      renew_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -16655,6 +17559,12 @@ public final class ClientProtos {
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeBool(8, clientHandlesHeartbeats_);
       }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeBool(9, trackScanMetrics_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        output.writeBool(10, renew_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -16695,6 +17605,14 @@ public final class ClientProtos {
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(8, clientHandlesHeartbeats_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(9, trackScanMetrics_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(10, renew_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -16759,6 +17677,16 @@ public final class ClientProtos {
         result = result && (getClientHandlesHeartbeats()
             == other.getClientHandlesHeartbeats());
       }
+      result = result && (hasTrackScanMetrics() == other.hasTrackScanMetrics());
+      if (hasTrackScanMetrics()) {
+        result = result && (getTrackScanMetrics()
+            == other.getTrackScanMetrics());
+      }
+      result = result && (hasRenew() == other.hasRenew());
+      if (hasRenew()) {
+        result = result && (getRenew()
+            == other.getRenew());
+      }
       result = result &&
           getUnknownFields().equals(other.getUnknownFields());
       return result;
@@ -16807,6 +17735,16 @@ public final class ClientProtos {
         hash = (37 * hash) + CLIENT_HANDLES_HEARTBEATS_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getClientHandlesHeartbeats());
+      }
+      if (hasTrackScanMetrics()) {
+        hash = (37 * hash) + TRACK_SCAN_METRICS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getTrackScanMetrics());
+      }
+      if (hasRenew()) {
+        hash = (37 * hash) + RENEW_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getRenew());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -16955,6 +17893,10 @@ public final class ClientProtos {
         bitField0_ = (bitField0_ & ~0x00000040);
         clientHandlesHeartbeats_ = false;
         bitField0_ = (bitField0_ & ~0x00000080);
+        trackScanMetrics_ = false;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        renew_ = false;
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
 
@@ -17023,6 +17965,14 @@ public final class ClientProtos {
           to_bitField0_ |= 0x00000080;
         }
         result.clientHandlesHeartbeats_ = clientHandlesHeartbeats_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.trackScanMetrics_ = trackScanMetrics_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.renew_ = renew_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -17062,6 +18012,12 @@ public final class ClientProtos {
         }
         if (other.hasClientHandlesHeartbeats()) {
           setClientHandlesHeartbeats(other.getClientHandlesHeartbeats());
+        }
+        if (other.hasTrackScanMetrics()) {
+          setTrackScanMetrics(other.getTrackScanMetrics());
+        }
+        if (other.hasRenew()) {
+          setRenew(other.getRenew());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -17526,6 +18482,70 @@ public final class ClientProtos {
         return this;
       }
 
+      private boolean trackScanMetrics_ ;
+      /**
+       * <code>optional bool track_scan_metrics = 9;</code>
+       */
+      public boolean hasTrackScanMetrics() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional bool track_scan_metrics = 9;</code>
+       */
+      public boolean getTrackScanMetrics() {
+        return trackScanMetrics_;
+      }
+      /**
+       * <code>optional bool track_scan_metrics = 9;</code>
+       */
+      public Builder setTrackScanMetrics(boolean value) {
+        bitField0_ |= 0x00000100;
+        trackScanMetrics_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool track_scan_metrics = 9;</code>
+       */
+      public Builder clearTrackScanMetrics() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        trackScanMetrics_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean renew_ ;
+      /**
+       * <code>optional bool renew = 10 [default = false];</code>
+       */
+      public boolean hasRenew() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <code>optional bool renew = 10 [default = false];</code>
+       */
+      public boolean getRenew() {
+        return renew_;
+      }
+      /**
+       * <code>optional bool renew = 10 [default = false];</code>
+       */
+      public Builder setRenew(boolean value) {
+        bitField0_ |= 0x00000200;
+        renew_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool renew = 10 [default = false];</code>
+       */
+      public Builder clearRenew() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        renew_ = false;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:ScanRequest)
     }
 
@@ -17760,6 +18780,37 @@ public final class ClientProtos {
      * </pre>
      */
     boolean getHeartbeatMessage();
+
+    /**
+     * <code>optional .ScanMetrics scan_metrics = 10;</code>
+     *
+     * <pre>
+     * This field is filled in if the client has requested that scan metrics be tracked.
+     * The metrics tracked here are sent back to the client to be tracked together with 
+     * the existing client side metrics.
+     * </pre>
+     */
+    boolean hasScanMetrics();
+    /**
+     * <code>optional .ScanMetrics scan_metrics = 10;</code>
+     *
+     * <pre>
+     * This field is filled in if the client has requested that scan metrics be tracked.
+     * The metrics tracked here are sent back to the client to be tracked together with 
+     * the existing client side metrics.
+     * </pre>
+     */
+    org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics getScanMetrics();
+    /**
+     * <code>optional .ScanMetrics scan_metrics = 10;</code>
+     *
+     * <pre>
+     * This field is filled in if the client has requested that scan metrics be tracked.
+     * The metrics tracked here are sent back to the client to be tracked together with 
+     * the existing client side metrics.
+     * </pre>
+     */
+    org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetricsOrBuilder getScanMetricsOrBuilder();
   }
   /**
    * Protobuf type {@code ScanResponse}
@@ -17897,6 +18948,19 @@ public final class ClientProtos {
             case 72: {
               bitField0_ |= 0x00000020;
               heartbeatMessage_ = input.readBool();
+              break;
+            }
+            case 82: {
+              org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) == 0x00000040)) {
+                subBuilder = scanMetrics_.toBuilder();
+              }
+              scanMetrics_ = input.readMessage(org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(scanMetrics_);
+                scanMetrics_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000040;
               break;
             }
           }
@@ -18233,6 +19297,45 @@ public final class ClientProtos {
       return heartbeatMessage_;
     }
 
+    public static final int SCAN_METRICS_FIELD_NUMBER = 10;
+    private org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics scanMetrics_;
+    /**
+     * <code>optional .ScanMetrics scan_metrics = 10;</code>
+     *
+     * <pre>
+     * This field is filled in if the client has requested that scan metrics be tracked.
+     * The metrics tracked here are sent back to the client to be tracked together with 
+     * the existing client side metrics.
+     * </pre>
+     */
+    public boolean hasScanMetrics() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional .ScanMetrics scan_metrics = 10;</code>
+     *
+     * <pre>
+     * This field is filled in if the client has requested that scan metrics be tracked.
+     * The metrics tracked here are sent back to the client to be tracked together with 
+     * the existing client side metrics.
+     * </pre>
+     */
+    public org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics getScanMetrics() {
+      return scanMetrics_;
+    }
+    /**
+     * <code>optional .ScanMetrics scan_metrics = 10;</code>
+     *
+     * <pre>
+     * This field is filled in if the client has requested that scan metrics be tracked.
+     * The metrics tracked here are sent back to the client to be tracked together with 
+     * the existing client side metrics.
+     * </pre>
+     */
+    public org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetricsOrBuilder getScanMetricsOrBuilder() {
+      return scanMetrics_;
+    }
+
     private void initFields() {
       cellsPerResult_ = java.util.Collections.emptyList();
       scannerId_ = 0L;
@@ -18243,6 +19346,7 @@ public final class ClientProtos {
       partialFlagPerResult_ = java.util.Collections.emptyList();
       moreResultsInRegion_ = false;
       heartbeatMessage_ = false;
+      scanMetrics_ = org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -18283,6 +19387,9 @@ public final class ClientProtos {
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeBool(9, heartbeatMessage_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeMessage(10, scanMetrics_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -18335,6 +19442,10 @@ public final class ClientProtos {
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(9, heartbeatMessage_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, scanMetrics_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -18395,6 +19506,11 @@ public final class ClientProtos {
         result = result && (getHeartbeatMessage()
             == other.getHeartbeatMessage());
       }
+      result = result && (hasScanMetrics() == other.hasScanMetrics());
+      if (hasScanMetrics()) {
+        result = result && getScanMetrics()
+            .equals(other.getScanMetrics());
+      }
       result = result &&
           getUnknownFields().equals(other.getUnknownFields());
       return result;
@@ -18447,6 +19563,10 @@ public final class ClientProtos {
         hash = (37 * hash) + HEARTBEAT_MESSAGE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getHeartbeatMessage());
+      }
+      if (hasScanMetrics()) {
+        hash = (37 * hash) + SCAN_METRICS_FIELD_NUMBER;
+        hash = (53 * hash) + getScanMetrics().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -18557,6 +19677,7 @@ public final class ClientProtos {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getResultsFieldBuilder();
+          getScanMetricsFieldBuilder();
         }
       }
       private static Builder create() {
@@ -18587,6 +19708,12 @@ public final class ClientProtos {
         bitField0_ = (bitField0_ & ~0x00000080);
         heartbeatMessage_ = false;
         bitField0_ = (bitField0_ & ~0x00000100);
+        if (scanMetricsBuilder_ == null) {
+          scanMetrics_ = org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.getDefaultInstance();
+        } else {
+          scanMetricsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
 
@@ -18658,6 +19785,14 @@ public final class ClientProtos {
           to_bitField0_ |= 0x00000020;
         }
         result.heartbeatMessage_ = heartbeatMessage_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        if (scanMetricsBuilder_ == null) {
+          result.scanMetrics_ = scanMetrics_;
+        } else {
+          result.scanMetrics_ = scanMetricsBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -18737,6 +19872,9 @@ public final class ClientProtos {
         }
         if (other.hasHeartbeatMessage()) {
           setHeartbeatMessage(other.getHeartbeatMessage());
+        }
+        if (other.hasScanMetrics()) {
+          mergeScanMetrics(other.getScanMetrics());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -19627,6 +20765,176 @@ public final class ClientProtos {
         heartbeatMessage_ = false;
         onChanged();
         return this;
+      }
+
+      private org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics scanMetrics_ = org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics, org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.Builder, org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetricsOrBuilder> scanMetricsBuilder_;
+      /**
+       * <code>optional .ScanMetrics scan_metrics = 10;</code>
+       *
+       * <pre>
+       * This field is filled in if the client has requested that scan metrics be tracked.
+       * The metrics tracked here are sent back to the client to be tracked together with 
+       * the existing client side metrics.
+       * </pre>
+       */
+      public boolean hasScanMetrics() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <code>optional .ScanMetrics scan_metrics = 10;</code>
+       *
+       * <pre>
+       * This field is filled in if the client has requested that scan metrics be tracked.
+       * The metrics tracked here are sent back to the client to be tracked together with 
+       * the existing client side metrics.
+       * </pre>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics getScanMetrics() {
+        if (scanMetricsBuilder_ == null) {
+          return scanMetrics_;
+        } else {
+          return scanMetricsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .ScanMetrics scan_metrics = 10;</code>
+       *
+       * <pre>
+       * This field is filled in if the client has requested that scan metrics be tracked.
+       * The metrics tracked here are sent back to the client to be tracked together with 
+       * the existing client side metrics.
+       * </pre>
+       */
+      public Builder setScanMetrics(org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics value) {
+        if (scanMetricsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          scanMetrics_ = value;
+          onChanged();
+        } else {
+          scanMetricsBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000200;
+        return this;
+      }
+      /**
+       * <code>optional .ScanMetrics scan_metrics = 10;</code>
+       *
+       * <pre>
+       * This field is filled in if the client has requested that scan metrics be tracked.
+       * The metrics tracked here are sent back to the client to be tracked together with 
+       * the existing client side metrics.
+       * </pre>
+       */
+      public Builder setScanMetrics(
+          org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.Builder builderForValue) {
+        if (scanMetricsBuilder_ == null) {
+          scanMetrics_ = builderForValue.build();
+          onChanged();
+        } else {
+          scanMetricsBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000200;
+        return this;
+      }
+      /**
+       * <code>optional .ScanMetrics scan_metrics = 10;</code>
+       *
+       * <pre>
+       * This field is filled in if the client has requested that scan metrics be tracked.
+       * The metrics tracked here are sent back to the client to be tracked together with 
+       * the existing client side metrics.
+       * </pre>
+       */
+      public Builder mergeScanMetrics(org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics value) {
+        if (scanMetricsBuilder_ == null) {
+          if (((bitField0_ & 0x00000200) == 0x00000200) &&
+              scanMetrics_ != org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.getDefaultInstance()) {
+            scanMetrics_ =
+              org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.newBuilder(scanMetrics_).mergeFrom(value).buildPartial();
+          } else {
+            scanMetrics_ = value;
+          }
+          onChanged();
+        } else {
+          scanMetricsBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000200;
+        return this;
+      }
+      /**
+       * <code>optional .ScanMetrics scan_metrics = 10;</code>
+       *
+       * <pre>
+       * This field is filled in if the client has requested that scan metrics be tracked.
+       * The metrics tracked here are sent back to the client to be tracked together with 
+       * the existing client side metrics.
+       * </pre>
+       */
+      public Builder clearScanMetrics() {
+        if (scanMetricsBuilder_ == null) {
+          scanMetrics_ = org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.getDefaultInstance();
+          onChanged();
+        } else {
+          scanMetricsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000200);
+        return this;
+      }
+      /**
+       * <code>optional .ScanMetrics scan_metrics = 10;</code>
+       *
+       * <pre>
+       * This field is filled in if the client has requested that scan metrics be tracked.
+       * The metrics tracked here are sent back to the client to be tracked together with 
+       * the existing client side metrics.
+       * </pre>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.Builder getScanMetricsBuilder() {
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return getScanMetricsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .ScanMetrics scan_metrics = 10;</code>
+       *
+       * <pre>
+       * This field is filled in if the client has requested that scan metrics be tracked.
+       * The metrics tracked here are sent back to the client to be tracked together with 
+       * the existing client side metrics.
+       * </pre>
+       */
+      public org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetricsOrBuilder getScanMetricsOrBuilder() {
+        if (scanMetricsBuilder_ != null) {
+          return scanMetricsBuilder_.getMessageOrBuilder();
+        } else {
+          return scanMetrics_;
+        }
+      }
+      /**
+       * <code>optional .ScanMetrics scan_metrics = 10;</code>
+       *
+       * <pre>
+       * This field is filled in if the client has requested that scan metrics be tracked.
+       * The metrics tracked here are sent back to the client to be tracked together with 
+       * the existing client side metrics.
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics, org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.Builder, org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetricsOrBuilder> 
+          getScanMetricsFieldBuilder() {
+        if (scanMetricsBuilder_ == null) {
+          scanMetricsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics, org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetrics.Builder, org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.ScanMetricsOrBuilder>(
+                  getScanMetrics(),
+                  getParentForChildren(),
+                  isClean());
+          scanMetrics_ = null;
+        }
+        return scanMetricsBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:ScanResponse)
@@ -26959,6 +28267,23 @@ public final class ClientProtos {
      * </pre>
      */
     int getHeapOccupancy();
+
+    /**
+     * <code>optional int32 compactionPressure = 3 [default = 0];</code>
+     *
+     * <pre>
+     * Compaction pressure. Guaranteed to be positive, between 0 and 100.
+     * </pre>
+     */
+    boolean hasCompactionPressure();
+    /**
+     * <code>optional int32 compactionPressure = 3 [default = 0];</code>
+     *
+     * <pre>
+     * Compaction pressure. Guaranteed to be positive, between 0 and 100.
+     * </pre>
+     */
+    int getCompactionPressure();
   }
   /**
    * Protobuf type {@code RegionLoadStats}
@@ -27024,6 +28349,11 @@ public final class ClientProtos {
             case 16: {
               bitField0_ |= 0x00000002;
               heapOccupancy_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              compactionPressure_ = input.readInt32();
               break;
             }
           }
@@ -27114,9 +28444,33 @@ public final class ClientProtos {
       return heapOccupancy_;
     }
 
+    public static final int COMPACTIONPRESSURE_FIELD_NUMBER = 3;
+    private int compactionPressure_;
+    /**
+     * <code>optional int32 compactionPressure = 3 [default = 0];</code>
+     *
+     * <pre>
+     * Compaction pressure. Guaranteed to be positive, between 0 and 100.
+     * </pre>
+     */
+    public boolean hasCompactionPressure() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 compactionPressure = 3 [default = 0];</code>
+     *
+     * <pre>
+     * Compaction pressure. Guaranteed to be positive, between 0 and 100.
+     * </pre>
+     */
+    public int getCompactionPressure() {
+      return compactionPressure_;
+    }
+
     private void initFields() {
       memstoreLoad_ = 0;
       heapOccupancy_ = 0;
+      compactionPressure_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -27137,6 +28491,9 @@ public final class ClientProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, heapOccupancy_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, compactionPressure_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -27153,6 +28510,10 @@ public final class ClientProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, heapOccupancy_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, compactionPressure_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -27187,6 +28548,11 @@ public final class ClientProtos {
         result = result && (getHeapOccupancy()
             == other.getHeapOccupancy());
       }
+      result = result && (hasCompactionPressure() == other.hasCompactionPressure());
+      if (hasCompactionPressure()) {
+        result = result && (getCompactionPressure()
+            == other.getCompactionPressure());
+      }
       result = result &&
           getUnknownFields().equals(other.getUnknownFields());
       return result;
@@ -27206,6 +28572,10 @@ public final class ClientProtos {
       if (hasHeapOccupancy()) {
         hash = (37 * hash) + HEAPOCCUPANCY_FIELD_NUMBER;
         hash = (53 * hash) + getHeapOccupancy();
+      }
+      if (hasCompactionPressure()) {
+        hash = (37 * hash) + COMPACTIONPRESSURE_FIELD_NUMBER;
+        hash = (53 * hash) + getCompactionPressure();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -27325,6 +28695,8 @@ public final class ClientProtos {
         bitField0_ = (bitField0_ & ~0x00000001);
         heapOccupancy_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
+        compactionPressure_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -27361,6 +28733,10 @@ public final class ClientProtos {
           to_bitField0_ |= 0x00000002;
         }
         result.heapOccupancy_ = heapOccupancy_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.compactionPressure_ = compactionPressure_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -27382,6 +28758,9 @@ public final class ClientProtos {
         }
         if (other.hasHeapOccupancy()) {
           setHeapOccupancy(other.getHeapOccupancy());
+        }
+        if (other.hasCompactionPressure()) {
+          setCompactionPressure(other.getCompactionPressure());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -27506,6 +28885,54 @@ public final class ClientProtos {
       public Builder clearHeapOccupancy() {
         bitField0_ = (bitField0_ & ~0x00000002);
         heapOccupancy_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int compactionPressure_ ;
+      /**
+       * <code>optional int32 compactionPressure = 3 [default = 0];</code>
+       *
+       * <pre>
+       * Compaction pressure. Guaranteed to be positive, between 0 and 100.
+       * </pre>
+       */
+      public boolean hasCompactionPressure() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 compactionPressure = 3 [default = 0];</code>
+       *
+       * <pre>
+       * Compaction pressure. Guaranteed to be positive, between 0 and 100.
+       * </pre>
+       */
+      public int getCompactionPressure() {
+        return compactionPressure_;
+      }
+      /**
+       * <code>optional int32 compactionPressure = 3 [default = 0];</code>
+       *
+       * <pre>
+       * Compaction pressure. Guaranteed to be positive, between 0 and 100.
+       * </pre>
+       */
+      public Builder setCompactionPressure(int value) {
+        bitField0_ |= 0x00000004;
+        compactionPressure_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 compactionPressure = 3 [default = 0];</code>
+       *
+       * <pre>
+       * Compaction pressure. Guaranteed to be positive, between 0 and 100.
+       * </pre>
+       */
+      public Builder clearCompactionPressure() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        compactionPressure_ = 0;
         onChanged();
         return this;
       }
@@ -32654,122 +34081,129 @@ public final class ClientProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\014Client.proto\032\013HBase.proto\032\014Filter.prot" +
-      "o\032\nCell.proto\032\020Comparator.proto\"\037\n\016Autho" +
-      "rizations\022\r\n\005label\030\001 \003(\t\"$\n\016CellVisibili" +
-      "ty\022\022\n\nexpression\030\001 \002(\t\"+\n\006Column\022\016\n\006fami" +
-      "ly\030\001 \002(\014\022\021\n\tqualifier\030\002 \003(\014\"\324\002\n\003Get\022\013\n\003r" +
-      "ow\030\001 \002(\014\022\027\n\006column\030\002 \003(\0132\007.Column\022!\n\tatt" +
-      "ribute\030\003 \003(\0132\016.NameBytesPair\022\027\n\006filter\030\004" +
-      " \001(\0132\007.Filter\022\036\n\ntime_range\030\005 \001(\0132\n.Time" +
-      "Range\022\027\n\014max_versions\030\006 \001(\r:\0011\022\032\n\014cache_" +
-      "blocks\030\007 \001(\010:\004true\022\023\n\013store_limit\030\010 \001(\r\022",
-      "\024\n\014store_offset\030\t \001(\r\022\035\n\016existence_only\030" +
-      "\n \001(\010:\005false\022!\n\022closest_row_before\030\013 \001(\010" +
-      ":\005false\022)\n\013consistency\030\014 \001(\0162\014.Consisten" +
-      "cy:\006STRONG\"z\n\006Result\022\023\n\004cell\030\001 \003(\0132\005.Cel" +
-      "l\022\035\n\025associated_cell_count\030\002 \001(\005\022\016\n\006exis" +
-      "ts\030\003 \001(\010\022\024\n\005stale\030\004 \001(\010:\005false\022\026\n\007partia" +
-      "l\030\005 \001(\010:\005false\"A\n\nGetRequest\022 \n\006region\030\001" +
-      " \002(\0132\020.RegionSpecifier\022\021\n\003get\030\002 \002(\0132\004.Ge" +
-      "t\"&\n\013GetResponse\022\027\n\006result\030\001 \001(\0132\007.Resul" +
-      "t\"\200\001\n\tCondition\022\013\n\003row\030\001 \002(\014\022\016\n\006family\030\002",
-      " \002(\014\022\021\n\tqualifier\030\003 \002(\014\022\"\n\014compare_type\030" +
-      "\004 \002(\0162\014.CompareType\022\037\n\ncomparator\030\005 \002(\0132" +
-      "\013.Comparator\"\265\006\n\rMutationProto\022\013\n\003row\030\001 " +
-      "\001(\014\0220\n\013mutate_type\030\002 \001(\0162\033.MutationProto" +
-      ".MutationType\0220\n\014column_value\030\003 \003(\0132\032.Mu" +
-      "tationProto.ColumnValue\022\021\n\ttimestamp\030\004 \001" +
-      "(\004\022!\n\tattribute\030\005 \003(\0132\016.NameBytesPair\022:\n" +
-      "\ndurability\030\006 \001(\0162\031.MutationProto.Durabi" +
-      "lity:\013USE_DEFAULT\022\036\n\ntime_range\030\007 \001(\0132\n." +
-      "TimeRange\022\035\n\025associated_cell_count\030\010 \001(\005",
-      "\022\r\n\005nonce\030\t \001(\004\032\347\001\n\013ColumnValue\022\016\n\006famil" +
-      "y\030\001 \002(\014\022B\n\017qualifier_value\030\002 \003(\0132).Mutat" +
-      "ionProto.ColumnValue.QualifierValue\032\203\001\n\016" +
-      "QualifierValue\022\021\n\tqualifier\030\001 \001(\014\022\r\n\005val" +
-      "ue\030\002 \001(\014\022\021\n\ttimestamp\030\003 \001(\004\022.\n\013delete_ty" +
-      "pe\030\004 \001(\0162\031.MutationProto.DeleteType\022\014\n\004t" +
-      "ags\030\005 \001(\014\"W\n\nDurability\022\017\n\013USE_DEFAULT\020\000" +
-      "\022\014\n\010SKIP_WAL\020\001\022\r\n\tASYNC_WAL\020\002\022\014\n\010SYNC_WA" +
-      "L\020\003\022\r\n\tFSYNC_WAL\020\004\">\n\014MutationType\022\n\n\006AP" +
-      "PEND\020\000\022\r\n\tINCREMENT\020\001\022\007\n\003PUT\020\002\022\n\n\006DELETE",
-      "\020\003\"p\n\nDeleteType\022\026\n\022DELETE_ONE_VERSION\020\000" +
-      "\022\034\n\030DELETE_MULTIPLE_VERSIONS\020\001\022\021\n\rDELETE" +
-      "_FAMILY\020\002\022\031\n\025DELETE_FAMILY_VERSION\020\003\"\207\001\n" +
-      "\rMutateRequest\022 \n\006region\030\001 \002(\0132\020.RegionS" +
-      "pecifier\022 \n\010mutation\030\002 \002(\0132\016.MutationPro" +
-      "to\022\035\n\tcondition\030\003 \001(\0132\n.Condition\022\023\n\013non" +
-      "ce_group\030\004 \001(\004\"<\n\016MutateResponse\022\027\n\006resu" +
-      "lt\030\001 \001(\0132\007.Result\022\021\n\tprocessed\030\002 \001(\010\"\271\003\n" +
-      "\004Scan\022\027\n\006column\030\001 \003(\0132\007.Column\022!\n\tattrib" +
-      "ute\030\002 \003(\0132\016.NameBytesPair\022\021\n\tstart_row\030\003",
-      " \001(\014\022\020\n\010stop_row\030\004 \001(\014\022\027\n\006filter\030\005 \001(\0132\007" +
-      ".Filter\022\036\n\ntime_range\030\006 \001(\0132\n.TimeRange\022" +
-      "\027\n\014max_versions\030\007 \001(\r:\0011\022\032\n\014cache_blocks" +
-      "\030\010 \001(\010:\004true\022\022\n\nbatch_size\030\t \001(\r\022\027\n\017max_" +
-      "result_size\030\n \001(\004\022\023\n\013store_limit\030\013 \001(\r\022\024" +
-      "\n\014store_offset\030\014 \001(\r\022&\n\036load_column_fami" +
-      "lies_on_demand\030\r \001(\010\022\r\n\005small\030\016 \001(\010\022\027\n\010r" +
-      "eversed\030\017 \001(\010:\005false\022)\n\013consistency\030\020 \001(" +
-      "\0162\014.Consistency:\006STRONG\022\017\n\007caching\030\021 \001(\r" +
-      "\"\342\001\n\013ScanRequest\022 \n\006region\030\001 \001(\0132\020.Regio",
-      "nSpecifier\022\023\n\004scan\030\002 \001(\0132\005.Scan\022\022\n\nscann" +
-      "er_id\030\003 \001(\004\022\026\n\016number_of_rows\030\004 \001(\r\022\025\n\rc" +
-      "lose_scanner\030\005 \001(\010\022\025\n\rnext_call_seq\030\006 \001(" +
-      "\004\022\037\n\027client_handles_partials\030\007 \001(\010\022!\n\031cl" +
-      "ient_handles_heartbeats\030\010 \001(\010\"\344\001\n\014ScanRe" +
-      "sponse\022\030\n\020cells_per_result\030\001 \003(\r\022\022\n\nscan" +
-      "ner_id\030\002 \001(\004\022\024\n\014more_results\030\003 \001(\010\022\013\n\003tt" +
-      "l\030\004 \001(\r\022\030\n\007results\030\005 \003(\0132\007.Result\022\r\n\005sta" +
-      "le\030\006 \001(\010\022\037\n\027partial_flag_per_result\030\007 \003(" +
-      "\010\022\036\n\026more_results_in_region\030\010 \001(\010\022\031\n\021hea",
-      "rtbeat_message\030\t \001(\010\"\263\001\n\024BulkLoadHFileRe" +
-      "quest\022 \n\006region\030\001 \002(\0132\020.RegionSpecifier\022" +
-      "5\n\013family_path\030\002 \003(\0132 .BulkLoadHFileRequ" +
-      "est.FamilyPath\022\026\n\016assign_seq_num\030\003 \001(\010\032*" +
-      "\n\nFamilyPath\022\016\n\006family\030\001 \002(\014\022\014\n\004path\030\002 \002" +
-      "(\t\"\'\n\025BulkLoadHFileResponse\022\016\n\006loaded\030\001 " +
-      "\002(\010\"a\n\026CoprocessorServiceCall\022\013\n\003row\030\001 \002" +
-      "(\014\022\024\n\014service_name\030\002 \002(\t\022\023\n\013method_name\030" +
-      "\003 \002(\t\022\017\n\007request\030\004 \002(\014\"9\n\030CoprocessorSer" +
-      "viceResult\022\035\n\005value\030\001 \001(\0132\016.NameBytesPai",
-      "r\"d\n\031CoprocessorServiceRequest\022 \n\006region" +
-      "\030\001 \002(\0132\020.RegionSpecifier\022%\n\004call\030\002 \002(\0132\027" +
-      ".CoprocessorServiceCall\"]\n\032CoprocessorSe" +
-      "rviceResponse\022 \n\006region\030\001 \002(\0132\020.RegionSp" +
-      "ecifier\022\035\n\005value\030\002 \002(\0132\016.NameBytesPair\"{" +
-      "\n\006Action\022\r\n\005index\030\001 \001(\r\022 \n\010mutation\030\002 \001(" +
-      "\0132\016.MutationProto\022\021\n\003get\030\003 \001(\0132\004.Get\022-\n\014" +
-      "service_call\030\004 \001(\0132\027.CoprocessorServiceC" +
-      "all\"Y\n\014RegionAction\022 \n\006region\030\001 \002(\0132\020.Re" +
-      "gionSpecifier\022\016\n\006atomic\030\002 \001(\010\022\027\n\006action\030",
-      "\003 \003(\0132\007.Action\"D\n\017RegionLoadStats\022\027\n\014mem" +
-      "storeLoad\030\001 \001(\005:\0010\022\030\n\rheapOccupancy\030\002 \001(" +
-      "\005:\0010\"\266\001\n\021ResultOrException\022\r\n\005index\030\001 \001(" +
-      "\r\022\027\n\006result\030\002 \001(\0132\007.Result\022!\n\texception\030" +
-      "\003 \001(\0132\016.NameBytesPair\0221\n\016service_result\030" +
-      "\004 \001(\0132\031.CoprocessorServiceResult\022#\n\tload" +
-      "Stats\030\005 \001(\0132\020.RegionLoadStats\"f\n\022RegionA" +
-      "ctionResult\022-\n\021resultOrException\030\001 \003(\0132\022" +
-      ".ResultOrException\022!\n\texception\030\002 \001(\0132\016." +
-      "NameBytesPair\"f\n\014MultiRequest\022#\n\014regionA",
-      "ction\030\001 \003(\0132\r.RegionAction\022\022\n\nnonceGroup" +
-      "\030\002 \001(\004\022\035\n\tcondition\030\003 \001(\0132\n.Condition\"S\n" +
-      "\rMultiResponse\022/\n\022regionActionResult\030\001 \003" +
-      "(\0132\023.RegionActionResult\022\021\n\tprocessed\030\002 \001" +
-      "(\010*\'\n\013Consistency\022\n\n\006STRONG\020\000\022\014\n\010TIMELIN" +
-      "E\020\0012\205\003\n\rClientService\022 \n\003Get\022\013.GetReques" +
-      "t\032\014.GetResponse\022)\n\006Mutate\022\016.MutateReques" +
-      "t\032\017.MutateResponse\022#\n\004Scan\022\014.ScanRequest" +
-      "\032\r.ScanResponse\022>\n\rBulkLoadHFile\022\025.BulkL" +
-      "oadHFileRequest\032\026.BulkLoadHFileResponse\022",
-      "F\n\013ExecService\022\032.CoprocessorServiceReque" +
-      "st\032\033.CoprocessorServiceResponse\022R\n\027ExecR" +
-      "egionServerService\022\032.CoprocessorServiceR" +
-      "equest\032\033.CoprocessorServiceResponse\022&\n\005M" +
-      "ulti\022\r.MultiRequest\032\016.MultiResponseBB\n*o" +
-      "rg.apache.hadoop.hbase.protobuf.generate" +
-      "dB\014ClientProtosH\001\210\001\001\240\001\001"
+      "o\032\nCell.proto\032\020Comparator.proto\032\017MapRedu" +
+      "ce.proto\"\037\n\016Authorizations\022\r\n\005label\030\001 \003(" +
+      "\t\"$\n\016CellVisibility\022\022\n\nexpression\030\001 \002(\t\"" +
+      "+\n\006Column\022\016\n\006family\030\001 \002(\014\022\021\n\tqualifier\030\002" +
+      " \003(\014\"\203\003\n\003Get\022\013\n\003row\030\001 \002(\014\022\027\n\006column\030\002 \003(" +
+      "\0132\007.Column\022!\n\tattribute\030\003 \003(\0132\016.NameByte" +
+      "sPair\022\027\n\006filter\030\004 \001(\0132\007.Filter\022\036\n\ntime_r" +
+      "ange\030\005 \001(\0132\n.TimeRange\022\027\n\014max_versions\030\006" +
+      " \001(\r:\0011\022\032\n\014cache_blocks\030\007 \001(\010:\004true\022\023\n\013s",
+      "tore_limit\030\010 \001(\r\022\024\n\014store_offset\030\t \001(\r\022\035" +
+      "\n\016existence_only\030\n \001(\010:\005false\022!\n\022closest" +
+      "_row_before\030\013 \001(\010:\005false\022)\n\013consistency\030" +
+      "\014 \001(\0162\014.Consistency:\006STRONG\022-\n\rcf_time_r" +
+      "ange\030\r \003(\0132\026.ColumnFamilyTimeRange\"z\n\006Re" +
+      "sult\022\023\n\004cell\030\001 \003(\0132\005.Cell\022\035\n\025associated_" +
+      "cell_count\030\002 \001(\005\022\016\n\006exists\030\003 \001(\010\022\024\n\005stal" +
+      "e\030\004 \001(\010:\005false\022\026\n\007partial\030\005 \001(\010:\005false\"A" +
+      "\n\nGetRequest\022 \n\006region\030\001 \002(\0132\020.RegionSpe" +
+      "cifier\022\021\n\003get\030\002 \002(\0132\004.Get\"&\n\013GetResponse",
+      "\022\027\n\006result\030\001 \001(\0132\007.Result\"\200\001\n\tCondition\022" +
+      "\013\n\003row\030\001 \002(\014\022\016\n\006family\030\002 \002(\014\022\021\n\tqualifie" +
+      "r\030\003 \002(\014\022\"\n\014compare_type\030\004 \002(\0162\014.CompareT" +
+      "ype\022\037\n\ncomparator\030\005 \002(\0132\013.Comparator\"\265\006\n" +
+      "\rMutationProto\022\013\n\003row\030\001 \001(\014\0220\n\013mutate_ty" +
+      "pe\030\002 \001(\0162\033.MutationProto.MutationType\0220\n" +
+      "\014column_value\030\003 \003(\0132\032.MutationProto.Colu" +
+      "mnValue\022\021\n\ttimestamp\030\004 \001(\004\022!\n\tattribute\030" +
+      "\005 \003(\0132\016.NameBytesPair\022:\n\ndurability\030\006 \001(" +
+      "\0162\031.MutationProto.Durability:\013USE_DEFAUL",
+      "T\022\036\n\ntime_range\030\007 \001(\0132\n.TimeRange\022\035\n\025ass" +
+      "ociated_cell_count\030\010 \001(\005\022\r\n\005nonce\030\t \001(\004\032" +
+      "\347\001\n\013ColumnValue\022\016\n\006family\030\001 \002(\014\022B\n\017quali" +
+      "fier_value\030\002 \003(\0132).MutationProto.ColumnV" +
+      "alue.QualifierValue\032\203\001\n\016QualifierValue\022\021" +
+      "\n\tqualifier\030\001 \001(\014\022\r\n\005value\030\002 \001(\014\022\021\n\ttime" +
+      "stamp\030\003 \001(\004\022.\n\013delete_type\030\004 \001(\0162\031.Mutat" +
+      "ionProto.DeleteType\022\014\n\004tags\030\005 \001(\014\"W\n\nDur" +
+      "ability\022\017\n\013USE_DEFAULT\020\000\022\014\n\010SKIP_WAL\020\001\022\r" +
+      "\n\tASYNC_WAL\020\002\022\014\n\010SYNC_WAL\020\003\022\r\n\tFSYNC_WAL",
+      "\020\004\">\n\014MutationType\022\n\n\006APPEND\020\000\022\r\n\tINCREM" +
+      "ENT\020\001\022\007\n\003PUT\020\002\022\n\n\006DELETE\020\003\"p\n\nDeleteType" +
+      "\022\026\n\022DELETE_ONE_VERSION\020\000\022\034\n\030DELETE_MULTI" +
+      "PLE_VERSIONS\020\001\022\021\n\rDELETE_FAMILY\020\002\022\031\n\025DEL" +
+      "ETE_FAMILY_VERSION\020\003\"\207\001\n\rMutateRequest\022 " +
+      "\n\006region\030\001 \002(\0132\020.RegionSpecifier\022 \n\010muta" +
+      "tion\030\002 \002(\0132\016.MutationProto\022\035\n\tcondition\030" +
+      "\003 \001(\0132\n.Condition\022\023\n\013nonce_group\030\004 \001(\004\"<" +
+      "\n\016MutateResponse\022\027\n\006result\030\001 \001(\0132\007.Resul" +
+      "t\022\021\n\tprocessed\030\002 \001(\010\"\207\004\n\004Scan\022\027\n\006column\030",
+      "\001 \003(\0132\007.Column\022!\n\tattribute\030\002 \003(\0132\016.Name" +
+      "BytesPair\022\021\n\tstart_row\030\003 \001(\014\022\020\n\010stop_row" +
+      "\030\004 \001(\014\022\027\n\006filter\030\005 \001(\0132\007.Filter\022\036\n\ntime_" +
+      "range\030\006 \001(\0132\n.TimeRange\022\027\n\014max_versions\030" +
+      "\007 \001(\r:\0011\022\032\n\014cache_blocks\030\010 \001(\010:\004true\022\022\n\n" +
+      "batch_size\030\t \001(\r\022\027\n\017max_result_size\030\n \001(" +
+      "\004\022\023\n\013store_limit\030\013 \001(\r\022\024\n\014store_offset\030\014" +
+      " \001(\r\022&\n\036load_column_families_on_demand\030\r" +
+      " \001(\010\022\r\n\005small\030\016 \001(\010\022\027\n\010reversed\030\017 \001(\010:\005f" +
+      "alse\022)\n\013consistency\030\020 \001(\0162\014.Consistency:",
+      "\006STRONG\022\017\n\007caching\030\021 \001(\r\022\035\n\025allow_partia" +
+      "l_results\030\022 \001(\010\022-\n\rcf_time_range\030\023 \003(\0132\026" +
+      ".ColumnFamilyTimeRange\"\224\002\n\013ScanRequest\022 " +
+      "\n\006region\030\001 \001(\0132\020.RegionSpecifier\022\023\n\004scan" +
+      "\030\002 \001(\0132\005.Scan\022\022\n\nscanner_id\030\003 \001(\004\022\026\n\016num" +
+      "ber_of_rows\030\004 \001(\r\022\025\n\rclose_scanner\030\005 \001(\010" +
+      "\022\025\n\rnext_call_seq\030\006 \001(\004\022\037\n\027client_handle" +
+      "s_partials\030\007 \001(\010\022!\n\031client_handles_heart" +
+      "beats\030\010 \001(\010\022\032\n\022track_scan_metrics\030\t \001(\010\022" +
+      "\024\n\005renew\030\n \001(\010:\005false\"\210\002\n\014ScanResponse\022\030",
+      "\n\020cells_per_result\030\001 \003(\r\022\022\n\nscanner_id\030\002" +
+      " \001(\004\022\024\n\014more_results\030\003 \001(\010\022\013\n\003ttl\030\004 \001(\r\022" +
+      "\030\n\007results\030\005 \003(\0132\007.Result\022\r\n\005stale\030\006 \001(\010" +
+      "\022\037\n\027partial_flag_per_result\030\007 \003(\010\022\036\n\026mor" +
+      "e_results_in_region\030\010 \001(\010\022\031\n\021heartbeat_m" +
+      "essage\030\t \001(\010\022\"\n\014scan_metrics\030\n \001(\0132\014.Sca" +
+      "nMetrics\"\263\001\n\024BulkLoadHFileRequest\022 \n\006reg" +
+      "ion\030\001 \002(\0132\020.RegionSpecifier\0225\n\013family_pa" +
+      "th\030\002 \003(\0132 .BulkLoadHFileRequest.FamilyPa" +
+      "th\022\026\n\016assign_seq_num\030\003 \001(\010\032*\n\nFamilyPath",
+      "\022\016\n\006family\030\001 \002(\014\022\014\n\004path\030\002 \002(\t\"\'\n\025BulkLo" +
+      "adHFileResponse\022\016\n\006loaded\030\001 \002(\010\"a\n\026Copro" +
+      "cessorServiceCall\022\013\n\003row\030\001 \002(\014\022\024\n\014servic" +
+      "e_name\030\002 \002(\t\022\023\n\013method_name\030\003 \002(\t\022\017\n\007req" +
+      "uest\030\004 \002(\014\"9\n\030CoprocessorServiceResult\022\035" +
+      "\n\005value\030\001 \001(\0132\016.NameBytesPair\"d\n\031Coproce" +
+      "ssorServiceRequest\022 \n\006region\030\001 \002(\0132\020.Reg" +
+      "ionSpecifier\022%\n\004call\030\002 \002(\0132\027.Coprocessor" +
+      "ServiceCall\"]\n\032CoprocessorServiceRespons" +
+      "e\022 \n\006region\030\001 \002(\0132\020.RegionSpecifier\022\035\n\005v",
+      "alue\030\002 \002(\0132\016.NameBytesPair\"{\n\006Action\022\r\n\005" +
+      "index\030\001 \001(\r\022 \n\010mutation\030\002 \001(\0132\016.Mutation" +
+      "Proto\022\021\n\003get\030\003 \001(\0132\004.Get\022-\n\014service_call" +
+      "\030\004 \001(\0132\027.CoprocessorServiceCall\"Y\n\014Regio" +
+      "nAction\022 \n\006region\030\001 \002(\0132\020.RegionSpecifie" +
+      "r\022\016\n\006atomic\030\002 \001(\010\022\027\n\006action\030\003 \003(\0132\007.Acti" +
+      "on\"c\n\017RegionLoadStats\022\027\n\014memstoreLoad\030\001 " +
+      "\001(\005:\0010\022\030\n\rheapOccupancy\030\002 \001(\005:\0010\022\035\n\022comp" +
+      "actionPressure\030\003 \001(\005:\0010\"\266\001\n\021ResultOrExce" +
+      "ption\022\r\n\005index\030\001 \001(\r\022\027\n\006result\030\002 \001(\0132\007.R",
+      "esult\022!\n\texception\030\003 \001(\0132\016.NameBytesPair" +
+      "\0221\n\016service_result\030\004 \001(\0132\031.CoprocessorSe" +
+      "rviceResult\022#\n\tloadStats\030\005 \001(\0132\020.RegionL" +
+      "oadStats\"f\n\022RegionActionResult\022-\n\021result" +
+      "OrException\030\001 \003(\0132\022.ResultOrException\022!\n" +
+      "\texception\030\002 \001(\0132\016.NameBytesPair\"f\n\014Mult" +
+      "iRequest\022#\n\014regionAction\030\001 \003(\0132\r.RegionA" +
+      "ction\022\022\n\nnonceGroup\030\002 \001(\004\022\035\n\tcondition\030\003" +
+      " \001(\0132\n.Condition\"S\n\rMultiResponse\022/\n\022reg" +
+      "ionActionResult\030\001 \003(\0132\023.RegionActionResu",
+      "lt\022\021\n\tprocessed\030\002 \001(\010*\'\n\013Consistency\022\n\n\006" +
+      "STRONG\020\000\022\014\n\010TIMELINE\020\0012\205\003\n\rClientService" +
+      "\022 \n\003Get\022\013.GetRequest\032\014.GetResponse\022)\n\006Mu" +
+      "tate\022\016.MutateRequest\032\017.MutateResponse\022#\n" +
+      "\004Scan\022\014.ScanRequest\032\r.ScanResponse\022>\n\rBu" +
+      "lkLoadHFile\022\025.BulkLoadHFileRequest\032\026.Bul" +
+      "kLoadHFileResponse\022F\n\013ExecService\022\032.Copr" +
+      "ocessorServiceRequest\032\033.CoprocessorServi" +
+      "ceResponse\022R\n\027ExecRegionServerService\022\032." +
+      "CoprocessorServiceRequest\032\033.CoprocessorS",
+      "erviceResponse\022&\n\005Multi\022\r.MultiRequest\032\016" +
+      ".MultiResponseBB\n*org.apache.hadoop.hbas" +
+      "e.protobuf.generatedB\014ClientProtosH\001\210\001\001\240" +
+      "\001\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -32786,6 +34220,7 @@ public final class ClientProtos {
           org.apache.hadoop.hbase.protobuf.generated.FilterProtos.getDescriptor(),
           org.apache.hadoop.hbase.protobuf.generated.CellProtos.getDescriptor(),
           org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.getDescriptor(),
+          org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.getDescriptor(),
         }, assigner);
     internal_static_Authorizations_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -32810,7 +34245,7 @@ public final class ClientProtos {
     internal_static_Get_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_Get_descriptor,
-        new java.lang.String[] { "Row", "Column", "Attribute", "Filter", "TimeRange", "MaxVersions", "CacheBlocks", "StoreLimit", "StoreOffset", "ExistenceOnly", "ClosestRowBefore", "Consistency", });
+        new java.lang.String[] { "Row", "Column", "Attribute", "Filter", "TimeRange", "MaxVersions", "CacheBlocks", "StoreLimit", "StoreOffset", "ExistenceOnly", "ClosestRowBefore", "Consistency", "CfTimeRange", });
     internal_static_Result_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_Result_fieldAccessorTable = new
@@ -32870,19 +34305,19 @@ public final class ClientProtos {
     internal_static_Scan_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_Scan_descriptor,
-        new java.lang.String[] { "Column", "Attribute", "StartRow", "StopRow", "Filter", "TimeRange", "MaxVersions", "CacheBlocks", "BatchSize", "MaxResultSize", "StoreLimit", "StoreOffset", "LoadColumnFamiliesOnDemand", "Small", "Reversed", "Consistency", "Caching", });
+        new java.lang.String[] { "Column", "Attribute", "StartRow", "StopRow", "Filter", "TimeRange", "MaxVersions", "CacheBlocks", "BatchSize", "MaxResultSize", "StoreLimit", "StoreOffset", "LoadColumnFamiliesOnDemand", "Small", "Reversed", "Consistency", "Caching", "AllowPartialResults", "CfTimeRange", });
     internal_static_ScanRequest_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_ScanRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_ScanRequest_descriptor,
-        new java.lang.String[] { "Region", "Scan", "ScannerId", "NumberOfRows", "CloseScanner", "NextCallSeq", "ClientHandlesPartials", "ClientHandlesHeartbeats", });
+        new java.lang.String[] { "Region", "Scan", "ScannerId", "NumberOfRows", "CloseScanner", "NextCallSeq", "ClientHandlesPartials", "ClientHandlesHeartbeats", "TrackScanMetrics", "Renew", });
     internal_static_ScanResponse_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_ScanResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_ScanResponse_descriptor,
-        new java.lang.String[] { "CellsPerResult", "ScannerId", "MoreResults", "Ttl", "Results", "Stale", "PartialFlagPerResult", "MoreResultsInRegion", "HeartbeatMessage", });
+        new java.lang.String[] { "CellsPerResult", "ScannerId", "MoreResults", "Ttl", "Results", "Stale", "PartialFlagPerResult", "MoreResultsInRegion", "HeartbeatMessage", "ScanMetrics", });
     internal_static_BulkLoadHFileRequest_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_BulkLoadHFileRequest_fieldAccessorTable = new
@@ -32942,7 +34377,7 @@ public final class ClientProtos {
     internal_static_RegionLoadStats_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_RegionLoadStats_descriptor,
-        new java.lang.String[] { "MemstoreLoad", "HeapOccupancy", });
+        new java.lang.String[] { "MemstoreLoad", "HeapOccupancy", "CompactionPressure", });
     internal_static_ResultOrException_descriptor =
       getDescriptor().getMessageTypes().get(23);
     internal_static_ResultOrException_fieldAccessorTable = new
@@ -32971,6 +34406,7 @@ public final class ClientProtos {
     org.apache.hadoop.hbase.protobuf.generated.FilterProtos.getDescriptor();
     org.apache.hadoop.hbase.protobuf.generated.CellProtos.getDescriptor();
     org.apache.hadoop.hbase.protobuf.generated.ComparatorProtos.getDescriptor();
+    org.apache.hadoop.hbase.protobuf.generated.MapReduceProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

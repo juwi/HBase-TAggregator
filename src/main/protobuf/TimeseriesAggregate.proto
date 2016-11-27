@@ -70,4 +70,5 @@ service TimeseriesAggregateService {
   rpc GetMin (TimeseriesAggregateRequest) returns (TimeseriesAggregateResponse);
   rpc GetSum (TimeseriesAggregateRequest) returns (TimeseriesAggregateResponse);
   rpc GetAvg (TimeseriesAggregateRequest) returns (TimeseriesAggregateResponse);
+  rpc GetCount(TimeseriesAggregateRequest) returns (TimeseriesAggregateResponse);
 }
